@@ -24,7 +24,9 @@ public class Service<T> {
 		final Writer<T> writer = serviceConfig.getWriter();
 
 		final T result = parser.parseLine(line);
-		writer.consume(result);
+		if(result != null) {
+		    writer.consume(result);
+		}
 	    }
 	}
     }

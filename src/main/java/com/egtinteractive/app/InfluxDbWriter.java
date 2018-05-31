@@ -1,11 +1,10 @@
 package com.egtinteractive.app;
 
-public class WriterImpl<T> implements Writer<T> {
+public class InfluxDbWriter<T> implements Writer<T> {
 
     private final String someField;
 
-    public WriterImpl(String someField) {
-	super();
+    public InfluxDbWriter(String someField) {
 	this.someField = someField;
     }
 
@@ -15,7 +14,7 @@ public class WriterImpl<T> implements Writer<T> {
 
     @Override
     public void consume(T result) {
-	System.out.println(this.getClass().getName() + ": " + result);
+	System.out.println(result);
     }
 
 }

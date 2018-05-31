@@ -1,11 +1,13 @@
 <com.egtinteractive.config.Config>
   <serviceConfigs class="linked-list">
     <com.egtinteractive.config.ServiceConfig>
-      <fileName>configuration.xml</fileName>
-      <parser class="com.egtinteractive.app.SingleLineParserConfig">
+      <fileName>/big_device/veto/micro.log.thanos</fileName>
+      <parser class="com.egtinteractive.app.ResponseTimeDomaneParser">
         <pattern>some pattern</pattern>
+        <isInProgress>false</isInProgress>
+        <time>-1</time>
       </parser>
-      <writer class="com.egtinteractive.app.WriterImpl">
+      <writer class="com.egtinteractive.app.InfluxDbWriter">
         <someField>someField</someField>
       </writer>
     </com.egtinteractive.config.ServiceConfig>
