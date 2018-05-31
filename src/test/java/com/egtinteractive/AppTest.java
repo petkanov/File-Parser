@@ -1,20 +1,12 @@
 package com.egtinteractive;
 
-//import static org.junit.Assert.assertTrue;
-
-//import org.junit.Test;
-
-/**
- * Unit test for simple App.
- */
+import org.testng.Assert;
+import org.testng.annotations.Test;
+ 
 public class AppTest 
 {
-    /**
-     * Rigorous Test :-)
-     */
-//    @Test
-    public void shouldAnswerWithTrue()
-    {
-//        assertTrue( true );
+    @Test
+    public void test() {
+	Assert.assertTrue(true);
     }
 }

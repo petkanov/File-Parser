@@ -1,0 +1,13 @@
+<com.egtinteractive.config.Config>
+  <serviceConfigs class="linked-list">
+    <com.egtinteractive.config.ServiceConfig>
+      <fileName>configuration.xml</fileName>
+      <parser class="com.egtinteractive.app.SingleLineParserConfig">
+        <pattern>some pattern</pattern>
+      </parser>
+      <writer class="com.egtinteractive.app.WriterImpl">
+        <someField>someField</someField>
+      </writer>
+    </com.egtinteractive.config.ServiceConfig>
+  </serviceConfigs>
+</com.egtinteractive.config.Config>
