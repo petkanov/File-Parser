@@ -7,9 +7,13 @@
         <isInProgress>false</isInProgress>
         <time>-1</time>
       </parser>
-      <writer class="com.egtinteractive.app.InfluxDbWriter">
-        <someField>someField</someField>
+      <writer class="com.egtinteractive.app.InfluxWriter">
+        <host>http://localhost:8086</host>
+        <database>someDb3</database>
+        <pointPerBatch>1500</pointPerBatch>
+        <writtenPointsCounter>0</writtenPointsCounter>
       </writer>
     </com.egtinteractive.config.ServiceConfig>
   </serviceConfigs>
+  <logFileName>file-parser-logs.log</logFileName>
 </com.egtinteractive.config.Config>

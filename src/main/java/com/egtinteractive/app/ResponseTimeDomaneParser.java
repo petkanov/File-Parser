@@ -30,9 +30,9 @@ public class ResponseTimeDomaneParser<T> implements Parser<T> {
     @SuppressWarnings("unchecked")
     @Override
     public T parseLine(String line) {
-	
+
 	if (isThisLastLine(line)) {
-	    return null;
+	    return (T) new ResponseData(0, null, -1);
 	}
 	String domane;
 	int response = 0;
@@ -50,15 +50,14 @@ public class ResponseTimeDomaneParser<T> implements Parser<T> {
 	    // TODO to be deleted Random() call
 	    response = Integer.valueOf(tmpData[1]) + new Random().nextInt(233);
 	    domane = tmpData[0];
-
 	    final ResponseData rd = new ResponseData(response, domane, time);
 
 	    return (T) rd;
 	}
-	
+
 	return null;
     }
-    
+
     private boolean isThisLastLine(final String line) {
 	if (line == null) {
 	    isInProgress = false;
