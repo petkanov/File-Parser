@@ -7,7 +7,7 @@ public class Config {
     private final List<ServiceConfig<?>> serviceConfigs;
     private final String logFileName;
 
-    public Config(List<ServiceConfig<?>> services, String logFileName) {
+    public Config(final List<ServiceConfig<?>> services, final String logFileName) {
 	super();
 	this.serviceConfigs = services;
 	this.logFileName = logFileName;

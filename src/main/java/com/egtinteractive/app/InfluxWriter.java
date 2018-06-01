@@ -14,7 +14,7 @@ public class InfluxWriter<T> implements Writer<T> {
     private final int pointPerBatch;
     private int writtenPointsCounter;
 
-    public InfluxWriter(String host, String database, int pointsPerBatch) {
+    public InfluxWriter(final String host, final String database, final int pointsPerBatch) {
 	this.host = host;
 	this.database = database;
 	this.pointPerBatch = pointsPerBatch;
@@ -28,7 +28,7 @@ public class InfluxWriter<T> implements Writer<T> {
     }
 
     @Override
-    public void consume(T result) {
+    public void consume(final T result) {
 	final ResponseData rd = (ResponseData) result;
 	if (rd.getTime() == -1) {
 	    writePointsBath();

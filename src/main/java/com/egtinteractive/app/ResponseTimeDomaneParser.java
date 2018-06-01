@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.egtinteractive.config.ConfigDataStorage;
+import com.egtinteractive.config.FileLoader;
 
 public class ResponseTimeDomaneParser<T> implements Parser<T> {
 
@@ -19,7 +19,7 @@ public class ResponseTimeDomaneParser<T> implements Parser<T> {
     private boolean isInProgress;
     private long time = -1;
 
-    public ResponseTimeDomaneParser(String pattern) {
+    public ResponseTimeDomaneParser(final String pattern) {
 	this.pattern = pattern;
     }
 
@@ -29,7 +29,7 @@ public class ResponseTimeDomaneParser<T> implements Parser<T> {
 
     @SuppressWarnings("unchecked")
     @Override
-    public T parseLine(String line) {
+    public T parseLine(final String line) {
 
 	if (isThisLastLine(line)) {
 	    return (T) new ResponseData(0, null, -1);
@@ -70,7 +70,7 @@ public class ResponseTimeDomaneParser<T> implements Parser<T> {
     }
 
     private String[] getPerDomaineTimeResponse(final String line) {
-	patternDomane = ConfigDataStorage.getPatternDomane();
+	patternDomane = FileLoader.getPatternDomane();
 	final Matcher matcher = patternDomane.matcher(line);
 	final String[] result = new String[2];
 	if (matcher.find()) {
@@ -83,12 +83,12 @@ public class ResponseTimeDomaneParser<T> implements Parser<T> {
     }
 
     private long getTime(final String line) {
-	patternTime = ConfigDataStorage.getPatternTime();
+	patternTime = FileLoader.getPatternTime();
 	final Matcher matcher = patternTime.matcher(line);
 	if (matcher.find()) {
 	    Date date;
 	    try {
-		format = ConfigDataStorage.getFormat();
+		format = FileLoader.getFormat();
 		date = format.parse(matcher.group(1));
 	    } catch (ParseException e) {
 		return -1;

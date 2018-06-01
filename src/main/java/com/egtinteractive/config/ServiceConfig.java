@@ -9,8 +9,7 @@ public class ServiceConfig<T> {
     private final Parser<T> parser;
     private final Writer<T> writer;
 
-    public ServiceConfig(String fileName, Parser<T> parser, Writer<T> writer) {
-	super();
+    public ServiceConfig(final String fileName, final Parser<T> parser, final Writer<T> writer) {
 	this.fileName = fileName;
 	this.parser = parser;
 	this.writer = writer;
