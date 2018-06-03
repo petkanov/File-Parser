@@ -71,7 +71,7 @@ public class InfluxWriter<T> implements Writer<T> {
 		Logger.getLogger(this.getClass()).error("Failed one batch recording");
 	    }
 	} catch (Exception e) {
-	    System.out.println(e.getMessage());
+	    Logger.getLogger(this.getClass()).error("Couldn't create Output Stream: "+e.toString());
 	}
     }
 

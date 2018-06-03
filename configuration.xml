@@ -1,7 +1,7 @@
 <com.egtinteractive.config.Config>
   <serviceConfigs class="linked-list">
     <com.egtinteractive.config.ServiceConfig>
-      <fileName>/big_device/veto/micro.log.thanos</fileName>
+      <fileNamePrefix>thanos</fileNamePrefix>
       <parser class="com.egtinteractive.app.ResponseTimeDomaneParser">
         <pattern>some pattern</pattern>
         <isInProgress>false</isInProgress>
@@ -14,6 +14,21 @@
         <writtenPointsCounter>0</writtenPointsCounter>
       </writer>
     </com.egtinteractive.config.ServiceConfig>
+    <com.egtinteractive.config.ServiceConfig>
+      <fileNamePrefix>gamora</fileNamePrefix>
+      <parser class="com.egtinteractive.app.ResponseTimeDomaneParser">
+        <pattern>some pattern</pattern>
+        <isInProgress>false</isInProgress>
+        <time>-1</time>
+      </parser>
+      <writer class="com.egtinteractive.app.InfluxWriter">
+        <host>http://localhost:8086</host>
+        <database>otherDb3</database>
+        <pointPerBatch>1500</pointPerBatch>
+        <writtenPointsCounter>0</writtenPointsCounter>
+      </writer>
+    </com.egtinteractive.config.ServiceConfig>
   </serviceConfigs>
   <logFileName>file-parser-logs.log</logFileName>
+  <workingDirectory>/big_device/veto</workingDirectory>
 </com.egtinteractive.config.Config>
