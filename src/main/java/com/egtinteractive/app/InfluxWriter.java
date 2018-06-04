@@ -3,20 +3,15 @@ package com.egtinteractive.app;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
 import org.apache.log4j.Logger;
 
 public class InfluxWriter<T> implements Writer<T> {
-
-    private static Object lock = new Object();
 
     private final String host;
     private final String database;
     private StringBuilder pointsBatch;
     private final int pointPerBatch;
     private int writtenPointsCounter;
-    
-    private ThreadLocal<StringBuilder> tLocal = new ThreadLocal<>();
 
     public InfluxWriter(final String host, final String database, final int pointsPerBatch) {
 	this.host = host;
@@ -25,7 +20,6 @@ public class InfluxWriter<T> implements Writer<T> {
 	if (!createDatabase()) {
 	    Logger.getLogger(this.getClass()).error("Failed DB Creation");
 	}
-	tLocal.set(pointsBatch);
     }
 
     public String getSomeField() {
@@ -39,7 +33,7 @@ public class InfluxWriter<T> implements Writer<T> {
 	    writePointsBath();
 	    return;
 	}
-	final String point = "response,domane=" + rd.getDomane() + " response=" + rd.getResponse() + " " + rd.getTime();
+	final String point = "response,domane=" + rd.getDomane() + ",db=" + database + " response=" + rd.getResponse() + " " + rd.getTime();
 
 	if (pointsBatch == null) {
 	    pointsBatch = new StringBuilder();
@@ -58,30 +52,25 @@ public class InfluxWriter<T> implements Writer<T> {
     }
 
     private void writePointsBath() {
-	synchronized (lock) {
-	    System.out.println(host + "/write?db=" + database + "  ==================== OPEN");
-	    final String hostInsert = host + "/write?db=" + database;
-	    URL url;
-	    HttpURLConnection conn;
-	    OutputStream os;
-	    try {
-		url = new URL(hostInsert);
-		conn = (HttpURLConnection) url.openConnection();
-		conn.setRequestMethod("POST");
-		conn.setDoOutput(true);
+	final String hostInsert = host + "/write?db=" + database;
+	URL url;
+	HttpURLConnection conn;
+	OutputStream os;
+	try {
+	    url = new URL(hostInsert);
+	    conn = (HttpURLConnection) url.openConnection();
+	    conn.setRequestMethod("POST");
+	    conn.setDoOutput(true);
 
-		os = conn.getOutputStream();
-		os.write(pointsBatch.toString().getBytes());
-		os.flush();
-		os.close();
-		if (!(conn.getResponseCode() >= 200 && conn.getResponseCode() < 300)) {
-		    Logger.getLogger(this.getClass()).error("Failed one batch recording");
-		}
-	    } catch (Exception e) {
-		Logger.getLogger(this.getClass()).error("writePointsBath(): " + e.toString());
+	    os = conn.getOutputStream();
+	    os.write(pointsBatch.toString().getBytes());
+	    os.flush();
+	    os.close();
+	    if (!(conn.getResponseCode() >= 200 && conn.getResponseCode() < 300)) {
+		Logger.getLogger(this.getClass()).error("Failed one batch recording");
 	    }
-	    System.out.println(host + "/write?db=" + database + "  ==================== CLOSED ");
-
+	} catch (Exception e) {
+	    Logger.getLogger(this.getClass()).error("writePointsBath(): " + e.toString());
 	}
     }
 

@@ -3,7 +3,6 @@ package com.egtinteractive.config;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.SimpleDateFormat;
 import java.util.Properties;
 import java.util.regex.Pattern;
 
@@ -18,7 +17,7 @@ public class FileLoader {
     
     private static final Pattern patternDomane = Pattern.compile("HTTP\\sNative\\sexecute\\s(http://.*?)=>\\s([0-9]{1,})");
     private static final Pattern patternTime = Pattern.compile("\\[([0-9]{1,2}\\s[a-zA-Z]{3,12}\\s[0-9]{4}\\s[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3})\\]");
-    private static final SimpleDateFormat format = new SimpleDateFormat("dd MMMM yyyy HH:mm:ss,SSS");
+    private static final String format = "dd MMMM yyyy HH:mm:ss,SSS";
 
     static {
 	final XStream x = new XStream();
@@ -40,7 +39,7 @@ public class FileLoader {
         return patternTime;
     }
 
-    public static SimpleDateFormat getFormat() {
+    public static String getFormat() {
         return format;
     }
 

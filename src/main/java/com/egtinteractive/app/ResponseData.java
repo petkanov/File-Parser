@@ -7,7 +7,6 @@ public class ResponseData {
     private final long time;
     
     public ResponseData(int response, String domane, long time) {
-	super();
 	this.response = response;
 	this.domane = domane;
 	this.time = time;

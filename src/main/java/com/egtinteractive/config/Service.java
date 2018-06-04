@@ -3,7 +3,6 @@ package com.egtinteractive.config;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
@@ -15,12 +14,12 @@ import com.egtinteractive.app.Parser;
 import com.egtinteractive.app.ServiceChain;
 import com.egtinteractive.app.Writer;
 
-public class Service<T> implements ServiceChain{
+public class Service<T> implements ServiceChain {
 
     private final ServiceConfig<T> serviceConfig;
     protected ServiceChain nextLink;
     final BlockingQueue<String> filesQueue = new ArrayBlockingQueue<>(1024);
-    
+
     ExecutorService engine = Executors.newSingleThreadExecutor();
 
     public Service(ServiceConfig<T> serviceConfig) {
@@ -29,46 +28,42 @@ public class Service<T> implements ServiceChain{
 
     public void startProcessing() {
 
-	 String asd = "";
+	String tmp = null;
 	try {
-	    asd = filesQueue.take();
-	} catch (InterruptedException e1) {
-	    e1.printStackTrace();
+	    tmp = filesQueue.take();
+	} catch (Exception e) {
+	    Logger.getLogger(this.getClass()).error(e.getMessage());
 	}
-	
-	final String fileName = asd;
-	
+	final String fileName = tmp;
+
 	engine.execute(new Runnable() {
 	    @Override
 	    public void run() {
-		 
-		try (BufferedReader br = new BufferedReader(new FileReader(new File(fileName)))) {
+		try (BufferedReader br = new BufferedReader(new FileReader(new File(fileName)))) { 
 		    String line = null;
 		    do {
 			line = br.readLine();
-			
+
 			final Parser<T> parser = serviceConfig.getParser();
 			final Writer<T> writer = serviceConfig.getWriter();
-			
-			final T result = parser.parseLine(line);
+
+			final T result = parser.parseLine(line); 
 			if (result != null) {
-			    System.out.println("---------------- CONSUMING FROM "+fileName+" --------------------------");
 			    writer.consume(result);
 			}
 		    } while (line != null);
-		    Logger.getLogger(this.getClass()).info("Successfully parsed file ");
+		    Logger.getLogger(this.getClass()).info("Successfully parsed file "+fileName);
 		} catch (Exception e) {
 		    Logger.getLogger(this.getClass()).error(e.getMessage());
 		}
-		
 	    }
 	});
     }
 
     @Override
     public void acceptFile(String fileName) {
-	if(fileName.contains(serviceConfig.getFileNamePrefix())) {
-	    System.out.println(serviceConfig+"::"+fileName);
+	if (fileName.contains(serviceConfig.getFileNamePrefix())) {
+	    System.out.println(serviceConfig + "::" + fileName);
 	    try {
 		filesQueue.put(fileName);
 	    } catch (InterruptedException e) {
@@ -76,7 +71,7 @@ public class Service<T> implements ServiceChain{
 	    }
 	    startProcessing();
 	}
-	if(nextLink!=null) {
+	if (nextLink != null) {
 	    nextLink.acceptFile(fileName);
 	}
     }
@@ -90,5 +85,5 @@ public class Service<T> implements ServiceChain{
     public ServiceChain getNextLink() {
 	return this.nextLink;
     }
- 
+
 }

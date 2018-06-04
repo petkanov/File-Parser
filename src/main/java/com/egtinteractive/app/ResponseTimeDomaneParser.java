@@ -17,7 +17,7 @@ public class ResponseTimeDomaneParser<T> implements Parser<T> {
 
     private boolean isInProgress;
     private long time = -1;
-
+    
     public ResponseTimeDomaneParser(final String pattern) {
 	this.pattern = pattern;
     }
@@ -41,8 +41,7 @@ public class ResponseTimeDomaneParser<T> implements Parser<T> {
 	if (tmpTime != -1) {
 	    time = tmpTime;
 	    return null;
-	}
-
+	} 
 	final String[] tmpData = getPerDomaineTimeResponse(line);
 
 	if (tmpData != null) {
@@ -53,7 +52,6 @@ public class ResponseTimeDomaneParser<T> implements Parser<T> {
 
 	    return (T) rd;
 	}
-
 	return null;
     }
 
@@ -87,7 +85,7 @@ public class ResponseTimeDomaneParser<T> implements Parser<T> {
 	if (matcher.find()) {
 	    Date date;
 	    try {
-		format = FileLoader.getFormat();
+		format = new SimpleDateFormat(FileLoader.getFormat());
 		date = format.parse(matcher.group(1));
 	    } catch (Exception e) {
 		return -1;
