@@ -1,6 +1,5 @@
 package com.egtinteractive.app;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -90,7 +89,7 @@ public class ResponseTimeDomaneParser<T> implements Parser<T> {
 	    try {
 		format = FileLoader.getFormat();
 		date = format.parse(matcher.group(1));
-	    } catch (ParseException e) {
+	    } catch (Exception e) {
 		return -1;
 	    }
 	    return date.getTime();

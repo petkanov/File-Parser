@@ -22,7 +22,7 @@ public class App {
 	ServiceChain serviceChain = createServiceChain(config);
 	
 	int i =1;
-	while (i++ <3) {
+	while (i++ <2) {
 
 	    System.out.println("-------------------------------new read----------------");
 	    
@@ -44,7 +44,7 @@ public class App {
 
 	
 	for (ServiceConfig<?> serviceConfig : config.getServices()) {
-	    new Service<>(serviceConfig).start("");
+	    new Service<>(serviceConfig).startProcessing();
 	}
     }
     

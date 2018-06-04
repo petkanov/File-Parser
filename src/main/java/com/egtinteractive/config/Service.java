@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import org.apache.log4j.Logger;
 
@@ -15,37 +19,62 @@ public class Service<T> implements ServiceChain{
 
     private final ServiceConfig<T> serviceConfig;
     protected ServiceChain nextLink;
+    final BlockingQueue<String> filesQueue = new ArrayBlockingQueue<>(1024);
+    
+    ExecutorService engine = Executors.newSingleThreadExecutor();
 
     public Service(ServiceConfig<T> serviceConfig) {
 	this.serviceConfig = serviceConfig;
     }
 
-    public void start(String fileName) {
+    public void startProcessing() {
 
-	try (BufferedReader br = new BufferedReader(new FileReader(new File(fileName)))) {
-	    String line = null;
-	    do {
-		line = br.readLine();
-
-		final Parser<T> parser = serviceConfig.getParser();
-		final Writer<T> writer = serviceConfig.getWriter();
-
-		final T result = parser.parseLine(line);
-		if (result != null) {
-		    writer.consume(result);
-		}
-	    } while (line != null);
-	    Logger.getLogger(this.getClass()).info("Successfully parsed file "+fileName);
-	} catch (IOException e) {
-	    Logger.getLogger(this.getClass()).error(e.getMessage());
+	 String asd = "";
+	try {
+	    asd = filesQueue.take();
+	} catch (InterruptedException e1) {
+	    e1.printStackTrace();
 	}
+	
+	final String fileName = asd;
+	
+	engine.execute(new Runnable() {
+	    @Override
+	    public void run() {
+		 
+		try (BufferedReader br = new BufferedReader(new FileReader(new File(fileName)))) {
+		    String line = null;
+		    do {
+			line = br.readLine();
+			
+			final Parser<T> parser = serviceConfig.getParser();
+			final Writer<T> writer = serviceConfig.getWriter();
+			
+			final T result = parser.parseLine(line);
+			if (result != null) {
+			    System.out.println("---------------- CONSUMING FROM "+fileName+" --------------------------");
+			    writer.consume(result);
+			}
+		    } while (line != null);
+		    Logger.getLogger(this.getClass()).info("Successfully parsed file ");
+		} catch (Exception e) {
+		    Logger.getLogger(this.getClass()).error(e.getMessage());
+		}
+		
+	    }
+	});
     }
 
     @Override
     public void acceptFile(String fileName) {
 	if(fileName.contains(serviceConfig.getFileNamePrefix())) {
-//	    System.out.println(serviceConfig+"::"+fileName);
-	    start(fileName);
+	    System.out.println(serviceConfig+"::"+fileName);
+	    try {
+		filesQueue.put(fileName);
+	    } catch (InterruptedException e) {
+		e.printStackTrace();
+	    }
+	    startProcessing();
 	}
 	if(nextLink!=null) {
 	    nextLink.acceptFile(fileName);
