@@ -3,6 +3,8 @@ package com.egtinteractive.config;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
@@ -16,17 +18,24 @@ import com.egtinteractive.app.Writer;
 
 public class Service<T> implements ServiceChain {
 
-    private final ServiceConfig<T> serviceConfig;
     protected ServiceChain nextLink;
+    
+    private final ServiceConfig<T> serviceConfig;
     final BlockingQueue<String> filesQueue = new ArrayBlockingQueue<>(1024);
+    final Parser<T> parser; //= serviceConfig.getParser();
+    final Writer<T> writer; // = serviceConfig.getWriter();
+    
+    final Set<String> processedFiles = new HashSet<>();
 
-    ExecutorService engine = Executors.newSingleThreadExecutor();
+    final ExecutorService engine = Executors.newSingleThreadExecutor();
 
-    public Service(ServiceConfig<T> serviceConfig) {
+    public Service(final ServiceConfig<T> serviceConfig) {
 	this.serviceConfig = serviceConfig;
+	 parser = serviceConfig.getParser();
+	 writer = serviceConfig.getWriter();
     }
 
-    public void startProcessing() {
+    private void startProcessing() {
 
 	String tmp = null;
 	try {
@@ -44,14 +53,13 @@ public class Service<T> implements ServiceChain {
 		    do {
 			line = br.readLine();
 
-			final Parser<T> parser = serviceConfig.getParser();
-			final Writer<T> writer = serviceConfig.getWriter();
-
 			final T result = parser.parseLine(line); 
 			if (result != null) {
 			    writer.consume(result);
 			}
 		    } while (line != null);
+		    processedFiles.add(fileName);
+		    
 		    Logger.getLogger(this.getClass()).info("Successfully parsed file "+fileName);
 		} catch (Exception e) {
 		    Logger.getLogger(this.getClass()).error(e.getMessage());
@@ -62,7 +70,7 @@ public class Service<T> implements ServiceChain {
 
     @Override
     public void acceptFile(String fileName) {
-	if (fileName.contains(serviceConfig.getFileNamePrefix())) {
+	if (fileName.contains(serviceConfig.getFileNamePrefix()) && !processedFiles.contains(fileName)) {
 	    System.out.println(serviceConfig + "::" + fileName);
 	    try {
 		filesQueue.put(fileName);

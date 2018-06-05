@@ -6,25 +6,20 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.egtinteractive.config.FileLoader;
-
 public class ResponseTimeDomaneParser<T> implements Parser<T> {
 
-    private final String pattern;
-    private Pattern patternDomane;
-    private Pattern patternTime;
-    private SimpleDateFormat format;
+    private final Pattern patternDomane;
+    private final Pattern patternTime; 
+    private final String dateTimeFormat; 
 
     private boolean isInProgress;
     private long time = -1;
     
-    public ResponseTimeDomaneParser(final String pattern) {
-	this.pattern = pattern;
-    }
-
-    public String getPattern() {
-	return pattern;
-    }
+    public ResponseTimeDomaneParser(final String patternDomane, final String patternTime, final String format) {
+	this.patternDomane = Pattern.compile(patternDomane);
+	this.patternTime   = Pattern.compile(patternTime);
+	this.dateTimeFormat = format;
+    } 
 
     @SuppressWarnings("unchecked")
     @Override
@@ -67,7 +62,6 @@ public class ResponseTimeDomaneParser<T> implements Parser<T> {
     }
 
     private String[] getPerDomaineTimeResponse(final String line) {
-	patternDomane = FileLoader.getPatternDomane();
 	final Matcher matcher = patternDomane.matcher(line);
 	final String[] result = new String[2];
 	if (matcher.find()) {
@@ -80,13 +74,11 @@ public class ResponseTimeDomaneParser<T> implements Parser<T> {
     }
 
     private long getTime(final String line) {
-	patternTime = FileLoader.getPatternTime();
 	final Matcher matcher = patternTime.matcher(line);
 	if (matcher.find()) {
 	    Date date;
 	    try {
-		format = new SimpleDateFormat(FileLoader.getFormat());
-		date = format.parse(matcher.group(1));
+		date = new SimpleDateFormat(dateTimeFormat).parse(matcher.group(1));
 	    } catch (Exception e) {
 		return -1;
 	    }

@@ -7,33 +7,34 @@ import org.apache.log4j.Logger;
 
 public class InfluxWriter<T> implements Writer<T> {
 
-    private final String host;
-    private final String database;
     private StringBuilder pointsBatch;
     private final int pointPerBatch;
     private int writtenPointsCounter;
+    
+    final String hostCreateDBQuery; // = "http://localhost:8086/query";
+    final String hostCreateDBQueryParams; // = "q=CREATE DATABASE " + database;
+    final String hostInsertDataQuery;
+    
+    private boolean isDatabaseCreated;
 
-    public InfluxWriter(final String host, final String database, final int pointsPerBatch) {
-	this.host = host;
-	this.database = database;
-	this.pointPerBatch = pointsPerBatch;
-	if (!createDatabase()) {
-	    Logger.getLogger(this.getClass()).error("Failed DB Creation");
-	}
-    }
-
-    public String getSomeField() {
-	return host;
-    }
+    public InfluxWriter(final String hostInsertDataQuery, final int pointsPerBatch, final String hostCreateDBQuery, final String hostCreateDBQueryParams) {
+	this.hostInsertDataQuery = hostInsertDataQuery;
+	this.hostCreateDBQuery = hostCreateDBQuery;
+	this.hostCreateDBQueryParams = hostCreateDBQueryParams;
+	this.pointPerBatch = pointsPerBatch; 
+    } 
 
     @Override
     public void consume(final T result) {
+	if(!isDatabaseCreated) {
+	    createDatabase();
+	}
 	final ResponseData rd = (ResponseData) result;
 	if (rd.getTime() == -1 && pointsBatch != null) {
 	    writePointsBath();
 	    return;
 	}
-	final String point = "response,domane=" + rd.getDomane() + ",db=" + database + " response=" + rd.getResponse() + " " + rd.getTime();
+	final String point = "response,domane=" + rd.getDomane() + " response=" + rd.getResponse() + " " + rd.getTime();
 
 	if (pointsBatch == null) {
 	    pointsBatch = new StringBuilder();
@@ -52,12 +53,12 @@ public class InfluxWriter<T> implements Writer<T> {
     }
 
     private void writePointsBath() {
-	final String hostInsert = host + "/write?db=" + database;
+//	final String hostInsert = host + "/write?db=" + database;
 	URL url;
 	HttpURLConnection conn;
 	OutputStream os;
 	try {
-	    url = new URL(hostInsert);
+	    url = new URL(hostInsertDataQuery);
 	    conn = (HttpURLConnection) url.openConnection();
 	    conn.setRequestMethod("POST");
 	    conn.setDoOutput(true);
@@ -74,29 +75,31 @@ public class InfluxWriter<T> implements Writer<T> {
 	}
     }
 
-    private boolean createDatabase() {
-	final String hostQuery = "http://localhost:8086/query";
-	final String query = "q=CREATE DATABASE " + database;
+    private void createDatabase() {
+//	final String hostQuery = "http://localhost:8086/query";
+//	final String hostQueryParams = "q=CREATE DATABASE " + database;
+	
 	URL url;
 	HttpURLConnection conn;
 	OutputStream os;
 	try {
-	    url = new URL(hostQuery);
+	    url = new URL(hostCreateDBQuery);
 	    conn = (HttpURLConnection) url.openConnection();
 	    conn.setRequestMethod("POST");
 	    conn.setDoOutput(true);
 
 	    os = conn.getOutputStream();
-	    os.write(query.getBytes());
+	    os.write(hostCreateDBQueryParams.getBytes());
 	    os.flush();
 	    os.close();
 	    if (!(conn.getResponseCode() >= 200 && conn.getResponseCode() < 300)) {
-		return false;
+		Logger.getLogger(this.getClass()).error("Couldn't create database");
+		return;
 	    }
+	    isDatabaseCreated = true;
 	} catch (Exception e) {
-	    Logger.getLogger(this.getClass()).error("Couldn't create database");
+	    Logger.getLogger(this.getClass()).error("createDatabase(): "+e.getMessage());
 	    throw new RuntimeException(e);
 	}
-	return true;
     }
 }
