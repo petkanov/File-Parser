@@ -11,8 +11,8 @@ public class InfluxWriter<T> implements Writer<T> {
     private final int pointPerBatch;
     private int writtenPointsCounter;
     
-    final String hostCreateDBQuery; // = "http://localhost:8086/query";
-    final String hostCreateDBQueryParams; // = "q=CREATE DATABASE " + database;
+    final String hostCreateDBQuery; 
+    final String hostCreateDBQueryParams; 
     final String hostInsertDataQuery;
     
     private boolean isDatabaseCreated;
@@ -53,7 +53,6 @@ public class InfluxWriter<T> implements Writer<T> {
     }
 
     private void writePointsBath() {
-//	final String hostInsert = host + "/write?db=" + database;
 	URL url;
 	HttpURLConnection conn;
 	OutputStream os;
@@ -76,8 +75,6 @@ public class InfluxWriter<T> implements Writer<T> {
     }
 
     private void createDatabase() {
-//	final String hostQuery = "http://localhost:8086/query";
-//	final String hostQueryParams = "q=CREATE DATABASE " + database;
 	
 	URL url;
 	HttpURLConnection conn;
