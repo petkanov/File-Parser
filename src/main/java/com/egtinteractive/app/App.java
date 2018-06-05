@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,23 +33,33 @@ public class App {
 
 	final int timeDelay = 1200;
 	final Config config = FileLoader.getConfiguration();
+	RecoveryManager.setConnectionPool(config.getConnectionPool());
 	final ServiceChain serviceChain = createServiceChain(config);
 	final Set<String> oldFiles = new HashSet<>();
 
 	
 	
 	
-	final Connection con = config.getConnectionPool().getConnection();
-
-	try {
-	    PreparedStatement ps = con.prepareStatement("SELECT * FROM car");
-	    ResultSet res = ps.executeQuery();
-	    while (res.next()) {
-		    System.out.println("Model: " + res.getString("model"));
-	    }
-	} catch (SQLException e) {
-	    e.printStackTrace();
-	}
+	
+	RecoveryManager.saveFile("7thanos7.log");
+	System.out.println( RecoveryManager.isFileProcessed("7thanos7.log"));
+	System.out.println( RecoveryManager.isFileProcessed("some sfileName"));
+	
+	
+	RecoveryManager.updateProcessingProgress("myServiceName","myFileName",123);
+	 
+	
+	
+	
+	
+	
+//	final Connection con = config.getConnectionPool().getConnection(); 
+	
+	
+	
+	
+	
+	
 	
 	while (true) {
 
@@ -87,6 +98,7 @@ public class App {
     }
 
     private static void generateConfig() {
+	
 	final List<ServiceConfig<?>> services = new LinkedList<>();
 	final String logFileName = "file-parser-logs.log";
 	final String workingDirectory = "/big_device/veto";
@@ -104,11 +116,11 @@ public class App {
 	final Writer<ResponseData> writerString = new InfluxWriter<>("http://localhost:8086/write?db=otherDb3", 1500, "http://localhost:8086/query", "q=CREATE DATABASE otherDb3");
 	services.add(new ServiceConfig<ResponseData>("gamora", parserString, writerString));
 	
-	final ConnectionPool connectionPool = new ConnectionPool("jdbc:mysql://localhost:3306/orm_tool?useSSL=false","root","3569",7);
+	final ConnectionPool connectionPool = new ConnectionPool("jdbc:mysql://localhost:3306/file_reader?useSSL=false","root","3569",7);
+
+	final Config config = new Config(services, logFileName, workingDirectory, connectionPool);
 
 	final XStream x = new XStream();
-	
-	final Config config = new Config(services, logFileName, workingDirectory, connectionPool);
 	try {
 	    x.toXML(config, new FileOutputStream(new File("configuration.xml")));
 	} catch (FileNotFoundException e) {

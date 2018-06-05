@@ -2,9 +2,7 @@ package com.egtinteractive.app;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-
 import javax.sql.DataSource;
-
 import org.apache.commons.dbcp.ConnectionFactory;
 import org.apache.commons.dbcp.DriverManagerConnectionFactory;
 import org.apache.commons.dbcp.PoolableConnectionFactory;
@@ -17,7 +15,7 @@ public class ConnectionPool {
     private final String dbUser; 
     private final String dbPassword; 
     private final int poolSize;
-    DataSource dataSource;
+    private DataSource dataSource;
 
     public ConnectionPool(String jdbcDatabaseUrl, String dbUser, String dbPassword, int poolSize) {
 	this.jdbcDatabaseUrl = jdbcDatabaseUrl;
