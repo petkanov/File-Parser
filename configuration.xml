@@ -51,4 +51,10 @@
   </serviceConfigs>
   <logFileName>file-parser-logs.log</logFileName>
   <workingDirectory>/big_device/veto</workingDirectory>
+  <connectionPool>
+    <jdbcDatabaseUrl>jdbc:mysql://localhost:3306/orm_tool?useSSL=false</jdbcDatabaseUrl>
+    <dbUser>root</dbUser>
+    <dbPassword>3569</dbPassword>
+    <poolSize>7</poolSize>
+  </connectionPool>
 </com.egtinteractive.config.Config>

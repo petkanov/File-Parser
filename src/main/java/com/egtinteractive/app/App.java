@@ -3,6 +3,10 @@ package com.egtinteractive.app;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -18,9 +22,10 @@ import com.thoughtworks.xstream.XStream;
 
 public class App {
     public static void main(String[] args) throws Exception {
-
+	
 	generateConfig();
 	readConfig();
+	
     }
 
     private static void readConfig() {
@@ -30,6 +35,21 @@ public class App {
 	final ServiceChain serviceChain = createServiceChain(config);
 	final Set<String> oldFiles = new HashSet<>();
 
+	
+	
+	
+	final Connection con = config.getConnectionPool().getConnection();
+
+	try {
+	    PreparedStatement ps = con.prepareStatement("SELECT * FROM car");
+	    ResultSet res = ps.executeQuery();
+	    while (res.next()) {
+		    System.out.println("Model: " + res.getString("model"));
+	    }
+	} catch (SQLException e) {
+	    e.printStackTrace();
+	}
+	
 	while (true) {
 
 	    System.out.println("-------------------------------new read----------------");
@@ -83,9 +103,12 @@ public class App {
 		"dd MMMM yyyy HH:mm:ss,SSS");
 	final Writer<ResponseData> writerString = new InfluxWriter<>("http://localhost:8086/write?db=otherDb3", 1500, "http://localhost:8086/query", "q=CREATE DATABASE otherDb3");
 	services.add(new ServiceConfig<ResponseData>("gamora", parserString, writerString));
+	
+	final ConnectionPool connectionPool = new ConnectionPool("jdbc:mysql://localhost:3306/orm_tool?useSSL=false","root","3569",7);
 
 	final XStream x = new XStream();
-	final Config config = new Config(services, logFileName, workingDirectory);
+	
+	final Config config = new Config(services, logFileName, workingDirectory, connectionPool);
 	try {
 	    x.toXML(config, new FileOutputStream(new File("configuration.xml")));
 	} catch (FileNotFoundException e) {
