@@ -1,64 +1,54 @@
 <com.egtinteractive.config.Config>
-	<serviceConfigs class="linked-list">
-		<com.egtinteractive.config.ServiceConfig>
-			<fileNamePrefix>thanos</fileNamePrefix>
-			<parser
-				class="com.egtinteractive.app.ResponseTimeDomaneParser">
-				<patternDomane>
-					<pattern>HTTP\sNative\sexecute\s(http://.*?)=&gt;\s([0-9]{1,})
-					</pattern>
-					<flags>0</flags>
-				</patternDomane>
-				<patternTime>
-					<pattern>\[([0-9]{1,2}\s[a-zA-Z]{3,12}\s[0-9]{4}\s[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3})\]
-					</pattern>
-					<flags>0</flags>
-				</patternTime>
-				<dateTimeFormat>dd MMMM yyyy HH:mm:ss,SSS</dateTimeFormat>
-				<isInProgress>false</isInProgress>
-				<time>-1</time>
-			</parser>
-			<writer class="com.egtinteractive.app.InfluxWriter">
-				<pointPerBatch>1500</pointPerBatch>
-				<writtenPointsCounter>0</writtenPointsCounter>
-				<hostCreateDBQuery>http://localhost:8086/query</hostCreateDBQuery>
-				<hostCreateDBQueryParams>q=CREATE DATABASE someDb3
-				</hostCreateDBQueryParams>
-				<hostInsertDataQuery>http://localhost:8086/write?db=someDb3
-				</hostInsertDataQuery>
-				<isDatabaseCreated>false</isDatabaseCreated>
-			</writer>
-		</com.egtinteractive.config.ServiceConfig>
-		<com.egtinteractive.config.ServiceConfig>
-			<fileNamePrefix>gamora</fileNamePrefix>
-			<parser
-				class="com.egtinteractive.app.ResponseTimeDomaneParser">
-				<patternDomane>
-					<pattern>HTTP\sNative\sexecute\s(http://.*?)=&gt;\s([0-9]{1,})
-					</pattern>
-					<flags>0</flags>
-				</patternDomane>
-				<patternTime>
-					<pattern>\[([0-9]{1,2}\s[a-zA-Z]{3,12}\s[0-9]{4}\s[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3})\]
-					</pattern>
-					<flags>0</flags>
-				</patternTime>
-				<dateTimeFormat>dd MMMM yyyy HH:mm:ss,SSS</dateTimeFormat>
-				<isInProgress>false</isInProgress>
-				<time>-1</time>
-			</parser>
-			<writer class="com.egtinteractive.app.InfluxWriter">
-				<pointPerBatch>1500</pointPerBatch>
-				<writtenPointsCounter>0</writtenPointsCounter>
-				<hostCreateDBQuery>http://localhost:8086/query</hostCreateDBQuery>
-				<hostCreateDBQueryParams>q=CREATE DATABASE otherDb3
-				</hostCreateDBQueryParams>
-				<hostInsertDataQuery>http://localhost:8086/write?db=otherDb3
-				</hostInsertDataQuery>
-				<isDatabaseCreated>false</isDatabaseCreated>
-			</writer>
-		</com.egtinteractive.config.ServiceConfig>
-	</serviceConfigs>
-	<logFileName>file-parser-logs.log</logFileName>
-	<workingDirectory>/big_device/veto</workingDirectory>
+  <serviceConfigs class="linked-list">
+    <com.egtinteractive.config.ServiceConfig>
+      <fileNamePrefix>thanos</fileNamePrefix>
+      <parser class="com.egtinteractive.app.ResponseTimeDomaneParser">
+        <patternDomane>
+          <pattern>HTTP\sNative\sexecute\s(http://.*?)=&gt;\s([0-9]{1,})</pattern>
+          <flags>0</flags>
+        </patternDomane>
+        <patternTime>
+          <pattern>\[([0-9]{1,2}\s[a-zA-Z]{3,12}\s[0-9]{4}\s[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3})\]</pattern>
+          <flags>0</flags>
+        </patternTime>
+        <dateTimeFormat>dd MMMM yyyy HH:mm:ss,SSS</dateTimeFormat>
+        <isInProgress>false</isInProgress>
+        <time>-1</time>
+      </parser>
+      <writer class="com.egtinteractive.app.InfluxWriter">
+        <pointPerBatch>1500</pointPerBatch>
+        <writtenPointsCounter>0</writtenPointsCounter>
+        <hostCreateDBQuery>http://localhost:8086/query</hostCreateDBQuery>
+        <hostCreateDBQueryParams>q=CREATE DATABASE someDb3</hostCreateDBQueryParams>
+        <hostInsertDataQuery>http://localhost:8086/write?db=someDb3</hostInsertDataQuery>
+        <isDatabaseCreated>false</isDatabaseCreated>
+      </writer>
+    </com.egtinteractive.config.ServiceConfig>
+    <com.egtinteractive.config.ServiceConfig>
+      <fileNamePrefix>gamora</fileNamePrefix>
+      <parser class="com.egtinteractive.app.ResponseTimeDomaneParser">
+        <patternDomane>
+          <pattern>HTTP\sNative\sexecute\s(http://.*?)=&gt;\s([0-9]{1,})</pattern>
+          <flags>0</flags>
+        </patternDomane>
+        <patternTime>
+          <pattern>\[([0-9]{1,2}\s[a-zA-Z]{3,12}\s[0-9]{4}\s[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3})\]</pattern>
+          <flags>0</flags>
+        </patternTime>
+        <dateTimeFormat>dd MMMM yyyy HH:mm:ss,SSS</dateTimeFormat>
+        <isInProgress>false</isInProgress>
+        <time>-1</time>
+      </parser>
+      <writer class="com.egtinteractive.app.InfluxWriter">
+        <pointPerBatch>1500</pointPerBatch>
+        <writtenPointsCounter>0</writtenPointsCounter>
+        <hostCreateDBQuery>http://localhost:8086/query</hostCreateDBQuery>
+        <hostCreateDBQueryParams>q=CREATE DATABASE otherDb3</hostCreateDBQueryParams>
+        <hostInsertDataQuery>http://localhost:8086/write?db=otherDb3</hostInsertDataQuery>
+        <isDatabaseCreated>false</isDatabaseCreated>
+      </writer>
+    </com.egtinteractive.config.ServiceConfig>
+  </serviceConfigs>
+  <logFileName>file-parser-logs.log</logFileName>
+  <workingDirectory>/big_device/veto</workingDirectory>
 </com.egtinteractive.config.Config>

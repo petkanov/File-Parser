@@ -3,38 +3,24 @@ package com.egtinteractive.config;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import org.apache.log4j.Logger;
+
 import com.egtinteractive.app.Parser;
 import com.egtinteractive.app.ServiceChain;
 import com.egtinteractive.app.Writer;
 
-public class Service<T> implements ServiceChain {
-
-    protected ServiceChain nextLink;
-
-    private final ServiceConfig<T> serviceConfig;
-    final BlockingQueue<String> filesQueue = new ArrayBlockingQueue<>(1024);
-    final Parser<T> parser;
-    final Writer<T> writer;
-
-    final Set<String> processedFiles = new HashSet<>();
-
-    final ExecutorService engine = Executors.newSingleThreadExecutor();
-
+public class Service<T> extends ServiceChain {
+    
+    private final Parser<T> parser;
+    private final Writer<T> writer;
+    
     public Service(final ServiceConfig<T> serviceConfig) {
-	this.serviceConfig = serviceConfig;
+	super(serviceConfig.getFileNamePrefix());
 	parser = serviceConfig.getParser();
 	writer = serviceConfig.getWriter();
     }
 
-    private void startProcessing() {
-
+    protected void startProcessing() {
 	engine.execute(new Runnable() {
 	    @Override
 	    public void run() {
@@ -67,31 +53,4 @@ public class Service<T> implements ServiceChain {
 	    }
 	});
     }
-
-    @Override
-    public void acceptFile(String fileName) {
-	if (fileName.contains(serviceConfig.getFileNamePrefix()) && !processedFiles.contains(fileName)) {
-	    System.out.println(serviceConfig + "::" + fileName);
-	    try {
-		filesQueue.put(fileName);
-	    } catch (InterruptedException e) {
-		Logger.getLogger(this.getClass()).error(e.getMessage());
-	    }
-	    startProcessing();
-	}
-	if (nextLink != null) {
-	    nextLink.acceptFile(fileName);
-	}
-    }
-
-    @Override
-    public void setNextLink(ServiceChain nextLink) {
-	this.nextLink = nextLink;
-    }
-
-    @Override
-    public ServiceChain getNextLink() {
-	return this.nextLink;
-    }
-
 }
