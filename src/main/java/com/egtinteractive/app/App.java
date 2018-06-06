@@ -37,27 +37,27 @@ public class App {
 	RecoveryManager.clearOldParserLogs();
 	
 	final ServiceChain serviceChain = createServiceChain(config);
-	final Set<String> oldFiles = new HashSet<>();
+	final Set<String> folderFiles = new HashSet<>();
 
-	
-	
+//	System.out.println(RecoveryManager.getLineOfLastParsedObject("ResponseTimeDomaneParser", "/big_device/veto/blathanoserddd"));
+//	
 //	System.exit(0);
 	
-	
-	RecoveryManager.saveFile("7thanos7.log");
-	System.out.println( RecoveryManager.isFileProcessed("7thanos7.log"));
-	System.out.println( RecoveryManager.isFileProcessed("some sfileName"));
-	
-	
-	RecoveryManager.updateFileProcessingProgress("ThanosParserName","myFileName",123);
-	RecoveryManager.updateFileProcessingProgress("ThanosParserName","myFileName",123);
-	RecoveryManager.updateFileProcessingProgress("ThanosParserName","myFileName",3333);
-	RecoveryManager.updateFileProcessingProgress("ThanosParserName","myFileName",-1);
-
-	RecoveryManager.updateFileProcessingProgress("ThanosPName","myFileNafme",34);
-	RecoveryManager.updateFileProcessingProgress("ThanosPName","myFileName",23434);
-	RecoveryManager.updateFileProcessingProgress("ThanosPName","myFileName",234523);
-	RecoveryManager.updateFileProcessingProgress("ThanosPName","myFileName",-1);
+//	
+//	RecoveryManager.saveFile("7thanos7.log");
+//	System.out.println( RecoveryManager.isFileProcessed("7thanos7.log"));
+//	System.out.println( RecoveryManager.isFileProcessed("some sfileName"));
+//	
+//	
+//	RecoveryManager.updateFileProcessingProgress("ThanosParserName","myFileName",123);
+//	RecoveryManager.updateFileProcessingProgress("ThanosParserName","myFileName",123);
+//	RecoveryManager.updateFileProcessingProgress("ThanosParserName","myFileName",3333);
+//	RecoveryManager.updateFileProcessingProgress("ThanosParserName","myFileName",-1);
+//
+//	RecoveryManager.updateFileProcessingProgress("ThanosPName","myFileNafme",34);
+//	RecoveryManager.updateFileProcessingProgress("ThanosPName","myFileName",23434);
+//	RecoveryManager.updateFileProcessingProgress("ThanosPName","myFileName",234523);
+//	RecoveryManager.updateFileProcessingProgress("ThanosPName","myFileName",-1);
 	
 	
 	
@@ -73,9 +73,9 @@ public class App {
 	    final File workingDir = new File(config.getWorkingDirectory());
 
 	    for (File file : workingDir.listFiles()) {
-		if (file.isFile() && !oldFiles.contains(file.getName())) {
+		if (file.isFile() && !folderFiles.contains(file.getName())) {
 		    serviceChain.acceptFile(file.getAbsolutePath());
-		    oldFiles.add(file.getName());
+		    folderFiles.add(file.getName());
 		}
 	    }
 	    try {

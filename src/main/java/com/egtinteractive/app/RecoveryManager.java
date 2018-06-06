@@ -19,7 +19,7 @@ public class RecoveryManager {
 	    connectionPool = cPool;
 	}
     }
-    
+
     public static void createMemoryTablesIfNotExist() {
 	try (Connection con = connectionPool.getConnection(); Statement s = con.createStatement()) {
 	    s.executeUpdate(
@@ -31,36 +31,34 @@ public class RecoveryManager {
 	    Logger.getLogger(RecoveryManager.class).error(e.getMessage());
 	}
     }
-    
+
     public static void clearRecoveryDatabase() {
 	try (Connection con = connectionPool.getConnection(); Statement s = con.createStatement()) {
-	    s.executeUpdate(
-		    "DROP TABLE IF EXISTS `old_files`");
-	    s.executeUpdate(
-		    "DROP TABLE IF EXISTS `files_in_process`");
+	    s.executeUpdate("DROP TABLE IF EXISTS `old_files`");
+	    s.executeUpdate("DROP TABLE IF EXISTS `files_in_process`");
 	} catch (SQLException e) {
 	    Logger.getLogger(RecoveryManager.class).error(e.getMessage());
 	}
     }
-    
+
     public static void clearParsersTable() {
 	try (Connection con = connectionPool.getConnection(); Statement s = con.createStatement()) {
-	    s.executeUpdate(
-		    "DELETE FROM `files_in_process`");
+	    s.executeUpdate("DELETE FROM `files_in_process`");
 	} catch (SQLException e) {
 	    e.printStackTrace();
 	    Logger.getLogger(RecoveryManager.class).error(e.getMessage());
 	}
     }
-    
+
     public static void clearOldParserLogs() {
 	try (Connection con = connectionPool.getConnection(); Statement s = con.createStatement()) {
 	    final ResultSet rs = s.executeQuery("SELECT parser, file FROM files_in_process WHERE line=-1");
 	    final List<String> delQueries = new ArrayList<>();
-	    while(rs.next()) {
-		delQueries.add("DELETE FROM `files_in_process` WHERE parser=\'"+rs.getString("parser")+"\' AND file=\'"+rs.getString("file")+"\'");
+	    while (rs.next()) {
+		delQueries.add("DELETE FROM `files_in_process` WHERE parser=\'" + rs.getString("parser") + "\' AND file=\'"
+			+ rs.getString("file") + "\'");
 	    }
-	    for(String query : delQueries) {
+	    for (String query : delQueries) {
 		s.execute(query);
 	    }
 	} catch (SQLException e) {
@@ -94,25 +92,11 @@ public class RecoveryManager {
 	return false;
     }
 
-//    private static void createServiceRecord(String parserName, String fileName, int lineNumber) {
-//	try (Connection con = connectionPool.getConnection();
-//		PreparedStatement ps = con.prepareStatement("insert into files_in_process(`id`,`parser`,`file`,`line`) values(?,?,?,?)")) {
-//	    ps.setString(1, parserName+fileName);
-//	    ps.setString(2, parserName);
-//	    ps.setString(3, fileName);
-//	    ps.setInt(4, lineNumber);
-//	    ps.executeUpdate();
-//	} catch (SQLException e) {
-//	    Logger.getLogger(RecoveryManager.class).error(e.getMessage());
-//	}
-//    }
-
-    
-    
     public static void updateFileProcessingProgress(String parserName, String fileName, int lineNumber) {
 	try (Connection con = connectionPool.getConnection();
-		PreparedStatement ps = con.prepareStatement("INSERT INTO files_in_process(id,parser,file,line) VALUES(?,?,?,?) ON DUPLICATE KEY UPDATE parser=?,file=?,line=?")) {
-	    ps.setString(1, parserName+fileName);
+		PreparedStatement ps = con.prepareStatement(
+			"INSERT INTO files_in_process(id,parser,file,line) VALUES(?,?,?,?) ON DUPLICATE KEY UPDATE parser=?,file=?,line=?")) {
+	    ps.setString(1, parserName + fileName);
 	    ps.setString(2, parserName);
 	    ps.setString(3, fileName);
 	    ps.setInt(4, lineNumber);
@@ -123,7 +107,20 @@ public class RecoveryManager {
 	} catch (SQLException e) {
 	    Logger.getLogger(RecoveryManager.class).error(e.getMessage());
 	}
-
     }
 
+    public static int getLineOfLastParsedObject(String parserName, String fileName) {
+	int line = 0;
+	try (Connection con = connectionPool.getConnection();
+		PreparedStatement ps = con.prepareStatement("select line from files_in_process where id=?")) {
+	    ps.setString(1, parserName + fileName);
+	    final ResultSet rs = ps.executeQuery();
+	    if(rs.next()) {
+		line = rs.getInt("line");
+	    }
+	} catch (SQLException e) {
+	    Logger.getLogger(RecoveryManager.class).error(e.getMessage());
+	}
+	return line > 0 ? line : 0;
+    }
 }

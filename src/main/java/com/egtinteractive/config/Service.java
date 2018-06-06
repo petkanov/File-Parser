@@ -26,6 +26,7 @@ public class Service<T> extends ServiceChain {
 	    @Override
 	    public void run() {
 
+		int lineCounter = 0;
 		String fileName = null;
 		try {
 		    fileName = filesQueue.take();
@@ -38,17 +39,29 @@ public class Service<T> extends ServiceChain {
 		    Logger.getLogger(this.getClass()).warn("File: "+fileName+" is already processed!");
 		    return;
 		}
+		
+		final int lineToStartParsingFrom = RecoveryManager.getLineOfLastParsedObject(parser.getClass().getSimpleName(), fileName);
+		
 		try (BufferedReader br = new BufferedReader(new FileReader(new File(fileName)))) {
 		    String line = null;
 		    do {
 			line = br.readLine();
-
+			lineCounter++;
+			if(lineCounter < lineToStartParsingFrom) {
+			    System.out.println(lineCounter);
+			    continue;
+			}
 			final T result = parser.parseLine(line);
 			if (result != null) {
-			    writer.consume(result);
+			    final boolean isWriteOperationDispatched = writer.consume(result);
+			    if(isWriteOperationDispatched) {
+				RecoveryManager.updateFileProcessingProgress(parser.getClass().getSimpleName(), fileName, lineCounter-10);
+				System.out.println(parser.getClass().getSimpleName()+ " " + fileName+ " " +lineCounter);
+			    }
 			}
 		    } while (line != null);
 		    RecoveryManager.saveFile(fileName);
+		    RecoveryManager.updateFileProcessingProgress(parser.getClass().getSimpleName(), fileName, -1);
 
 		    Logger.getLogger(this.getClass()).info("Successfully parsed file " + fileName);
 		} catch (Exception e) {

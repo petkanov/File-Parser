@@ -25,14 +25,14 @@ public class InfluxWriter<T> implements Writer<T> {
     } 
 
     @Override
-    public void consume(final T result) {
+    public boolean consume(final T result) {
 	if(!isDatabaseCreated) {
 	    createDatabase();
 	}
 	final ResponseData rd = (ResponseData) result;
 	if (rd.getTime() == -1 && pointsBatch != null) {
 	    writePointsBath();
-	    return;
+	    return true;
 	}
 	final String point = "response,domane=" + rd.getDomane() + " response=" + rd.getResponse() + " " + rd.getTime();
 
@@ -40,7 +40,7 @@ public class InfluxWriter<T> implements Writer<T> {
 	    pointsBatch = new StringBuilder();
 	    pointsBatch.append(point);
 	    writtenPointsCounter = 1;
-	    return;
+	    return false;
 	}
 	pointsBatch.append(System.lineSeparator() + point);
 	writtenPointsCounter++;
@@ -49,7 +49,9 @@ public class InfluxWriter<T> implements Writer<T> {
 	    writePointsBath();
 	    pointsBatch = null;
 	    writtenPointsCounter = 0;
+	    return true;
 	}
+	return false;
     }
 
     private void writePointsBath() {

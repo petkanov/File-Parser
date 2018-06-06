@@ -1,7 +1,5 @@
 package com.egtinteractive.app;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
@@ -14,18 +12,16 @@ public abstract class ServiceChain {
     private final String fileNamePrefix;
     
     protected final BlockingQueue<String> filesQueue = new ArrayBlockingQueue<>(1024);
-    protected final Set<String> processedFiles = new HashSet<>();
     protected final ExecutorService engine = Executors.newSingleThreadExecutor();
     
     public ServiceChain(final String fileNamePrefix) {
 	this.fileNamePrefix = fileNamePrefix;
     }
-
     
     protected abstract void startProcessing();
     
     public void acceptFile(String fileName) {
-	if (fileName.contains(fileNamePrefix) && !processedFiles.contains(fileName)) {
+	if (fileName.contains(fileNamePrefix) && !RecoveryManager.isFileProcessed(fileName)) {
 	    System.out.println(fileNamePrefix + "::" + fileName);
 	    try {
 		filesQueue.put(fileName);
