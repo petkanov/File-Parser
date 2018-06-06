@@ -6,6 +6,7 @@ import java.io.FileReader;
 import org.apache.log4j.Logger;
 
 import com.egtinteractive.app.Parser;
+import com.egtinteractive.app.RecoveryManager;
 import com.egtinteractive.app.ServiceChain;
 import com.egtinteractive.app.Writer;
 
@@ -25,15 +26,18 @@ public class Service<T> extends ServiceChain {
 	    @Override
 	    public void run() {
 
-		String tmp = null;
+		String fileName = null;
 		try {
-		    tmp = filesQueue.take();
+		    fileName = filesQueue.take();
 		} catch (Exception e) {
 		    Logger.getLogger(this.getClass()).error(e.getMessage());
 		    return;
 		}
-		final String fileName = tmp;
-
+		if(RecoveryManager.isFileProcessed(fileName)) {
+		    System.out.println("File: "+fileName+" is already processed!");
+		    Logger.getLogger(this.getClass()).warn("File: "+fileName+" is already processed!");
+		    return;
+		}
 		try (BufferedReader br = new BufferedReader(new FileReader(new File(fileName)))) {
 		    String line = null;
 		    do {
@@ -44,7 +48,7 @@ public class Service<T> extends ServiceChain {
 			    writer.consume(result);
 			}
 		    } while (line != null);
-		    processedFiles.add(fileName);
+		    RecoveryManager.saveFile(fileName);
 
 		    Logger.getLogger(this.getClass()).info("Successfully parsed file " + fileName);
 		} catch (Exception e) {

@@ -10,12 +10,14 @@ public class Config {
     private final String logFileName;
     private final String workingDirectory;
     private final ConnectionPool connectionPool;
+    private final boolean clearRecoveryDatabaseOnStartup;
     
-    public Config(final List<ServiceConfig<?>> services, final String logFileName, final String workingDirectory, final ConnectionPool connectionPool) {
+    public Config( List<ServiceConfig<?>> services, String logFileName, String workingDirectory, ConnectionPool connectionPool, boolean clearRecoveryDatabaseOnStartup) {
 	this.serviceConfigs = services;
 	this.logFileName = logFileName;
 	this.workingDirectory = workingDirectory;
 	this.connectionPool = connectionPool;
+	this.clearRecoveryDatabaseOnStartup = clearRecoveryDatabaseOnStartup;
     }
 
     public List<ServiceConfig<?>> getServices() {
@@ -32,6 +34,10 @@ public class Config {
 
     public ConnectionPool getConnectionPool() {
         return connectionPool;
+    }
+
+    public boolean isClearRecoveryDatabaseOnStartup() {
+        return clearRecoveryDatabaseOnStartup;
     }
 
 }
