@@ -37,39 +37,11 @@ public class App {
 	RecoveryManager.clearOldParserLogs();
 	
 	final ServiceChain serviceChain = createServiceChain(config);
-	final Set<String> folderFiles = new HashSet<>();
-
-//	System.out.println(RecoveryManager.getLineOfLastParsedObject("ResponseTimeDomaneParser", "/big_device/veto/blathanoserddd"));
-//	
-//	System.exit(0);
-	
-//	
-//	RecoveryManager.saveFile("7thanos7.log");
-//	System.out.println( RecoveryManager.isFileProcessed("7thanos7.log"));
-//	System.out.println( RecoveryManager.isFileProcessed("some sfileName"));
-//	
-//	
-//	RecoveryManager.updateFileProcessingProgress("ThanosParserName","myFileName",123);
-//	RecoveryManager.updateFileProcessingProgress("ThanosParserName","myFileName",123);
-//	RecoveryManager.updateFileProcessingProgress("ThanosParserName","myFileName",3333);
-//	RecoveryManager.updateFileProcessingProgress("ThanosParserName","myFileName",-1);
-//
-//	RecoveryManager.updateFileProcessingProgress("ThanosPName","myFileNafme",34);
-//	RecoveryManager.updateFileProcessingProgress("ThanosPName","myFileName",23434);
-//	RecoveryManager.updateFileProcessingProgress("ThanosPName","myFileName",234523);
-//	RecoveryManager.updateFileProcessingProgress("ThanosPName","myFileName",-1);
-	
-	
-	
-	
-	
+	final Set<String> folderFiles = new HashSet<>(); 
 	
 	
 	
 	while (true) {
-
-	    System.out.println("-------------------------------new read----------------");
-
 	    final File workingDir = new File(config.getWorkingDirectory());
 
 	    for (File file : workingDir.listFiles()) {
@@ -102,6 +74,7 @@ public class App {
 	return first;
     }
 
+    @SuppressWarnings("unused")
     private static void generateConfig() {
 	
 	final List<ServiceConfig<?>> services = new LinkedList<>();

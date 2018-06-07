@@ -18,11 +18,8 @@ public abstract class ServiceChain {
 	this.fileNamePrefix = fileNamePrefix;
     }
     
-    protected abstract void startProcessing();
-    
     public void acceptFile(String fileName) {
 	if (fileName.contains(fileNamePrefix) && !RecoveryManager.isFileProcessed(fileName)) {
-	    System.out.println(fileNamePrefix + "::" + fileName);
 	    try {
 		filesQueue.put(fileName);
 	    } catch (InterruptedException e) {
@@ -34,6 +31,8 @@ public abstract class ServiceChain {
 	    nextLink.acceptFile(fileName);
 	}
     }
+    
+    protected abstract void startProcessing();
 
     public void setNextLink(ServiceChain nextLink) {
 	this.nextLink = nextLink;
