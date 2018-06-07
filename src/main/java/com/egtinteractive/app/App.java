@@ -18,14 +18,11 @@ import com.thoughtworks.xstream.XStream;
 
 public class App {
     public static void main(String[] args) throws Exception {
-
 //	generateConfig(); // deletes parsers log data
 	readConfig();
-
     }
 
     private static void readConfig() {
-
 	final int timeDelay = 1200;
 	final Config config = FileLoader.getConfiguration();
 	RecoveryManager.setConnectionPool(config.getConnectionPool());
@@ -38,8 +35,6 @@ public class App {
 	
 	final ServiceChain serviceChain = createServiceChain(config);
 	final Set<String> folderFiles = new HashSet<>(); 
-	
-	
 	
 	while (true) {
 	    final File workingDir = new File(config.getWorkingDirectory());
@@ -56,22 +51,6 @@ public class App {
 		Logger.getLogger(App.class).error(e.getMessage());
 	    }
 	}
-    }
-
-    private static ServiceChain createServiceChain(final Config config) {
-	ServiceChain first = null;
-	ServiceChain previous = null;
-	for (ServiceConfig<?> serviceConfig : config.getServices()) {
-	    if (first == null) {
-		first = new Service<>(serviceConfig);
-		previous = first;
-		continue;
-	    }
-	    ServiceChain current = new Service<>(serviceConfig);
-	    previous.setNextLink(current);
-	    previous = current;
-	}
-	return first;
     }
 
     @SuppressWarnings("unused")
@@ -107,5 +86,22 @@ public class App {
 	}
 	RecoveryManager.setConnectionPool(connectionPool);
 	RecoveryManager.clearParsersTable();
+    }
+    
+    
+    private static ServiceChain createServiceChain(final Config config) {
+	ServiceChain first = null;
+	ServiceChain previous = null;
+	for (ServiceConfig<?> serviceConfig : config.getServices()) {
+	    if (first == null) {
+		first = new Service<>(serviceConfig);
+		previous = first;
+		continue;
+	    }
+	    ServiceChain current = new Service<>(serviceConfig);
+	    previous.setNextLink(current);
+	    previous = current;
+	}
+	return first;
     }
 }
