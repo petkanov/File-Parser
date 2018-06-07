@@ -57,5 +57,5 @@
     <dbPassword>3569</dbPassword>
     <poolSize>7</poolSize>
   </connectionPool>
-  <clearRecoveryDatabaseOnStartup>false</clearRecoveryDatabaseOnStartup>
+  <clearRecoveryDatabaseOnStartup>true</clearRecoveryDatabaseOnStartup>
 </com.egtinteractive.config.Config>

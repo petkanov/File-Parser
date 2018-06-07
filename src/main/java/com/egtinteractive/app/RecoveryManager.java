@@ -23,9 +23,9 @@ public class RecoveryManager {
     public static void createMemoryTablesIfNotExist() {
 	try (Connection con = connectionPool.getConnection(); Statement s = con.createStatement()) {
 	    s.executeUpdate(
-		    "CREATE TABLE IF NOT EXISTS `old_files`(`file` VARCHAR(256) NOT NULL, `date` DATE NOT NULL, UNIQUE KEY(`file`))  ENGINE=InnoDB;");
+		    "CREATE TABLE IF NOT EXISTS `old_files`(`file` VARCHAR(256) NOT NULL, `date` TIMESTAMP NOT NULL, UNIQUE KEY(`file`))  ENGINE=InnoDB;");
 	    s.executeUpdate(
-		    "CREATE TABLE IF NOT EXISTS `files_in_process`(id VARCHAR(512) NOT NULL, `parser` VARCHAR(256) NOT NULL, `file` VARCHAR(256) NOT NULL, `line` INT(12) NOT NULL, UNIQUE KEY(`id`))  ENGINE=InnoDB;");
+		    "CREATE TABLE IF NOT EXISTS `files_in_process`(id VARCHAR(256) NOT NULL, `parser` VARCHAR(256) NOT NULL, `file` VARCHAR(256) NOT NULL, `line` INT(12) NOT NULL, UNIQUE KEY(`id`))  ENGINE=InnoDB;");
 	} catch (SQLException e) {
 	    e.printStackTrace();
 	    Logger.getLogger(RecoveryManager.class).error(e.getMessage());
@@ -68,9 +68,8 @@ public class RecoveryManager {
 
     public static void saveFile(String fileName) {
 	try (Connection con = connectionPool.getConnection();
-		PreparedStatement ps = con.prepareStatement("insert into old_files(`file`,`date`) values(?,?)")) {
+		PreparedStatement ps = con.prepareStatement("insert into old_files(`file`,`date`) values(?,NOW())")) {
 	    ps.setString(1, fileName);
-	    ps.setDate(2, new java.sql.Date(System.currentTimeMillis()));
 	    ps.executeUpdate();
 	} catch (SQLException e) {
 	    Logger.getLogger(RecoveryManager.class).error(e.getMessage());
@@ -95,7 +94,7 @@ public class RecoveryManager {
     public static void updateFileProcessingProgress(String parserName, String fileName, int lineNumber) {
 	try (Connection con = connectionPool.getConnection();
 		PreparedStatement ps = con.prepareStatement(
-			"INSERT INTO files_in_process(id,parser,file,line) VALUES(?,?,?,?) ON DUPLICATE KEY UPDATE parser=?,file=?,line=?")) {
+			"INSERT INTO files_in_process(id,parser,file,line) VALUES(MD5(?),?,?,?) ON DUPLICATE KEY UPDATE parser=?,file=?,line=?")) {
 	    ps.setString(1, parserName + fileName);
 	    ps.setString(2, parserName);
 	    ps.setString(3, fileName);
@@ -112,7 +111,7 @@ public class RecoveryManager {
     public static int getLineOfLastParsedObject(String parserName, String fileName) {
 	int line = 0;
 	try (Connection con = connectionPool.getConnection();
-		PreparedStatement ps = con.prepareStatement("select line from files_in_process where id=?")) {
+		PreparedStatement ps = con.prepareStatement("select line from files_in_process where id=MD5(?)")) {
 	    ps.setString(1, parserName + fileName);
 	    final ResultSet rs = ps.executeQuery();
 	    if(rs.next()) {
