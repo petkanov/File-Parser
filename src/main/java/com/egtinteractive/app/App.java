@@ -13,6 +13,7 @@ import org.apache.log4j.Logger;
 import com.egtinteractive.config.Config;
 import com.egtinteractive.config.FileLoader;
 import com.egtinteractive.config.Service;
+import com.egtinteractive.config.ServiceChain;
 import com.egtinteractive.config.ServiceConfig;
 import com.thoughtworks.xstream.XStream;
 

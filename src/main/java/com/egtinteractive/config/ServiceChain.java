@@ -1,10 +1,12 @@
-package com.egtinteractive.app;
+package com.egtinteractive.config;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.apache.log4j.Logger;
+
+import com.egtinteractive.app.RecoveryManager;
 
 public abstract class ServiceChain {
 
@@ -35,7 +37,7 @@ public abstract class ServiceChain {
 	if (nextLink != null) {
 	    nextLink.acceptFile(fileName);
 	}
-    }
+    } 
 
     protected abstract void startProcessing();
 
