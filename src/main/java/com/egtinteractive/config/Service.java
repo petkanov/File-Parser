@@ -12,11 +12,13 @@ public class Service<T> implements ServiceChain {
     private final Runnable processingRunner;
     private final String fileNamePrefix;
     private final RecoveryManager recoveryManager;
-    private final BlockingQueue<String> filesQueue = new ArrayBlockingQueue<>(1024);
-    private final ExecutorService engine = Executors.newSingleThreadExecutor();
+    private final BlockingQueue<String> filesQueue;
+    private final ExecutorService engine;
     private ServiceChain nextLink;
 
     public Service(final ServiceConfig<T> serviceConfig, final RecoveryManager recoveryManager) {
+	this.filesQueue = new ArrayBlockingQueue<>(1024);
+	this.engine = Executors.newSingleThreadExecutor();
 	this.fileNamePrefix = serviceConfig.getFileNamePrefix();
 	this.recoveryManager = recoveryManager;
 	processingRunner = serviceConfig.getProcessingRunner(filesQueue, recoveryManager);
