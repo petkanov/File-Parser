@@ -4,6 +4,7 @@ import java.util.concurrent.BlockingQueue;
 
 import com.egtinteractive.app.Parser;
 import com.egtinteractive.app.ProcessingRunner;
+import com.egtinteractive.app.RecoveryManager;
 import com.egtinteractive.app.Writer;
 
 public class ServiceConfig<T> {
@@ -32,8 +33,8 @@ public class ServiceConfig<T> {
 	return writer;
     }
     
-    public Runnable getProcessingRunner(final BlockingQueue<String> filesQueue) {
-	processingRunner.setUp(parser, writer, filesQueue);
+    public Runnable getProcessingRunner(final BlockingQueue<String> filesQueue, final RecoveryManager recoveryManager) {
+	processingRunner.setUp(parser, writer, filesQueue, recoveryManager);
 	return processingRunner;
     } 
 }

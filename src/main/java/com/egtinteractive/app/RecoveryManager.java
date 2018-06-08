@@ -12,15 +12,13 @@ import org.apache.log4j.Logger;
 
 public class RecoveryManager {
 
-    private static ConnectionPool connectionPool;
+    private final ConnectionPool connectionPool;
 
-    public static void setConnectionPool(final ConnectionPool cPool) {
-	if (connectionPool == null) {
-	    connectionPool = cPool;
-	}
+    public RecoveryManager(final ConnectionPool cPool) {
+	connectionPool = cPool;
     }
 
-    public static void createMemoryTablesIfNotExist() {
+    public void createMemoryTablesIfNotExist() {
 	try (Connection con = connectionPool.getConnection(); Statement s = con.createStatement()) {
 	    s.executeUpdate(
 		    "CREATE TABLE IF NOT EXISTS `old_files`(`file` VARCHAR(256) NOT NULL, `date` TIMESTAMP NOT NULL, UNIQUE KEY(`file`))  ENGINE=InnoDB;");
@@ -32,7 +30,7 @@ public class RecoveryManager {
 	}
     }
 
-    public static void clearRecoveryDatabase() {
+    public void clearRecoveryDatabase() {
 	try (Connection con = connectionPool.getConnection(); Statement s = con.createStatement()) {
 	    s.executeUpdate("DROP TABLE IF EXISTS `old_files`");
 	    s.executeUpdate("DROP TABLE IF EXISTS `files_in_process`");
@@ -41,7 +39,7 @@ public class RecoveryManager {
 	}
     }
 
-    public static void clearParsersTable() {
+    public void clearParsersTable() {
 	try (Connection con = connectionPool.getConnection(); Statement s = con.createStatement()) {
 	    s.executeUpdate("DELETE FROM `files_in_process`");
 	} catch (SQLException e) {
@@ -50,7 +48,7 @@ public class RecoveryManager {
 	}
     }
 
-    public static void clearOldParserLogs() {
+    public void clearOldParserLogs() {
 	try (Connection con = connectionPool.getConnection(); Statement s = con.createStatement()) {
 	    final ResultSet rs = s.executeQuery("SELECT parser, file FROM files_in_process WHERE line=-1");
 	    final List<String> delQueries = new ArrayList<>();
@@ -66,7 +64,7 @@ public class RecoveryManager {
 	}
     }
 
-    public static void saveFile(String fileName) {
+    public void saveFile(String fileName) {
 	try (Connection con = connectionPool.getConnection();
 		PreparedStatement ps = con.prepareStatement("insert into old_files(`file`,`date`) values(?,NOW())")) {
 	    ps.setString(1, fileName);
@@ -76,7 +74,7 @@ public class RecoveryManager {
 	}
     }
 
-    public static boolean isFileProcessed(String fileName) {
+    public boolean isFileProcessed(String fileName) {
 	try (Connection con = connectionPool.getConnection();
 		PreparedStatement ps = con.prepareStatement("select * from old_files where file=?")) {
 	    ps.setString(1, fileName);
@@ -91,7 +89,7 @@ public class RecoveryManager {
 	return false;
     }
 
-    public static void updateFileProcessingProgress(String parserName, String fileName, int lineNumber) {
+    public void updateFileProcessingProgress(String parserName, String fileName, int lineNumber) {
 	try (Connection con = connectionPool.getConnection();
 		PreparedStatement ps = con.prepareStatement(
 			"INSERT INTO files_in_process(id,parser,file,line) VALUES(MD5(?),?,?,?) ON DUPLICATE KEY UPDATE parser=?,file=?,line=?")) {
@@ -108,13 +106,13 @@ public class RecoveryManager {
 	}
     }
 
-    public static int getLineOfLastParsedObject(String parserName, String fileName) {
+    public int getLineOfLastParsedObject(String parserName, String fileName) {
 	int line = 0;
 	try (Connection con = connectionPool.getConnection();
 		PreparedStatement ps = con.prepareStatement("select line from files_in_process where id=MD5(?)")) {
 	    ps.setString(1, parserName + fileName);
 	    final ResultSet rs = ps.executeQuery();
-	    if(rs.next()) {
+	    if (rs.next()) {
 		line = rs.getInt("line");
 	    }
 	} catch (SQLException e) {

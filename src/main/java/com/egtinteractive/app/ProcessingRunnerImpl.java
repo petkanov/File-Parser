@@ -11,6 +11,7 @@ public class ProcessingRunnerImpl<T> implements ProcessingRunner<T> {
 
     private Parser<T> parser;
     private Writer<T> writer;
+    private RecoveryManager recoveryManager;
     private BlockingQueue<String> filesQueue;
 
     @Override
@@ -28,11 +29,11 @@ public class ProcessingRunnerImpl<T> implements ProcessingRunner<T> {
 	    Logger.getLogger(this.getClass()).error(e.getMessage());
 	    return;
 	}
-	if (RecoveryManager.isFileProcessed(fileName)) {
+	if (recoveryManager.isFileProcessed(fileName)) {
 	    Logger.getLogger(this.getClass()).warn("File: " + fileName + " is already processed!");
 	    return;
 	}
-	final int lineToStartParsingFrom = RecoveryManager.getLineOfLastParsedObject(parserName, fileName);
+	final int lineToStartParsingFrom = recoveryManager.getLineOfLastParsedObject(parserName, fileName);
 
 	try (BufferedReader br = new BufferedReader(new FileReader(new File(fileName)))) {
 	    String line = null;
@@ -46,12 +47,12 @@ public class ProcessingRunnerImpl<T> implements ProcessingRunner<T> {
 		if (result != null) {
 		    final boolean isWriteOperationDispatched = writer.consume(result);
 		    if (isWriteOperationDispatched) {
-			RecoveryManager.updateFileProcessingProgress(parserName, fileName, lineCounter + 1);
+			recoveryManager.updateFileProcessingProgress(parserName, fileName, lineCounter + 1);
 		    }
 		}
 	    } while (line != null);
-	    RecoveryManager.saveFile(fileName);
-	    RecoveryManager.updateFileProcessingProgress(parserName, fileName, -1);
+	    recoveryManager.saveFile(fileName);
+	    recoveryManager.updateFileProcessingProgress(parserName, fileName, -1);
 
 	    Logger.getLogger(this.getClass()).info("Successfully parsed file " + fileName);
 	} catch (Exception e) {
@@ -60,9 +61,10 @@ public class ProcessingRunnerImpl<T> implements ProcessingRunner<T> {
     }
 
     @Override
-    public void setUp(final Parser<T> parser, final Writer<T> writer, final BlockingQueue<String> filesQueue) {
-	this.filesQueue = filesQueue;
+    public void setUp(final Parser<T> parser, final Writer<T> writer, final BlockingQueue<String> filesQueue, final RecoveryManager recoveryManager) {
 	this.parser = parser;
 	this.writer = writer;
+	this.recoveryManager = recoveryManager;
+	this.filesQueue = filesQueue;
     }
 }

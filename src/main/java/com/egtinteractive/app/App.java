@@ -24,13 +24,13 @@ public class App {
     private static void readConfig() {
 	final int timeDelay = 1200;
 	final Config config = FileLoader.getConfiguration();
-	RecoveryManager.setConnectionPool(config.getConnectionPool());
+	RecoveryManager recoveryManager = config.getRecoveryManager();
 	if(config.isClearRecoveryDatabaseOnStartup()) {
-	    RecoveryManager.clearRecoveryDatabase();
+	    recoveryManager.clearRecoveryDatabase();
 	
 	}
-	RecoveryManager.createMemoryTablesIfNotExist();
-	RecoveryManager.clearOldParserLogs();
+	recoveryManager.createMemoryTablesIfNotExist();
+	recoveryManager.clearOldParserLogs();
 	
 	final ServiceChain serviceChain = createServiceChain(config);
 	final Set<String> folderFiles = new HashSet<>(); 
@@ -77,10 +77,11 @@ public class App {
 	services.add(new ServiceConfig<ResponseData>("gamora", parserString, writerString, processingRunner2));
 	
 	final ConnectionPool connectionPool = new ConnectionPool("jdbc:mysql://localhost:3306/file_reader?useSSL=false","root","3569",7);
+	final RecoveryManager recoveryManager = new RecoveryManager(connectionPool);
 	
 	final boolean clearRecoveryDatabaseOnStartup = false;
 
-	final Config config = new Config(services, logFileName, workingDirectory, connectionPool, clearRecoveryDatabaseOnStartup);
+	final Config config = new Config(services, logFileName, workingDirectory, recoveryManager, clearRecoveryDatabaseOnStartup);
 	
 	final XStream x = new XStream();
 	try {
@@ -88,8 +89,7 @@ public class App {
 	} catch (FileNotFoundException e) {
 	    e.printStackTrace();
 	}
-	RecoveryManager.setConnectionPool(connectionPool);
-	RecoveryManager.clearParsersTable();
+	recoveryManager.clearParsersTable();
     }
     
     
@@ -98,11 +98,11 @@ public class App {
 	ServiceChain previous = null;
 	for (ServiceConfig<?> serviceConfig : config.getServices()) {
 	    if (first == null) {
-		first = new Service<>(serviceConfig);
+		first = new Service<>(serviceConfig, config.getRecoveryManager());
 		previous = first;
 		continue;
 	    }
-	    ServiceChain current = new Service<>(serviceConfig);
+	    ServiceChain current = new Service<>(serviceConfig, config.getRecoveryManager());
 	    previous.setNextLink(current);
 	    previous = current;
 	}
