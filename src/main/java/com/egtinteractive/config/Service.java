@@ -1,62 +1,44 @@
 package com.egtinteractive.config;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import org.apache.log4j.Logger;
-import com.egtinteractive.app.Parser;
 import com.egtinteractive.app.RecoveryManager;
-import com.egtinteractive.app.Writer;
 
-public class Service<T> extends ServiceChain {
+public class Service<T> implements ServiceChain {
 
-    private final Parser<T> parser;
-    private final Writer<T> writer;
+    private final Runnable processingRunner;
+    private final String fileNamePrefix;
+    private final BlockingQueue<String> filesQueue = new ArrayBlockingQueue<>(1024);
+    private final ExecutorService engine = Executors.newSingleThreadExecutor();
+    private ServiceChain nextLink;
 
     public Service(final ServiceConfig<T> serviceConfig) {
-	super(serviceConfig.getFileNamePrefix());
-	parser = serviceConfig.getParser();
-	writer = serviceConfig.getWriter();
+	this.fileNamePrefix = serviceConfig.getFileNamePrefix();
+	processingRunner = serviceConfig.getProcessingRunner(filesQueue);
     }
 
-    protected void startProcessing() {
-	final String parserName = parser.getClass().getSimpleName();
-	int lineCounter = 0;
-	String fileName = null;
-	try {
-	    fileName = filesQueue.take();
-	} catch (InterruptedException e) {
-	    Logger.getLogger(this.getClass()).error(e.getMessage());
-	    return;
+    public void acceptFile(String fileName) {
+	if (fileName.contains(fileNamePrefix) && !RecoveryManager.isFileProcessed(fileName)) {
+	    try {
+		filesQueue.put(fileName);
+	    } catch (InterruptedException e) {
+		Logger.getLogger(this.getClass()).error(e.getMessage());
+	    }
+	    engine.execute(this.processingRunner);
 	}
-	if (RecoveryManager.isFileProcessed(fileName)) {
-	    Logger.getLogger(this.getClass()).warn("File: " + fileName + " is already processed!");
-	    return;
+	if (nextLink != null) {
+	    nextLink.acceptFile(fileName);
 	}
-	final int lineToStartParsingFrom = RecoveryManager.getLineOfLastParsedObject(parserName, fileName);
+    }
 
-	try (BufferedReader br = new BufferedReader(new FileReader(new File(fileName)))) {
-	    String line = null;
-	    do {
-		line = br.readLine();
-		lineCounter++;
-		if (lineCounter < lineToStartParsingFrom) {
-		    continue;
-		}
-		final T result = parser.parseLine(line);
-		if (result != null) {
-		    final boolean isWriteOperationDispatched = writer.consume(result);
-		    if (isWriteOperationDispatched) {
-			RecoveryManager.updateFileProcessingProgress(parserName, fileName, lineCounter + 1);
-		    }
-		}
-	    } while (line != null);
-	    RecoveryManager.saveFile(fileName);
-	    RecoveryManager.updateFileProcessingProgress(parserName, fileName, -1);
+    public void setNextLink(ServiceChain nextLink) {
+	this.nextLink = nextLink;
+    }
 
-	    Logger.getLogger(this.getClass()).info("Successfully parsed file " + fileName);
-	} catch (Exception e) {
-	    Logger.getLogger(this.getClass()).error(e.getMessage());
-	}
+    public ServiceChain getNextLink() {
+	return this.nextLink;
     }
 }

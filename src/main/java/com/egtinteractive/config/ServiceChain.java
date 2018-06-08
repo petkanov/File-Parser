@@ -1,51 +1,10 @@
 package com.egtinteractive.config;
 
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import org.apache.log4j.Logger;
+public interface ServiceChain {
 
-import com.egtinteractive.app.RecoveryManager;
+    void acceptFile(String fileName);
 
-public abstract class ServiceChain {
+    void setNextLink(ServiceChain nextLink);
 
-    protected ServiceChain nextLink;
-    private final String fileNamePrefix;
-
-    protected final BlockingQueue<String> filesQueue = new ArrayBlockingQueue<>(1024);
-    private final ExecutorService engine = Executors.newSingleThreadExecutor();
-
-    public ServiceChain(final String fileNamePrefix) {
-	this.fileNamePrefix = fileNamePrefix;
-    }
-
-    public void acceptFile(String fileName) {
-	if (fileName.contains(fileNamePrefix) && !RecoveryManager.isFileProcessed(fileName)) {
-	    try {
-		filesQueue.put(fileName);
-	    } catch (InterruptedException e) {
-		Logger.getLogger(this.getClass()).error(e.getMessage());
-	    }
-	    engine.execute(new Runnable() {
-		@Override
-		public void run() {
-		    startProcessing();
-		}
-	    });
-	}
-	if (nextLink != null) {
-	    nextLink.acceptFile(fileName);
-	}
-    } 
-
-    protected abstract void startProcessing();
-
-    public void setNextLink(ServiceChain nextLink) {
-	this.nextLink = nextLink;
-    }
-
-    public ServiceChain getNextLink() {
-	return this.nextLink;
-    }
+    ServiceChain getNextLink();
 }

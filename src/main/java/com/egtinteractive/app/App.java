@@ -7,9 +7,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-
 import org.apache.log4j.Logger;
-
 import com.egtinteractive.config.Config;
 import com.egtinteractive.config.FileLoader;
 import com.egtinteractive.config.Service;
@@ -19,7 +17,7 @@ import com.thoughtworks.xstream.XStream;
 
 public class App {
     public static void main(String[] args) throws Exception {
-//	generateConfig(); // deletes parsers log data
+	generateConfig();
 	readConfig();
     }
 
@@ -54,6 +52,9 @@ public class App {
 	}
     }
 
+    /**
+     * It will delete all temporary parsers data
+     */
     @SuppressWarnings("unused")
     private static void generateConfig() {
 	
@@ -65,13 +66,15 @@ public class App {
 		"\\[([0-9]{1,2}\\s[a-zA-Z]{3,12}\\s[0-9]{4}\\s[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3})\\]",
 		"dd MMMM yyyy HH:mm:ss,SSS");
 	final Writer<ResponseData> writer = new InfluxWriter<>("http://localhost:8086/write?db=someDb3", 1500, "http://localhost:8086/query", "q=CREATE DATABASE someDb3");
-	services.add(new ServiceConfig<ResponseData>("thanos", parser, writer));
+	final ProcessingRunner<ResponseData> processingRunner1 = new ProcessingRunnerImpl<>();
+	services.add(new ServiceConfig<ResponseData>("thanos", parser, writer, processingRunner1));
 
 	final Parser<ResponseData> parserString = new ResponseTimeDomaneParser<>("HTTP\\sNative\\sexecute\\s(http://.*?)=>\\s([0-9]{1,})",
 		"\\[([0-9]{1,2}\\s[a-zA-Z]{3,12}\\s[0-9]{4}\\s[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3})\\]",
 		"dd MMMM yyyy HH:mm:ss,SSS");
 	final Writer<ResponseData> writerString = new InfluxWriter<>("http://localhost:8086/write?db=otherDb3", 1500, "http://localhost:8086/query", "q=CREATE DATABASE otherDb3");
-	services.add(new ServiceConfig<ResponseData>("gamora", parserString, writerString));
+	final ProcessingRunner<ResponseData> processingRunner2 = new ProcessingRunnerImpl<>();
+	services.add(new ServiceConfig<ResponseData>("gamora", parserString, writerString, processingRunner2));
 	
 	final ConnectionPool connectionPool = new ConnectionPool("jdbc:mysql://localhost:3306/file_reader?useSSL=false","root","3569",7);
 	
