@@ -5,19 +5,18 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.concurrent.BlockingQueue;
 
-import org.apache.log4j.Logger;
-
 public class ProcessingRunnerImpl<T> implements ProcessingRunner<T> {
 
     private Parser<T> parser;
     private Writer<T> writer;
     private RecoveryManager recoveryManager;
     private BlockingQueue<String> filesQueue;
+    private FPLogger logger;
 
     @Override
     public void run() {
 	if (filesQueue == null || parser == null || writer == null) {
-	    Logger.getLogger(this.getClass()).error("ProcessingRunner has not been setUp correctly!");
+	    logger.logErrorMessage(this.getClass(), "ProcessingRunner has not been setUp correctly!");
 	    return;
 	}
 	final String parserName = parser.getClass().getSimpleName();
@@ -27,11 +26,11 @@ public class ProcessingRunnerImpl<T> implements ProcessingRunner<T> {
 	    fileName = filesQueue.take();
 	} catch (InterruptedException e) {
 	    recoveryManager.removeFromAlreadySeenFiles(fileName);
-	    Logger.getLogger(this.getClass()).error(e.getMessage());
+	    logger.logErrorMessage(this.getClass(), e.getMessage());
 	    return;
 	}
 	if (recoveryManager.isFileProcessed(fileName)) {
-	    Logger.getLogger(this.getClass()).warn("File: " + fileName + " is already processed!");
+	    logger.logWarnMessage(this.getClass(), "File: " + fileName + " is already processed!");
 	    return;
 	}
 	final int lineToStartParsingFrom = recoveryManager.getLineOfLastParsedObject(parserName, fileName);
@@ -54,19 +53,19 @@ public class ProcessingRunnerImpl<T> implements ProcessingRunner<T> {
 	    } while (line != null);
 	    recoveryManager.saveFile(fileName);
 	    recoveryManager.updateFileProcessingProgress(parserName, fileName, -1);
-
-	    Logger.getLogger(this.getClass()).info("Successfully parsed file " + fileName);
+	    logger.logInfoMessage(this.getClass(), "Successfully parsed file " + fileName);
 	} catch (Exception e) {
 	    recoveryManager.removeFromAlreadySeenFiles(fileName);
-	    Logger.getLogger(this.getClass()).error(e.getMessage());
+	    logger.logErrorMessage(this.getClass(), e.getMessage());
 	}
     }
 
     @Override
-    public void setUp(final Parser<T> parser, final Writer<T> writer, final BlockingQueue<String> filesQueue, final RecoveryManager recoveryManager) {
+    public void setUp(final Parser<T> parser, final Writer<T> writer, final BlockingQueue<String> filesQueue, final RecoveryManager recoveryManager, final FPLogger logger) {
 	this.parser = parser;
 	this.writer = writer;
 	this.recoveryManager = recoveryManager;
 	this.filesQueue = filesQueue;
+	this.logger = logger;
     }
 }

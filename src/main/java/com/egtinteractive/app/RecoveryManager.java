@@ -10,28 +10,25 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
-
 public class RecoveryManager {
 
     private final ConnectionPool connectionPool;
     private final Set<String> filesAlreadySeen;
+    private FPLogger logger;
 
     public RecoveryManager(final ConnectionPool cPool) {
 	connectionPool = cPool;
 	filesAlreadySeen = new HashSet<>();
     }
-    
+
     public void addToAlreadySeenFiles(final String fileName) {
 	filesAlreadySeen.add(fileName);
-	 System.out.println(filesAlreadySeen);
     }
-    
+
     public void removeFromAlreadySeenFiles(final String fileName) {
 	filesAlreadySeen.remove(fileName);
-	System.out.println(filesAlreadySeen);
     }
-    
+
     public boolean isFileAlreadySeen(final String fileName) {
 	return filesAlreadySeen.contains(fileName);
     }
@@ -43,8 +40,9 @@ public class RecoveryManager {
 	    s.executeUpdate(
 		    "CREATE TABLE IF NOT EXISTS `files_in_process`(id VARCHAR(256) NOT NULL, `parser` VARCHAR(256) NOT NULL, `file` VARCHAR(256) NOT NULL, `line` INT(12) NOT NULL, UNIQUE KEY(`id`))  ENGINE=InnoDB;");
 	} catch (SQLException e) {
-	    e.printStackTrace();
-	    Logger.getLogger(RecoveryManager.class).error(e.getMessage());
+	    if (logger != null) {
+		logger.logErrorMessage(this.getClass(), e.getMessage());
+	    }
 	}
     }
 
@@ -53,7 +51,9 @@ public class RecoveryManager {
 	    s.executeUpdate("DROP TABLE IF EXISTS `old_files`");
 	    s.executeUpdate("DROP TABLE IF EXISTS `files_in_process`");
 	} catch (SQLException e) {
-	    Logger.getLogger(RecoveryManager.class).error(e.getMessage());
+	    if (logger != null) {
+		logger.logErrorMessage(this.getClass(), e.getMessage());
+	    }
 	}
     }
 
@@ -62,7 +62,9 @@ public class RecoveryManager {
 	    s.executeUpdate("DELETE FROM `files_in_process`");
 	} catch (SQLException e) {
 	    e.printStackTrace();
-	    Logger.getLogger(RecoveryManager.class).error(e.getMessage());
+	    if (logger != null) {
+		logger.logErrorMessage(this.getClass(), e.getMessage());
+	    }
 	}
     }
 
@@ -78,7 +80,9 @@ public class RecoveryManager {
 		s.execute(query);
 	    }
 	} catch (SQLException e) {
-	    Logger.getLogger(RecoveryManager.class).error(e.getMessage());
+	    if (logger != null) {
+		logger.logErrorMessage(this.getClass(), e.getMessage());
+	    }
 	}
     }
 
@@ -88,7 +92,9 @@ public class RecoveryManager {
 	    ps.setString(1, fileName);
 	    ps.executeUpdate();
 	} catch (SQLException e) {
-	    Logger.getLogger(RecoveryManager.class).error(e.getMessage());
+	    if (logger != null) {
+		logger.logErrorMessage(this.getClass(), e.getMessage());
+	    }
 	}
     }
 
@@ -102,7 +108,9 @@ public class RecoveryManager {
 		return true;
 	    }
 	} catch (SQLException e) {
-	    Logger.getLogger(RecoveryManager.class).error(e.getMessage());
+	    if (logger != null) {
+		logger.logErrorMessage(this.getClass(), e.getMessage());
+	    }
 	}
 	return false;
     }
@@ -120,7 +128,9 @@ public class RecoveryManager {
 	    ps.setInt(7, lineNumber);
 	    ps.executeUpdate();
 	} catch (SQLException e) {
-	    Logger.getLogger(RecoveryManager.class).error(e.getMessage());
+	    if (logger != null) {
+		logger.logErrorMessage(this.getClass(), e.getMessage());
+	    }
 	}
     }
 
@@ -134,8 +144,14 @@ public class RecoveryManager {
 		line = rs.getInt("line");
 	    }
 	} catch (SQLException e) {
-	    Logger.getLogger(RecoveryManager.class).error(e.getMessage());
+	    if (logger != null) {
+		logger.logErrorMessage(this.getClass(), e.getMessage());
+	    }
 	}
 	return line > 0 ? line : 0;
+    }
+
+    public void setLogger(FPLogger logger) {
+	this.logger = logger;
     }
 }

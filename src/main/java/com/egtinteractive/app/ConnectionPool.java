@@ -8,7 +8,6 @@ import org.apache.commons.dbcp.DriverManagerConnectionFactory;
 import org.apache.commons.dbcp.PoolableConnectionFactory;
 import org.apache.commons.dbcp.PoolingDataSource;
 import org.apache.commons.pool.impl.GenericObjectPool;
-import org.apache.log4j.Logger;
 
 public class ConnectionPool {
     private final String jdbcDatabaseUrl; 
@@ -32,15 +31,10 @@ public class ConnectionPool {
 	this.dataSource = new PoolingDataSource(gPool);
     }
 
-    public Connection getConnection() {
+    public Connection getConnection() throws SQLException {
 	if(dataSource == null) {
 	    createPool();
-	}
-	try {
-	    return dataSource.getConnection();
-	} catch (SQLException e) {
-	    Logger.getLogger(this.getClass()).error(e.getMessage());
-	}
-	return null;
-    }
+	} 
+	    return dataSource.getConnection(); 
+    } 
 }

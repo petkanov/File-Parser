@@ -1,0 +1,1619 @@
+1-e696c783acab</TransferId>
+    <GameId>897</GameId>
+    <GameNumber>1621663391814</GameNumber>
+    <SessionId>24eae125954f91a5d1be13ce76a35c27</SessionId>
+    <Amount>0</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>MOBILE</PlatformType>
+</DepositRequest>
+
+[13 May 2018 00:05:04,598] (INFO ) [NioProcessor-2]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Deposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Deposit => 1
+[13 May 2018 00:05:04,598] (INFO ) [NioProcessor-2]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><DepositResponse>    <FundTransferVersionId>b0d3430a3652d2260f4cf73ca8dad401</FundTransferVersionId>    <Balance>780000</Balance>    <CasinoTransferId>a07d105a-403c-4707-99df-b82fcb0b98db</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>3260000</TotalBet>    <TotalWin>3540000</TotalWin></DepositResponse>
+[13 May 2018 00:05:04,612] (INFO ) [NioProcessor-120]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawRequest>
+    <FundTransferVersionId>d2bad902d8a18728f3f514fd57689d29</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77bebd6174</PlayerId>
+    <TransferId>591f45f4-b7b7-4453-b511-d4b9fc996c40</TransferId>
+    <GameId>549</GameId>
+    <GameNumber>1621663412264</GameNumber>
+    <SessionId>e5e5bae5e07219758e279c4d1b13959f</SessionId>
+    <Amount>20000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_BEGIN</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</WithdrawRequest>
+
+[13 May 2018 00:05:04,613] (INFO ) [NioProcessor-79]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawRequest>
+    <FundTransferVersionId>940aed9d5f11d296d5d9a7fd9fcc396c</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af7804e4b2d8</PlayerId>
+    <TransferId>d15fca4c-5677-4016-b04c-0847fdef9fd9</TransferId>
+    <GameId>832</GameId>
+    <GameNumber>1621663412265</GameNumber>
+    <SessionId>941f6fb598d4be2fdd647c91f8b3a35b</SessionId>
+    <Amount>50000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_BEGIN</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</WithdrawRequest>
+
+[13 May 2018 00:05:04,613] (INFO ) [NioProcessor-120]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Withdraw
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Withdraw => 1
+[13 May 2018 00:05:04,613] (INFO ) [NioProcessor-120]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawResponse>    <FundTransferVersionId>d2bad902d8a18728f3f514fd57689d29</FundTransferVersionId>    <Balance>6142500</Balance>    <CasinoTransferId>1398fed5-4c44-47db-a2af-a37932b34b50</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>18520000</TotalBet>    <TotalWin>24162500</TotalWin></WithdrawResponse>
+[13 May 2018 00:05:04,614] (INFO ) [NioProcessor-79]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Withdraw
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Withdraw => 1
+[13 May 2018 00:05:04,614] (INFO ) [NioProcessor-79]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawResponse>    <FundTransferVersionId>940aed9d5f11d296d5d9a7fd9fcc396c</FundTransferVersionId>    <Balance>86500</Balance>    <CasinoTransferId>fcb35318-f2b1-4fa5-8a0e-531275fdcf83</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>1687500</TotalBet>    <TotalWin>1274000</TotalWin></WithdrawResponse>
+[13 May 2018 00:05:04,618] (INFO ) [NioProcessor-7]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawRequest>
+    <FundTransferVersionId>c9a41be4e661007ede1bd66bd323a05a</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780382e921</PlayerId>
+    <TransferId>432e39de-d695-48e4-ad92-346501e7f6bf</TransferId>
+    <GameId>548</GameId>
+    <GameNumber>1621663412266</GameNumber>
+    <SessionId>8f4fc42250fcdc436d766743b00572fe</SessionId>
+    <Amount>50000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_BEGIN</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>MOBILE</PlatformType>
+</WithdrawRequest>
+
+[13 May 2018 00:05:04,619] (INFO ) [NioProcessor-7]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Withdraw
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Withdraw => 1
+[13 May 2018 00:05:04,619] (INFO ) [NioProcessor-7]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawResponse>    <FundTransferVersionId>c9a41be4e661007ede1bd66bd323a05a</FundTransferVersionId>    <Balance>3840000</Balance>    <CasinoTransferId>3c80a7c2-8330-4842-ba2a-f5fe09fec70a</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>3800000</TotalBet>    <TotalWin>7140000</TotalWin></WithdrawResponse>
+[13 May 2018 00:05:04,620] (INFO ) [NioProcessor-13]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawRequest>
+    <FundTransferVersionId>b1333b0960948d2efd8f862a742f15f2</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780e831205</PlayerId>
+    <TransferId>b2c60459-1bce-43ad-8e06-e8bf63618dcf</TransferId>
+    <GameId>859</GameId>
+    <GameNumber>1621663412268</GameNumber>
+    <SessionId>0756bb49209f50db43960c61f5a4b030</SessionId>
+    <Amount>60000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_BEGIN</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</WithdrawRequest>
+
+[13 May 2018 00:05:04,621] (INFO ) [NioProcessor-2]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>2c47f818aae7e3d069e843b729e4cac7</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780ba0a92d</PlayerId>
+    <TransferId>58ad2021-4aca-4e8a-96ca-f6b45736f551</TransferId>
+    <GameId>804</GameId>
+    <GameNumber>1621663412269</GameNumber>
+    <SessionId>aff0a68e6d04f0f590bff01b44f182e3</SessionId>
+    <Amount>20000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>MOBILE</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,621] (INFO ) [NioProcessor-13]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Withdraw
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Withdraw => 0
+[13 May 2018 00:05:04,621] (INFO ) [NioProcessor-13]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawResponse>    <FundTransferVersionId>b1333b0960948d2efd8f862a742f15f2</FundTransferVersionId>    <Balance>2072000</Balance>    <CasinoTransferId>fe51c527-cbcb-4fe2-888b-9acddd40f6f6</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>480000</TotalBet>    <TotalWin>2052000</TotalWin></WithdrawResponse>
+[13 May 2018 00:05:04,621] (INFO ) [NioProcessor-2]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 0
+[13 May 2018 00:05:04,622] (INFO ) [NioProcessor-2]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>2c47f818aae7e3d069e843b729e4cac7</FundTransferVersionId>    <Balance>580000</Balance>    <CasinoTransferId>b7d775f9-1dc8-4c0d-a5e4-1a183081cc24</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>580000</TotalBet>    <TotalWin>660000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,642] (INFO ) [NioProcessor-39]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>14ac9fd1393556ad669a1a062fb4b7a7</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af76f2c01786</PlayerId>
+    <TransferId>9a694b7f-d150-45c9-b823-bfeb55b7280e</TransferId>
+    <GameId>804</GameId>
+    <GameNumber>1621663412271</GameNumber>
+    <SessionId>b1b1a0156145cddd7647f3b55c58f05d</SessionId>
+    <Amount>20000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,642] (INFO ) [NioProcessor-106]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>5573ab7da3caa98b229ed7879c5b9156</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af78079a1b52</PlayerId>
+    <TransferId>9a082cc5-571d-46a2-b8b3-ab064a09b8c9</TransferId>
+    <GameId>821</GameId>
+    <GameNumber>1621663412270</GameNumber>
+    <SessionId>7bfd377ad86c310d131a8fa8de119b84</SessionId>
+    <Amount>10000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,643] (INFO ) [NioProcessor-106]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,643] (INFO ) [NioProcessor-39]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,643] (INFO ) [NioProcessor-106]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>5573ab7da3caa98b229ed7879c5b9156</FundTransferVersionId>    <Balance>760000</Balance>    <CasinoTransferId>77d49962-f5ab-4500-b221-5a81ebd893d8</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>1260000</TotalBet>    <TotalWin>1520000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,643] (INFO ) [NioProcessor-39]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>14ac9fd1393556ad669a1a062fb4b7a7</FundTransferVersionId>    <Balance>515000</Balance>    <CasinoTransferId>b3f0886a-9230-493e-bcb1-e57803098de8</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>116080000</TotalBet>    <TotalWin>116095000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,662] (INFO ) [NioProcessor-34]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>4f01046bd481e5f0d52709f22533aed6</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780e1abf7b</PlayerId>
+    <TransferId>261afd67-08ab-4b6e-9c26-91bb51a468eb</TransferId>
+    <GameId>803</GameId>
+    <GameNumber>1621663412273</GameNumber>
+    <SessionId>d7a9313680b20936786caf2105099d06</SessionId>
+    <Amount>40000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,662] (INFO ) [NioProcessor-84]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>6c857d74e0c690b5bce5f716d3518535</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780fe4cc56</PlayerId>
+    <TransferId>08354416-04a1-42de-bba2-1ccf851afaa4</TransferId>
+    <GameId>802</GameId>
+    <GameNumber>1621663412272</GameNumber>
+    <SessionId>3da30c29bb43ebd0a54841cda6b165f5</SessionId>
+    <Amount>10000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,663] (INFO ) [NioProcessor-34]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,663] (INFO ) [NioProcessor-84]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,663] (INFO ) [NioProcessor-34]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>4f01046bd481e5f0d52709f22533aed6</FundTransferVersionId>    <Balance>420000</Balance>    <CasinoTransferId>5a6b5572-059d-4a08-8ba7-5907033e4248</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>80000</TotalBet>    <TotalWin>0</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,663] (INFO ) [NioProcessor-84]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>6c857d74e0c690b5bce5f716d3518535</FundTransferVersionId>    <Balance>267000</Balance>    <CasinoTransferId>38a33324-678f-4285-afa3-c29a1f426076</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>313000</TotalBet>    <TotalWin>80000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,668] (INFO ) [NioProcessor-30]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawRequest>
+    <FundTransferVersionId>d857b701b4bb30aea57fd7e4cf3b98e0</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af7811e4653c</PlayerId>
+    <TransferId>0b64ed7f-f1c6-4224-895f-56fa42dde447</TransferId>
+    <GameId>506</GameId>
+    <GameNumber>1621663412275</GameNumber>
+    <SessionId>9b151202efb62c2e9869056266a5e30f</SessionId>
+    <Amount>60000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_BEGIN</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>MOBILE</PlatformType>
+</WithdrawRequest>
+
+[13 May 2018 00:05:04,668] (INFO ) [NioProcessor-30]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Withdraw
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Withdraw => 0
+[13 May 2018 00:05:04,668] (INFO ) [NioProcessor-30]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawResponse>    <FundTransferVersionId>d857b701b4bb30aea57fd7e4cf3b98e0</FundTransferVersionId>    <Balance>440000</Balance>    <CasinoTransferId>9528340d-9329-4d44-ad68-790796aae861</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>66000</TotalBet>    <TotalWin>6000</TotalWin></WithdrawResponse>
+[13 May 2018 00:05:04,681] (INFO ) [NioProcessor-125]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>f578cbdb4b2fc372a4df757c32bf849c</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77cac76ab7</PlayerId>
+    <TransferId>55ef5a6b-c4a3-4903-b005-06e907fe1a96</TransferId>
+    <GameId>859</GameId>
+    <GameNumber>1621663412278</GameNumber>
+    <SessionId>68763f171aab951b4703271d3adab990</SessionId>
+    <Amount>30000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IDSG_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,682] (INFO ) [NioProcessor-125]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,682] (INFO ) [NioProcessor-125]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>f578cbdb4b2fc372a4df757c32bf849c</FundTransferVersionId>    <Balance>719000</Balance>    <CasinoTransferId>c54e1959-2b6f-4643-ab7f-ce36b09fd49a</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>5880000</TotalBet>    <TotalWin>6099000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,682] (INFO ) [NioProcessor-92]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>315a0e8e6c9334a775c3d52e34bee1df</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77814cbb0c</PlayerId>
+    <TransferId>3ef45a8b-1030-47f8-b236-f239df643ce0</TransferId>
+    <GameId>520</GameId>
+    <GameNumber>1621663412279</GameNumber>
+    <SessionId>5344e02b520a2367a3f7611c130429b7</SessionId>
+    <Amount>10000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,683] (INFO ) [NioProcessor-92]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,683] (INFO ) [NioProcessor-92]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>315a0e8e6c9334a775c3d52e34bee1df</FundTransferVersionId>    <Balance>1901000</Balance>    <CasinoTransferId>a74c9564-6140-4646-a195-b6ae825ee564</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>3246000</TotalBet>    <TotalWin>4647000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,693] (INFO ) [NioProcessor-61]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DepositRequest>
+    <FundTransferVersionId>e4b79fe39b680d59b2230ae3020fedc6</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780416fa31</PlayerId>
+    <TransferId>12c4d98b-34dc-4a76-b8ab-9aab4466a7b6</TransferId>
+    <GameId>801</GameId>
+    <GameNumber>1621663404120</GameNumber>
+    <SessionId>b1b4ad6a77446b38df1be843eca66e6d</SessionId>
+    <Amount>20000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>MOBILE</PlatformType>
+</DepositRequest>
+
+[13 May 2018 00:05:04,694] (INFO ) [NioProcessor-49]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>cd00c5ba26b8198532d0e56d71c65810</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77f5dd2823</PlayerId>
+    <TransferId>4f684b43-e66a-4623-a12f-8c821a7bee2d</TransferId>
+    <GameId>804</GameId>
+    <GameNumber>1621663412280</GameNumber>
+    <SessionId>49a157d781889dd7be32db7c6fed640f</SessionId>
+    <Amount>80000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,694] (INFO ) [NioProcessor-61]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Deposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Deposit => 1
+[13 May 2018 00:05:04,695] (INFO ) [NioProcessor-61]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><DepositResponse>    <FundTransferVersionId>e4b79fe39b680d59b2230ae3020fedc6</FundTransferVersionId>    <Balance>340000</Balance>    <CasinoTransferId>46543d5f-0f2a-48f8-8b24-2b97530e5516</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>680000</TotalBet>    <TotalWin>520000</TotalWin></DepositResponse>
+[13 May 2018 00:05:04,695] (INFO ) [NioProcessor-49]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,695] (INFO ) [NioProcessor-49]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>cd00c5ba26b8198532d0e56d71c65810</FundTransferVersionId>    <Balance>1360000</Balance>    <CasinoTransferId>1103f961-d3e5-43de-947b-8e50691f7e60</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>11040000</TotalBet>    <TotalWin>11900000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,710] (INFO ) [NioProcessor-69]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>2c09a96937667009ae40dde9edafb967</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780c5412fc</PlayerId>
+    <TransferId>68487f64-1bbd-4872-ab92-c155e1e2af5e</TransferId>
+    <GameId>837</GameId>
+    <GameNumber>1621663412281</GameNumber>
+    <SessionId>b5cbb2397583e61533504d04efe2f593</SessionId>
+    <Amount>25000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>LR_HTML_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,711] (INFO ) [NioProcessor-69]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 0
+[13 May 2018 00:05:04,711] (INFO ) [NioProcessor-69]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>2c09a96937667009ae40dde9edafb967</FundTransferVersionId>    <Balance>65000</Balance>    <CasinoTransferId>a6e8cd50-6179-48f5-ac99-db9069d6a669</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>675000</TotalBet>    <TotalWin>240000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,723] (INFO ) [NioProcessor-119]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>442c15ded282bd645ccfd4c6a24f1003</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77b4b7a0ed</PlayerId>
+    <TransferId>ced20a37-d49d-4490-95dc-89c757c5cd86</TransferId>
+    <GameId>527</GameId>
+    <GameNumber>1621663412283</GameNumber>
+    <SessionId>c42dcb06e04bdf54584ec3db9a9d25a0</SessionId>
+    <Amount>40000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,724] (INFO ) [NioProcessor-119]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,724] (INFO ) [NioProcessor-119]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>442c15ded282bd645ccfd4c6a24f1003</FundTransferVersionId>    <Balance>7535300</Balance>    <CasinoTransferId>c4a8be31-7578-4c09-a853-d07ecc28e59a</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>20106000</TotalBet>    <TotalWin>27141300</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,726] (INFO ) [NioProcessor-54]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DepositRequest>
+    <FundTransferVersionId>0b12ff001dcfb965619172286d435e56</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af747592830e</PlayerId>
+    <TransferId>7facbaf8-c015-46bd-9977-1e891f98a845</TransferId>
+    <GameId>875</GameId>
+    <GameNumber>1621663395881</GameNumber>
+    <SessionId>745824f98782cf7f2efba81508eedfe8</SessionId>
+    <Amount>870000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</DepositRequest>
+
+[13 May 2018 00:05:04,727] (INFO ) [NioProcessor-54]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Deposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Deposit => 1
+[13 May 2018 00:05:04,727] (INFO ) [NioProcessor-54]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><DepositResponse>    <FundTransferVersionId>0b12ff001dcfb965619172286d435e56</FundTransferVersionId>    <Balance>40034000</Balance>    <CasinoTransferId>097fc2b7-cf6c-4469-ab0e-b5e144c53d0d</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>183255000</TotalBet>    <TotalWin>222789000</TotalWin></DepositResponse>
+[13 May 2018 00:05:04,760] (INFO ) [NioProcessor-112]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>f2db77fafe09b7e0f114afa72b592323</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77f295d0a0</PlayerId>
+    <TransferId>885ef347-b15d-45c6-8897-15d7348f8d51</TransferId>
+    <GameId>824</GameId>
+    <GameNumber>1621663412288</GameNumber>
+    <SessionId>5f48005a3f9b1b9fe164770f38a7e8d9</SessionId>
+    <Amount>20000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,760] (INFO ) [NioProcessor-72]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>bb1ea05c99450f4f5985bf33c83b9f3c</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77c36e0e4f</PlayerId>
+    <TransferId>8e645940-7014-453f-bd62-41b5f099baa3</TransferId>
+    <GameId>825</GameId>
+    <GameNumber>1621663412287</GameNumber>
+    <SessionId>efb1253dfa625e917c8c301a120cb2b6</SessionId>
+    <Amount>80000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,761] (INFO ) [NioProcessor-72]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 0
+[13 May 2018 00:05:04,762] (INFO ) [NioProcessor-72]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>bb1ea05c99450f4f5985bf33c83b9f3c</FundTransferVersionId>    <Balance>7800000</Balance>    <CasinoTransferId>60dd3c04-1171-428a-8fe5-69c8c65676d0</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>23040000</TotalBet>    <TotalWin>30340000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,762] (INFO ) [NioProcessor-112]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 2
+[13 May 2018 00:05:04,762] (INFO ) [NioProcessor-112]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>f2db77fafe09b7e0f114afa72b592323</FundTransferVersionId>    <Balance>1120000</Balance>    <CasinoTransferId>6541802a-40f2-4538-9b1c-71a9abccd9f5</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>5360000</TotalBet>    <TotalWin>5980000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,768] (INFO ) [NioProcessor-81]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawRequest>
+    <FundTransferVersionId>3aeb5ed87ecec62a319de452a9ae04f3</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780d786668</PlayerId>
+    <TransferId>515cbf2d-9199-405a-ad57-bf2297021774</TransferId>
+    <GameId>882</GameId>
+    <GameNumber>1621663412289</GameNumber>
+    <SessionId>b4df03af4ce9cb6a6c7ece2b45134bc3</SessionId>
+    <Amount>20000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_BEGIN</Reason>
+    <PortalCode>IDSG_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</WithdrawRequest>
+
+[13 May 2018 00:05:04,769] (INFO ) [NioProcessor-81]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Withdraw
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Withdraw => 0
+[13 May 2018 00:05:04,769] (INFO ) [NioProcessor-81]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawResponse>    <FundTransferVersionId>3aeb5ed87ecec62a319de452a9ae04f3</FundTransferVersionId>    <Balance>370000</Balance>    <CasinoTransferId>e92548b0-c2ee-428b-823f-77dd33a262d8</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>780000</TotalBet>    <TotalWin>650000</TotalWin></WithdrawResponse>
+[13 May 2018 00:05:04,780] (INFO ) [NioProcessor-91]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>9f3648d947995a117aa9d083d75d17fd</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77f87928d1</PlayerId>
+    <TransferId>79b15d3e-f6d2-4977-83dd-22a43dce9775</TransferId>
+    <GameId>804</GameId>
+    <GameNumber>1621663412290</GameNumber>
+    <SessionId>96fb97864dd5ca2bec976ef91e769394</SessionId>
+    <Amount>8000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,781] (INFO ) [NioProcessor-91]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,781] (INFO ) [NioProcessor-91]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>9f3648d947995a117aa9d083d75d17fd</FundTransferVersionId>    <Balance>374000</Balance>    <CasinoTransferId>366469bd-9267-49e8-b1da-2fc2690f1f0b</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>2264000</TotalBet>    <TotalWin>2138000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,786] (INFO ) [NioProcessor-21]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>d233a9bf475c132d686e16097460432e</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780ecc13bd</PlayerId>
+    <TransferId>1f95a71f-a307-43d3-8d47-47636e2c40f9</TransferId>
+    <GameId>549</GameId>
+    <GameNumber>1621663412291</GameNumber>
+    <SessionId>3ccabe610b101036d0fa188e2a56a57d</SessionId>
+    <Amount>20000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,787] (INFO ) [NioProcessor-21]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 0
+[13 May 2018 00:05:04,787] (INFO ) [NioProcessor-21]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>d233a9bf475c132d686e16097460432e</FundTransferVersionId>    <Balance>1260000</Balance>    <CasinoTransferId>36f2324c-0bc7-47e8-a419-4508fd4d9c68</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>200000</TotalBet>    <TotalWin>960000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,793] (INFO ) [NioProcessor-125]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawRequest>
+    <FundTransferVersionId>98ded7a45ac6c17ec8ceb19b45707019</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af769f93e742</PlayerId>
+    <TransferId>ed0c2265-821a-4504-8ddd-85f4dfc11869</TransferId>
+    <GameId>884</GameId>
+    <GameNumber>1621663412292</GameNumber>
+    <SessionId>162de3eb01ae07ec4fe1039efefc973f</SessionId>
+    <Amount>80000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_BEGIN</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</WithdrawRequest>
+
+[13 May 2018 00:05:04,794] (INFO ) [NioProcessor-125]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Withdraw
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Withdraw => 1
+[13 May 2018 00:05:04,794] (INFO ) [NioProcessor-125]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawResponse>    <FundTransferVersionId>98ded7a45ac6c17ec8ceb19b45707019</FundTransferVersionId>    <Balance>14420000</Balance>    <CasinoTransferId>a04045ca-e921-4a3f-ae28-28df0746c83b</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>105200000</TotalBet>    <TotalWin>119120000</TotalWin></WithdrawResponse>
+[13 May 2018 00:05:04,797] (INFO ) [NioProcessor-18]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>1932bb7b2e72aec07207f7f14a34fd20</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780b9ce20b</PlayerId>
+    <TransferId>6a80c622-ca8e-4aad-9406-eb48e64f9946</TransferId>
+    <GameId>805</GameId>
+    <GameNumber>1621663412293</GameNumber>
+    <SessionId>0b207a4eb19b9878c4d79f10b478628a</SessionId>
+    <Amount>80000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,797] (INFO ) [NioProcessor-37]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>e9bed2f64db2faaa1ebb2afdd8b434f6</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780176a3cb</PlayerId>
+    <TransferId>8fe95490-7dde-4c37-a920-637e74557ccb</TransferId>
+    <GameId>546</GameId>
+    <GameNumber>1621663412294</GameNumber>
+    <SessionId>91d028ec56d0f0ad6a3b75649ada7891</SessionId>
+    <Amount>8000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IL_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,798] (INFO ) [NioProcessor-18]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,798] (INFO ) [NioProcessor-18]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>1932bb7b2e72aec07207f7f14a34fd20</FundTransferVersionId>    <Balance>3204000</Balance>    <CasinoTransferId>a6fc81bb-3a46-4681-b2b2-34c9258d5342</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>2480000</TotalBet>    <TotalWin>5184000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,798] (INFO ) [NioProcessor-37]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,799] (INFO ) [NioProcessor-37]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>e9bed2f64db2faaa1ebb2afdd8b434f6</FundTransferVersionId>    <Balance>341600</Balance>    <CasinoTransferId>45c7e823-0752-46ca-b766-603c8d90dcf0</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>356000</TotalBet>    <TotalWin>197600</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,804] (INFO ) [NioProcessor-13]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>40fa0d73b645449599b8532aff88a573</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af7808425a6d</PlayerId>
+    <TransferId>37fcfadd-101a-478d-bae5-6ec59df687da</TransferId>
+    <GameId>828</GameId>
+    <GameNumber>1621663412295</GameNumber>
+    <SessionId>c1f2593558b18786dc67855067b680de</SessionId>
+    <Amount>50000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IDSG_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,805] (INFO ) [NioProcessor-13]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 0
+[13 May 2018 00:05:04,805] (INFO ) [NioProcessor-13]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>40fa0d73b645449599b8532aff88a573</FundTransferVersionId>    <Balance>1240000</Balance>    <CasinoTransferId>905e9a8b-f1c4-4168-ba9a-0825c5c888d5</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>2900000</TotalBet>    <TotalWin>3640000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,816] (INFO ) [NioProcessor-62]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawRequest>
+    <FundTransferVersionId>eed1671592f3fb706632f5b1e5963fa2</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77c173a7db</PlayerId>
+    <TransferId>8423fe16-89c3-452f-ae5d-76ea3f23fcee</TransferId>
+    <GameId>502</GameId>
+    <GameNumber>1621663412296</GameNumber>
+    <SessionId>43ec72de42541621c7cbc1b257289024</SessionId>
+    <Amount>100000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_BEGIN</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</WithdrawRequest>
+
+[13 May 2018 00:05:04,817] (INFO ) [NioProcessor-45]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DepositRequest>
+    <FundTransferVersionId>bf1a1d64dee8eb560b7f28956d1c855b</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77ff67a7de</PlayerId>
+    <TransferId>ebf05aea-f514-408b-8b84-773f48d0d55f</TransferId>
+    <GameId>818</GameId>
+    <GameNumber>1621663399966</GameNumber>
+    <SessionId>9a91d357e828300f0c3835c64cf560d3</SessionId>
+    <Amount>10000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IDSG_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</DepositRequest>
+
+[13 May 2018 00:05:04,817] (INFO ) [NioProcessor-62]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Withdraw
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Withdraw => 1
+[13 May 2018 00:05:04,817] (INFO ) [NioProcessor-62]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawResponse>    <FundTransferVersionId>eed1671592f3fb706632f5b1e5963fa2</FundTransferVersionId>    <Balance>6227500</Balance>    <CasinoTransferId>ea54134f-92f2-4f47-8285-e576703431c4</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>36125000</TotalBet>    <TotalWin>41852500</TotalWin></WithdrawResponse>
+[13 May 2018 00:05:04,818] (INFO ) [NioProcessor-45]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Deposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Deposit => 1
+[13 May 2018 00:05:04,818] (INFO ) [NioProcessor-45]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><DepositResponse>    <FundTransferVersionId>bf1a1d64dee8eb560b7f28956d1c855b</FundTransferVersionId>    <Balance>150000</Balance>    <CasinoTransferId>d55bd304-a265-41ec-9871-df39c5bf9f0e</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>1360000</TotalBet>    <TotalWin>1010000</TotalWin></DepositResponse>
+[13 May 2018 00:05:04,822] (INFO ) [NioProcessor-108]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DepositRequest>
+    <FundTransferVersionId>b9700e6bf0dcd457f7aae5283a8c539d</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77f9598608</PlayerId>
+    <TransferId>195b66a6-1575-4bd9-a3a9-e3e7bcdb1557</TransferId>
+    <GameId>841</GameId>
+    <GameNumber>1621663395970</GameNumber>
+    <SessionId>1e8392d7f287c9689a41abb74dc1d6a0</SessionId>
+    <Amount>10000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IL_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</DepositRequest>
+
+[13 May 2018 00:05:04,823] (INFO ) [NioProcessor-108]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Deposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Deposit => 1
+[13 May 2018 00:05:04,823] (INFO ) [NioProcessor-108]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><DepositResponse>    <FundTransferVersionId>b9700e6bf0dcd457f7aae5283a8c539d</FundTransferVersionId>    <Balance>645000</Balance>    <CasinoTransferId>ae4234c0-58bf-4c2f-b5fc-2453d9f3f442</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>1240000</TotalBet>    <TotalWin>1385000</TotalWin></DepositResponse>
+[13 May 2018 00:05:04,831] (INFO ) [NioProcessor-35]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>74d5af6b6454861e36526bf44478ff04</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af7717f29135</PlayerId>
+    <TransferId>ca484a16-065f-4706-8d0c-1d13174cd55d</TransferId>
+    <GameId>830</GameId>
+    <GameNumber>1621663412298</GameNumber>
+    <SessionId>7241b0d048e6e25f261b78a07bf6c714</SessionId>
+    <Amount>20000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,832] (INFO ) [NioProcessor-35]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,832] (INFO ) [NioProcessor-35]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>74d5af6b6454861e36526bf44478ff04</FundTransferVersionId>    <Balance>7976000</Balance>    <CasinoTransferId>4509fab0-b07a-4c9f-94c7-09e20ee867d4</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>29800000</TotalBet>    <TotalWin>37276000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,839] (INFO ) [NioProcessor-27]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>191787b6f30d26d3cc0fbc455bb666fb</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af7811280ffd</PlayerId>
+    <TransferId>24e59a8d-3a2b-48db-b562-5288a6d6d70c</TransferId>
+    <GameId>831</GameId>
+    <GameNumber>1621663412299</GameNumber>
+    <SessionId>78f555306220d5f3d23e18d7d452532a</SessionId>
+    <Amount>1000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>MOBILE</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,840] (INFO ) [NioProcessor-27]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,840] (INFO ) [NioProcessor-27]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>191787b6f30d26d3cc0fbc455bb666fb</FundTransferVersionId>    <Balance>497000</Balance>    <CasinoTransferId>34298005-5a6c-47c1-8ee1-4237cb53d3b9</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>15000</TotalBet>    <TotalWin>12000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,847] (INFO ) [NioProcessor-64]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>0e8aee44fa0bc633b25cb6baa67a899a</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77d191216a</PlayerId>
+    <TransferId>3aea9ca1-ebee-420f-a260-f98ace6e761e</TransferId>
+    <GameId>818</GameId>
+    <GameNumber>1621663412301</GameNumber>
+    <SessionId>41e6546ccd413afe8cbf438021b86989</SessionId>
+    <Amount>10000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,848] (INFO ) [NioProcessor-64]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 0
+[13 May 2018 00:05:04,848] (INFO ) [NioProcessor-64]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>0e8aee44fa0bc633b25cb6baa67a899a</FundTransferVersionId>    <Balance>145000</Balance>    <CasinoTransferId>41acbc44-fcef-4bb1-bc2d-a24a90b29c44</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>5770000</TotalBet>    <TotalWin>5415000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,852] (INFO ) [NioProcessor-14]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawRequest>
+    <FundTransferVersionId>19a5c94060abbe6e6eaf1390f9a63a52</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77ee9db866</PlayerId>
+    <TransferId>cfacccba-a89f-482b-888c-51bd885dba11</TransferId>
+    <GameId>20202</GameId>
+    <GameNumber>1621663412302</GameNumber>
+    <SessionId>df0acfc9ba799bfe64f1b731dcbac7c3</SessionId>
+    <Amount>8000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_BEGIN</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</WithdrawRequest>
+
+[13 May 2018 00:05:04,853] (INFO ) [NioProcessor-14]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Withdraw
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Withdraw => 0
+[13 May 2018 00:05:04,853] (INFO ) [NioProcessor-14]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawResponse>    <FundTransferVersionId>19a5c94060abbe6e6eaf1390f9a63a52</FundTransferVersionId>    <Balance>649000</Balance>    <CasinoTransferId>791f3d1f-3d4e-4289-943c-21cd641e4962</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>942000</TotalBet>    <TotalWin>1091000</TotalWin></WithdrawResponse>
+[13 May 2018 00:05:04,862] (INFO ) [NioProcessor-11]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>c06648da5196fb0f8662606f593cbc60</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af781087df4c</PlayerId>
+    <TransferId>7619d4ca-f1ee-4604-b61e-e8d986f54011</TransferId>
+    <GameId>804</GameId>
+    <GameNumber>1621663412303</GameNumber>
+    <SessionId>ee4997adf0240fa3c359fa24ab1e39c6</SessionId>
+    <Amount>20000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,863] (INFO ) [NioProcessor-11]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,863] (INFO ) [NioProcessor-11]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>c06648da5196fb0f8662606f593cbc60</FundTransferVersionId>    <Balance>440000</Balance>    <CasinoTransferId>609c3780-9782-43c5-acc2-3c26e122f527</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>60000</TotalBet>    <TotalWin>0</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,874] (INFO ) [NioProcessor-54]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawRequest>
+    <FundTransferVersionId>e77691599977be2f5c33839b79066bcd</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af747592830e</PlayerId>
+    <TransferId>6cee4eb7-5e74-44a4-931c-d04218b283e0</TransferId>
+    <GameId>875</GameId>
+    <GameNumber>1621663412304</GameNumber>
+    <SessionId>745824f98782cf7f2efba81508eedfe8</SessionId>
+    <Amount>80000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_BEGIN</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</WithdrawRequest>
+
+[13 May 2018 00:05:04,874] (INFO ) [NioProcessor-54]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Withdraw
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Withdraw => 0
+[13 May 2018 00:05:04,874] (INFO ) [NioProcessor-54]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawResponse>    <FundTransferVersionId>e77691599977be2f5c33839b79066bcd</FundTransferVersionId>    <Balance>39954000</Balance>    <CasinoTransferId>3e36223d-b764-4db3-bcfa-aca1af058811</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>183335000</TotalBet>    <TotalWin>222789000</TotalWin></WithdrawResponse>
+[13 May 2018 00:05:04,876] (INFO ) [NioProcessor-32]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DepositRequest>
+    <FundTransferVersionId>dd07dafbd9062ce9d59aa22c820892c0</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780655c637</PlayerId>
+    <TransferId>6f727f44-2cc5-457a-94f3-1e11f322c46e</TransferId>
+    <GameId>804</GameId>
+    <GameNumber>1621663395934</GameNumber>
+    <SessionId>65e0d3b92be6173dcc84676aff9275fb</SessionId>
+    <Amount>300000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</DepositRequest>
+
+[13 May 2018 00:05:04,877] (INFO ) [NioProcessor-32]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Deposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Deposit => 1
+[13 May 2018 00:05:04,877] (INFO ) [NioProcessor-32]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><DepositResponse>    <FundTransferVersionId>dd07dafbd9062ce9d59aa22c820892c0</FundTransferVersionId>    <Balance>2140000</Balance>    <CasinoTransferId>418f8075-f6de-45e4-8960-6c1548e8f36c</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>6560000</TotalBet>    <TotalWin>8200000</TotalWin></DepositResponse>
+[13 May 2018 00:05:04,880] (INFO ) [NioProcessor-97]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>62c466e95d2754be2ab31f8059821b50</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af78101a22a3</PlayerId>
+    <TransferId>7169828b-7367-4cff-bbb9-3964a82df151</TransferId>
+    <GameId>896</GameId>
+    <GameNumber>1621663412305</GameNumber>
+    <SessionId>7424a469cd2d2c0c1f08afed5077228e</SessionId>
+    <Amount>10000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,881] (INFO ) [NioProcessor-97]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,881] (INFO ) [NioProcessor-97]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>62c466e95d2754be2ab31f8059821b50</FundTransferVersionId>    <Balance>406000</Balance>    <CasinoTransferId>6bed52a2-fcfa-40d8-8141-0e5e7e52878e</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>100000</TotalBet>    <TotalWin>6000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,890] (INFO ) [NioProcessor-22]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>33df228f9d351c550a9bf9c5040641d9</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780e27dbcf</PlayerId>
+    <TransferId>7b31dd33-ce06-47b9-aefd-f53473c2e71e</TransferId>
+    <GameId>831</GameId>
+    <GameNumber>1621663412306</GameNumber>
+    <SessionId>175fab406c9017bb6118633eb992a43e</SessionId>
+    <Amount>20000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>MOBILE</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,891] (INFO ) [NioProcessor-22]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,891] (INFO ) [NioProcessor-22]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>33df228f9d351c550a9bf9c5040641d9</FundTransferVersionId>    <Balance>440000</Balance>    <CasinoTransferId>c75089cb-a01c-4c66-a555-204f1cd2f4ea</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>300000</TotalBet>    <TotalWin>240000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,894] (INFO ) [NioProcessor-18]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DepositRequest>
+    <FundTransferVersionId>9f86378e6706a556f6441511a3341709</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af76e60cf694</PlayerId>
+    <TransferId>6fa13e59-5b5a-49dc-9d10-222b9e5755d3</TransferId>
+    <GameId>837</GameId>
+    <GameNumber>1621663408146</GameNumber>
+    <SessionId>7bf424cafcd38a629de5bb242668a51a</SessionId>
+    <Amount>60000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</DepositRequest>
+
+[13 May 2018 00:05:04,895] (INFO ) [NioProcessor-18]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Deposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Deposit => 1
+[13 May 2018 00:05:04,895] (INFO ) [NioProcessor-18]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><DepositResponse>    <FundTransferVersionId>9f86378e6706a556f6441511a3341709</FundTransferVersionId>    <Balance>10554000</Balance>    <CasinoTransferId>7082ef76-0291-4c85-a487-80fe8f87890b</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>44300000</TotalBet>    <TotalWin>54354000</TotalWin></DepositResponse>
+[13 May 2018 00:05:04,897] (INFO ) [NioProcessor-100]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DepositRequest>
+    <FundTransferVersionId>9ae9d0abd12d44c752c21ebe883b57dc</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af76f368c9cd</PlayerId>
+    <TransferId>ae4713ba-dbeb-4e4c-bc24-a4510b569dd2</TransferId>
+    <GameId>898</GameId>
+    <GameNumber>1621663404184</GameNumber>
+    <SessionId>1d4d7ce8968e0c21533542b13c420ca2</SessionId>
+    <Amount>160000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</DepositRequest>
+
+[13 May 2018 00:05:04,898] (INFO ) [NioProcessor-100]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Deposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Deposit => 1
+[13 May 2018 00:05:04,898] (INFO ) [NioProcessor-100]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><DepositResponse>    <FundTransferVersionId>9ae9d0abd12d44c752c21ebe883b57dc</FundTransferVersionId>    <Balance>50998000</Balance>    <CasinoTransferId>be584a8a-08ba-4ce5-9341-7b9b6d7c962a</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>135560000</TotalBet>    <TotalWin>186058000</TotalWin></DepositResponse>
+[13 May 2018 00:05:04,909] (INFO ) [NioProcessor-31]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>356b4ffe231a865f9b2be8efbfe8f3af</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af78112c55f3</PlayerId>
+    <TransferId>c2d4900f-1590-44db-a204-d541555d9142</TransferId>
+    <GameId>803</GameId>
+    <GameNumber>1621663412307</GameNumber>
+    <SessionId>71ff0c7465c61393a1d79f91865caf1d</SessionId>
+    <Amount>40000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,910] (INFO ) [NioProcessor-40]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DepositRequest>
+    <FundTransferVersionId>7730807d394c0d6914d32e0acf7d8077</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77ffe46bdc</PlayerId>
+    <TransferId>6b41672d-c48f-4f81-9ccc-09778c739dd3</TransferId>
+    <GameId>804</GameId>
+    <GameNumber>1621663404173</GameNumber>
+    <SessionId>b11715197d9c829f4121e5f39dad2090</SessionId>
+    <Amount>16000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</DepositRequest>
+
+[13 May 2018 00:05:04,910] (INFO ) [NioProcessor-31]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,910] (INFO ) [NioProcessor-31]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>356b4ffe231a865f9b2be8efbfe8f3af</FundTransferVersionId>    <Balance>260000</Balance>    <CasinoTransferId>a6f957d4-7b26-4657-bc1d-94a60b19286a</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>240000</TotalBet>    <TotalWin>0</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,911] (INFO ) [NioProcessor-40]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Deposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Deposit => 1
+[13 May 2018 00:05:04,911] (INFO ) [NioProcessor-40]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><DepositResponse>    <FundTransferVersionId>7730807d394c0d6914d32e0acf7d8077</FundTransferVersionId>    <Balance>548000</Balance>    <CasinoTransferId>45399b73-798c-4640-997d-5d84fb46964d</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>884000</TotalBet>    <TotalWin>932000</TotalWin></DepositResponse>
+[13 May 2018 00:05:04,916] (INFO ) [NioProcessor-27]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>38a5d06f2ea1f75c919c9d6b37d60f3a</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af7810633766</PlayerId>
+    <TransferId>e4639e5e-cac7-4431-8c02-2fb744657157</TransferId>
+    <GameId>814</GameId>
+    <GameNumber>1621663412309</GameNumber>
+    <SessionId>7b07eb62fbcf31af7c691bad5b834388</SessionId>
+    <Amount>10000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>LR_HTML_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,917] (INFO ) [NioProcessor-27]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,917] (INFO ) [NioProcessor-27]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>38a5d06f2ea1f75c919c9d6b37d60f3a</FundTransferVersionId>    <Balance>245500</Balance>    <CasinoTransferId>9494645f-c6e6-4c05-98b6-733ed6203f4a</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>350000</TotalBet>    <TotalWin>95500</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,917] (INFO ) [NioProcessor-86]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>911c08fe723aba0e7fc78a215d60ee75</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af779f70111b</PlayerId>
+    <TransferId>7b5800ee-7365-4955-8677-81c9fb6d80ff</TransferId>
+    <GameId>804</GameId>
+    <GameNumber>1621663412310</GameNumber>
+    <SessionId>c7124b4629a3eff6d8d09eba24040ab0</SessionId>
+    <Amount>80000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,918] (INFO ) [NioProcessor-86]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,918] (INFO ) [NioProcessor-86]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>911c08fe723aba0e7fc78a215d60ee75</FundTransferVersionId>    <Balance>6960000</Balance>    <CasinoTransferId>baf0ae5f-4856-4eb5-8c38-0c7e37d3f311</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>54000000</TotalBet>    <TotalWin>60460000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,924] (INFO ) [NioProcessor-102]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>dfa831020a526b6c0a80f61d09feb8bc</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77e8d2ceae</PlayerId>
+    <TransferId>d094e35b-186c-4006-80fb-5bfabfba6745</TransferId>
+    <GameId>866</GameId>
+    <GameNumber>1621663412311</GameNumber>
+    <SessionId>0cc1b283b893c400e79413909159ad29</SessionId>
+    <Amount>20000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IL_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,925] (INFO ) [NioProcessor-102]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,925] (INFO ) [NioProcessor-102]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>dfa831020a526b6c0a80f61d09feb8bc</FundTransferVersionId>    <Balance>630000</Balance>    <CasinoTransferId>1efb16cd-b18d-41bd-9565-1ea7bf52c22f</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>2680000</TotalBet>    <TotalWin>2810000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,942] (INFO ) [NioProcessor-36]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>0932ed72bae0a0492f70e64ede3f1a47</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77a09e84bf</PlayerId>
+    <TransferId>bd445941-afe4-46a6-ae2e-29622b40286e</TransferId>
+    <GameId>822</GameId>
+    <GameNumber>1621663412312</GameNumber>
+    <SessionId>dd38e0bb53ec5fdb667be716d7f841ab</SessionId>
+    <Amount>20000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,942] (INFO ) [NioProcessor-18]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawRequest>
+    <FundTransferVersionId>d160a857969417ef61170b6a94299d9c</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af76e60cf694</PlayerId>
+    <TransferId>0ae4f6be-9d72-4ba1-ad07-b9146e805b0b</TransferId>
+    <GameId>837</GameId>
+    <GameNumber>1621663412313</GameNumber>
+    <SessionId>7bf424cafcd38a629de5bb242668a51a</SessionId>
+    <Amount>50000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_BEGIN</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</WithdrawRequest>
+
+[13 May 2018 00:05:04,943] (INFO ) [NioProcessor-18]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Withdraw
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Withdraw => 1
+[13 May 2018 00:05:04,943] (INFO ) [NioProcessor-18]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawResponse>    <FundTransferVersionId>d160a857969417ef61170b6a94299d9c</FundTransferVersionId>    <Balance>10504000</Balance>    <CasinoTransferId>3476c49d-19ba-4260-ab99-b27eeff32237</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>44350000</TotalBet>    <TotalWin>54354000</TotalWin></WithdrawResponse>
+[13 May 2018 00:05:04,943] (INFO ) [NioProcessor-36]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,943] (INFO ) [NioProcessor-36]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>0932ed72bae0a0492f70e64ede3f1a47</FundTransferVersionId>    <Balance>3520000</Balance>    <CasinoTransferId>fe35b21a-92d1-4e85-954e-73286b4124e6</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>9510000</TotalBet>    <TotalWin>12530000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,944] (INFO ) [NioProcessor-4]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DepositRequest>
+    <FundTransferVersionId>78716192cf05c4bd94bacad9c5b9a80a</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af6e9110e0cd</PlayerId>
+    <TransferId>32937b5b-1fde-4b8d-9e41-e508ba593f4e</TransferId>
+    <GameId>860</GameId>
+    <GameNumber>1621663399991</GameNumber>
+    <SessionId>4dc1bff7b73eb1b31fb15dd4a35d3cf8</SessionId>
+    <Amount>1500</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>MOBILE</PlatformType>
+</DepositRequest>
+
+[13 May 2018 00:05:04,944] (INFO ) [NioProcessor-4]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Deposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Deposit => 0
+[13 May 2018 00:05:04,944] (INFO ) [NioProcessor-4]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><DepositResponse>    <FundTransferVersionId>78716192cf05c4bd94bacad9c5b9a80a</FundTransferVersionId>    <Balance>640500</Balance>    <CasinoTransferId>c3976753-6d05-416e-8bc1-dbe51c825336</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>397000</TotalBet>    <TotalWin>537500</TotalWin></DepositResponse>
+[13 May 2018 00:05:04,947] (INFO ) [NioProcessor-125]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DepositRequest>
+    <FundTransferVersionId>840aa534e4de48eeb824dcb71e1fba6d</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77a860f08b</PlayerId>
+    <TransferId>954f44c2-228b-42a1-88e5-0b3e4cecf697</TransferId>
+    <GameId>805</GameId>
+    <GameNumber>1621663404175</GameNumber>
+    <SessionId>2099d2889e9a1d41d8b217007d641aa9</SessionId>
+    <Amount>280000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</DepositRequest>
+
+[13 May 2018 00:05:04,948] (INFO ) [NioProcessor-125]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Deposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Deposit => 1
+[13 May 2018 00:05:04,948] (INFO ) [NioProcessor-125]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><DepositResponse>    <FundTransferVersionId>840aa534e4de48eeb824dcb71e1fba6d</FundTransferVersionId>    <Balance>3646000</Balance>    <CasinoTransferId>ef7e1523-37ae-487b-8f13-8a9c443f07af</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>28460000</TotalBet>    <TotalWin>31606000</TotalWin></DepositResponse>
+[13 May 2018 00:05:04,949] (INFO ) [NioProcessor-40]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>cdaacdfdea5c489f0fcc13c50020ebfa</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77ffe46bdc</PlayerId>
+    <TransferId>481be071-3b10-450e-b755-6b0b435d500b</TransferId>
+    <GameId>804</GameId>
+    <GameNumber>1621663412314</GameNumber>
+    <SessionId>b11715197d9c829f4121e5f39dad2090</SessionId>
+    <Amount>4000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,950] (INFO ) [NioProcessor-40]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,950] (INFO ) [NioProcessor-40]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>cdaacdfdea5c489f0fcc13c50020ebfa</FundTransferVersionId>    <Balance>544000</Balance>    <CasinoTransferId>820b4065-167c-4dbb-9bb1-6275647cc0b0</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>888000</TotalBet>    <TotalWin>932000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,958] (INFO ) [NioProcessor-17]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>1aa0666ae641e7404bb19629433fb9cf</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af7808f99f41</PlayerId>
+    <TransferId>295599bb-4399-495a-858d-f22094581bf7</TransferId>
+    <GameId>548</GameId>
+    <GameNumber>1621663412317</GameNumber>
+    <SessionId>3e0bd8b83f671cac0f61962e9ca83fbf</SessionId>
+    <Amount>20000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>MOBILE</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,958] (INFO ) [NioProcessor-73]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawRequest>
+    <FundTransferVersionId>1ba71cf65f2f8e94a4811e8542c3b3f4</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77fe60f1cc</PlayerId>
+    <TransferId>a98332f2-8ae8-416f-b903-a4988fb61375</TransferId>
+    <GameId>882</GameId>
+    <GameNumber>1621663412316</GameNumber>
+    <SessionId>04daa6b1d92bf1525470f8980441e034</SessionId>
+    <Amount>20000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_BEGIN</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>MOBILE</PlatformType>
+</WithdrawRequest>
+
+[13 May 2018 00:05:04,959] (INFO ) [NioProcessor-73]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Withdraw
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Withdraw => 1
+[13 May 2018 00:05:04,959] (INFO ) [NioProcessor-73]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawResponse>    <FundTransferVersionId>1ba71cf65f2f8e94a4811e8542c3b3f4</FundTransferVersionId>    <Balance>230000</Balance>    <CasinoTransferId>ca500cdb-b927-4940-ad4f-3983f8293fa4</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>700000</TotalBet>    <TotalWin>430000</TotalWin></WithdrawResponse>
+[13 May 2018 00:05:04,959] (INFO ) [NioProcessor-17]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,959] (INFO ) [NioProcessor-17]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>1aa0666ae641e7404bb19629433fb9cf</FundTransferVersionId>    <Balance>628000</Balance>    <CasinoTransferId>44041379-6b89-47aa-8975-1d7f35e89b01</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>790000</TotalBet>    <TotalWin>918000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,970] (INFO ) [http-thread-pool-8181(8)]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AuthRequest>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af7812f2a0a8</PlayerId>
+    <DefenceCode>5af7812f2a0a8</DefenceCode>
+    <PortalCode>IA_EGT</PortalCode>
+    <SessionId>4c658e895468a12be67b069317e43f13</SessionId>
+</AuthRequest>
+
+[13 May 2018 00:05:04,971] (INFO ) [http-thread-pool-8181(8)]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Authenticate
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Authenticate => 1
+[13 May 2018 00:05:04,971] (INFO ) [http-thread-pool-8181(8)]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><AuthResponse>    <Balance>500000</Balance>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage></AuthResponse>
+[13 May 2018 00:05:04,975] (INFO ) [NioProcessor-26]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>a1ee4008b48aade46df992262b1dbaef</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77e4340b62</PlayerId>
+    <TransferId>5f4f5158-c905-4fdc-b5ff-d0d10b96db2c</TransferId>
+    <GameId>804</GameId>
+    <GameNumber>1621663412318</GameNumber>
+    <SessionId>839f5153758a295887e20c1f162539ff</SessionId>
+    <Amount>8000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>MOBILE</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,976] (INFO ) [NioProcessor-26]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,976] (INFO ) [NioProcessor-26]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>a1ee4008b48aade46df992262b1dbaef</FundTransferVersionId>    <Balance>693000</Balance>    <CasinoTransferId>b5ae7a90-c1b8-491e-9d9b-f4c04757a6f2</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>3936000</TotalBet>    <TotalWin>4129000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,983] (INFO ) [NioProcessor-104]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>64a04cb529b94d8e8dd7329be1dbe733</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77ce376afd</PlayerId>
+    <TransferId>4621c543-f45c-4977-b7e5-a64e5da05c11</TransferId>
+    <GameId>810</GameId>
+    <GameNumber>1621663412319</GameNumber>
+    <SessionId>d4602798d4c8ba0e48cf8a64c18384c5</SessionId>
+    <Amount>10000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IL_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,984] (INFO ) [NioProcessor-104]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:04,984] (INFO ) [NioProcessor-104]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>64a04cb529b94d8e8dd7329be1dbe733</FundTransferVersionId>    <Balance>2360000</Balance>    <CasinoTransferId>581b6190-d9a9-412f-9c3a-9e1ff9e527fd</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>3700000</TotalBet>    <TotalWin>5560000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:04,990] (INFO ) [NioProcessor-54]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>cfbe5489f15b00edf63db16eef343ccb</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780f7170b6</PlayerId>
+    <TransferId>df8d6bbd-e05e-4883-8dea-8630ae0b9f78</TransferId>
+    <GameId>804</GameId>
+    <GameNumber>1621663412321</GameNumber>
+    <SessionId>fbc267c265b1a6a6672641eec0f3c030</SessionId>
+    <Amount>80000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>10320000</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:04,991] (INFO ) [NioProcessor-54]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 0
+[13 May 2018 00:05:04,991] (INFO ) [NioProcessor-54]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>cfbe5489f15b00edf63db16eef343ccb</FundTransferVersionId>    <Balance>12800000</Balance>    <CasinoTransferId>bab2fc06-e211-4e06-9180-d668ac9ec0dd</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>940000</TotalBet>    <TotalWin>13240000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:05,006] (INFO ) [NioProcessor-103]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>c45a6d030a298495d77ed022a8cdfa74</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af76aca1633c</PlayerId>
+    <TransferId>19c5d5f3-9b45-4759-a20a-ce362e790f3f</TransferId>
+    <GameId>801</GameId>
+    <GameNumber>1621663412323</GameNumber>
+    <SessionId>0d916a3a0ec7caa579d4fc952102d969</SessionId>
+    <Amount>10000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:05,007] (INFO ) [NioProcessor-103]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:05,007] (INFO ) [NioProcessor-103]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>c45a6d030a298495d77ed022a8cdfa74</FundTransferVersionId>    <Balance>1390000</Balance>    <CasinoTransferId>518c1517-d6f6-4e40-8f7e-a35d2dad90e9</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>17910000</TotalBet>    <TotalWin>18800000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:05,008] (INFO ) [NioProcessor-32]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>fb2a48f4e6d970925838c0131d018e25</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780655c637</PlayerId>
+    <TransferId>f376defe-659e-40d6-baf0-858fb52c0205</TransferId>
+    <GameId>804</GameId>
+    <GameNumber>1621663412325</GameNumber>
+    <SessionId>65e0d3b92be6173dcc84676aff9275fb</SessionId>
+    <Amount>80000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:05,009] (INFO ) [NioProcessor-32]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:05,009] (INFO ) [NioProcessor-32]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>fb2a48f4e6d970925838c0131d018e25</FundTransferVersionId>    <Balance>2060000</Balance>    <CasinoTransferId>687aab47-ca39-436e-8cd6-f4794e74e932</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>6640000</TotalBet>    <TotalWin>8200000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:05,013] (INFO ) [NioProcessor-21]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>54602aae27759a641487a51fc6f21cd3</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780a73d135</PlayerId>
+    <TransferId>053c9404-974d-4392-bafb-6218f2bf20e2</TransferId>
+    <GameId>852</GameId>
+    <GameNumber>1621663412326</GameNumber>
+    <SessionId>a1f8e3fe47e2912db76914d39f9da9ac</SessionId>
+    <Amount>20000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:05,014] (INFO ) [NioProcessor-21]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:05,014] (INFO ) [NioProcessor-21]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>54602aae27759a641487a51fc6f21cd3</FundTransferVersionId>    <Balance>0</Balance>    <CasinoTransferId>92b00caf-446b-4682-8e8a-dd8d25db2320</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>1220000</TotalBet>    <TotalWin>720000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:05,045] (INFO ) [NioProcessor-126]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DepositRequest>
+    <FundTransferVersionId>083dc81bd16a8c687d64b262362b75f4</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af7810cdf52a</PlayerId>
+    <TransferId>c47d2abf-f70d-4520-849e-a0ef014e5fb8</TransferId>
+    <GameId>820</GameId>
+    <GameNumber>1621663399983</GameNumber>
+    <SessionId>954e308ff219ae28716cd3db4c98cc28</SessionId>
+    <Amount>30000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</DepositRequest>
+
+[13 May 2018 00:05:05,046] (INFO ) [NioProcessor-126]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Deposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Deposit => 0
+[13 May 2018 00:05:05,047] (INFO ) [NioProcessor-126]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><DepositResponse>    <FundTransferVersionId>083dc81bd16a8c687d64b262362b75f4</FundTransferVersionId>    <Balance>490000</Balance>    <CasinoTransferId>ae9df26d-236d-46e7-ae67-d3cac344e5ad</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>40000</TotalBet>    <TotalWin>30000</TotalWin></DepositResponse>
+[13 May 2018 00:05:05,047] (INFO ) [NioProcessor-14]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawRequest>
+    <FundTransferVersionId>12e7500b5bf340902283dcd673dd4989</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af78110d0ec6</PlayerId>
+    <TransferId>d6ed8c51-8e1b-48f3-96bc-d6b5fea7ee36</TransferId>
+    <GameId>525</GameId>
+    <GameNumber>1621663412328</GameNumber>
+    <SessionId>2c99e34b7051191279c9894731eba121</SessionId>
+    <Amount>20000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_BEGIN</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</WithdrawRequest>
+
+[13 May 2018 00:05:05,048] (INFO ) [NioProcessor-14]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Withdraw
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Withdraw => 1
+[13 May 2018 00:05:05,048] (INFO ) [NioProcessor-14]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawResponse>    <FundTransferVersionId>12e7500b5bf340902283dcd673dd4989</FundTransferVersionId>    <Balance>420000</Balance>    <CasinoTransferId>dd2ce494-ab30-416c-bb89-5cf1062606a7</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>120000</TotalBet>    <TotalWin>40000</TotalWin></WithdrawResponse>
+[13 May 2018 00:05:05,057] (INFO ) [NioProcessor-80]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>8653f45d289bd00d56a15b3eb575051b</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77e36358ef</PlayerId>
+    <TransferId>ee9b942a-a7ed-4323-940e-5784362def64</TransferId>
+    <GameId>810</GameId>
+    <GameNumber>1621663412329</GameNumber>
+    <SessionId>e5206716515e2a5bd0a114a9828bb7a6</SessionId>
+    <Amount>10000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IL_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:05,058] (INFO ) [NioProcessor-80]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:05,058] (INFO ) [NioProcessor-80]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>8653f45d289bd00d56a15b3eb575051b</FundTransferVersionId>    <Balance>190000</Balance>    <CasinoTransferId>5856204a-6868-4fb4-861a-1bc8b45c2491</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>1850000</TotalBet>    <TotalWin>1540000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:05,070] (INFO ) [NioProcessor-114]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>1f59dcf20c042f4ab1d6ced529055d62</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77db02b6ac</PlayerId>
+    <TransferId>b3bc0c77-5a41-4519-87bf-be5eb4e4cecd</TransferId>
+    <GameId>506</GameId>
+    <GameNumber>1621663412330</GameNumber>
+    <SessionId>710d3522bb34fe0b431593a1f1dd27d1</SessionId>
+    <Amount>60000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:05,070] (INFO ) [NioProcessor-121]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DepositRequest>
+    <FundTransferVersionId>dab99741fe7fbfa733093f150d7f97af</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af78109ed5f1</PlayerId>
+    <TransferId>4018d9b5-4b1e-4b3e-bb96-48f7bfbfae94</TransferId>
+    <GameId>813</GameId>
+    <GameNumber>1621663404106</GameNumber>
+    <SessionId>92e5a85df6b3df66b4924effd0cf3562</SessionId>
+    <Amount>25000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</DepositRequest>
+
+[13 May 2018 00:05:05,071] (INFO ) [NioProcessor-114]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:05,071] (INFO ) [NioProcessor-114]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>1f59dcf20c042f4ab1d6ced529055d62</FundTransferVersionId>    <Balance>9448000</Balance>    <CasinoTransferId>9c8ecffa-4886-46d4-ae1b-bf7bbf5a4652</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>27300000</TotalBet>    <TotalWin>36248000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:05,071] (INFO ) [NioProcessor-121]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Deposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Deposit => 1
+[13 May 2018 00:05:05,071] (INFO ) [NioProcessor-121]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><DepositResponse>    <FundTransferVersionId>dab99741fe7fbfa733093f150d7f97af</FundTransferVersionId>    <Balance>397500</Balance>    <CasinoTransferId>e5372ac8-a66a-4a68-9f5a-e5aff839191c</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>162500</TotalBet>    <TotalWin>60000</TotalWin></DepositResponse>
+[13 May 2018 00:05:05,072] (INFO ) [NioProcessor-35]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DepositRequest>
+    <FundTransferVersionId>567bfa711963b878f9915ef208496dd1</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af781128850c</PlayerId>
+    <TransferId>486eccc6-5803-4ccf-a10f-6ac403b9d1dc</TransferId>
+    <GameId>805</GameId>
+    <GameNumber>1621663400026</GameNumber>
+    <SessionId>eb4dc4439e49901533cb1c293c4155ca</SessionId>
+    <Amount>8000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IR_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+</DepositRequest>
+
+[13 May 2018 00:05:05,073] (INFO ) [NioProcessor-35]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Deposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Deposit => 1
+[13 May 2018 00:05:05,073] (INFO ) [NioProcessor-35]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><DepositResponse>    <FundTransferVersionId>567bfa711963b878f9915ef208496dd1</FundTransferVersionId>    <Balance>348000</Balance>    <CasinoTransferId>26e3ee6b-9e2b-4753-bac4-a131216a44a6</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>160000</TotalBet>    <TotalWin>8000</TotalWin></DepositResponse>
+[13 May 2018 00:05:05,075] (INFO ) [NioProcessor-26]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>d6079bc8963892a708df3fe2566cec9d</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780f003c3e</PlayerId>
+    <TransferId>4a099bed-ab6d-4864-a23e-fb2f2ed511e1</TransferId>
+    <GameId>804</GameId>
+    <GameNumber>1621663412331</GameNumber>
+    <SessionId>07781e777f0557db518c17cd0b435826</SessionId>
+    <Amount>80000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>MOBILE</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:05,075] (INFO ) [NioProcessor-26]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 0
+[13 May 2018 00:05:05,075] (INFO ) [NioProcessor-26]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>d6079bc8963892a708df3fe2566cec9d</FundTransferVersionId>    <Balance>8180000</Balance>    <CasinoTransferId>8275fcbd-376f-490d-be22-b30c26cf9dd3</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>1280000</TotalBet>    <TotalWin>8960000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:05,086] (INFO ) [NioProcessor-15]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DepositRequest>
+    <FundTransferVersionId>3fa510dd6790edf35f95f78f62d247fa</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780c6b943c</PlayerId>
+    <TransferId>7ccc4e87-83eb-4031-9737-3c82e10a0f4d</TransferId>
+    <GameId>530</GameId>
+    <GameNumber>1621663387658</GameNumber>
+    <SessionId>25f949657a8944a4da8601f1e34d69b9</SessionId>
+    <Amount>20000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>MOBILE</PlatformType>
+</DepositRequest>
+
+[13 May 2018 00:05:05,087] (INFO ) [NioProcessor-15]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/Deposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/Deposit => 1
+[13 May 2018 00:05:05,087] (INFO ) [NioProcessor-15]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><DepositResponse>    <FundTransferVersionId>3fa510dd6790edf35f95f78f62d247fa</FundTransferVersionId>    <Balance>516000</Balance>    <CasinoTransferId>4d8fdafa-635a-48f7-a7ae-6165459cd83d</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>40000</TotalBet>    <TotalWin>56000</TotalWin></DepositResponse>
+[13 May 2018 00:05:05,091] (INFO ) [NioProcessor-53]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>526da364b0e57da9d255feff6122e058</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780c3cb2a2</PlayerId>
+    <TransferId>ca439954-22e3-45cc-870f-ba7388b75340</TransferId>
+    <GameId>801</GameId>
+    <GameNumber>1621663412332</GameNumber>
+    <SessionId>de07c784cc4442f98e6d0466f5dbf149</SessionId>
+    <Amount>10000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>MOBILE</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:05,092] (INFO ) [NioProcessor-53]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:05,092] (INFO ) [NioProcessor-53]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>526da364b0e57da9d255feff6122e058</FundTransferVersionId>    <Balance>2206500</Balance>    <CasinoTransferId>2557766b-3a3b-4296-aca8-c3d938edae09</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>413500</TotalBet>    <TotalWin>2120000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:05,099] (INFO ) [NioProcessor-108]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>03b39315fcb8033e454428533b782b85</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af77f9598608</PlayerId>
+    <TransferId>9f70a4dc-2251-4c88-b55d-ee2ae53bc442</TransferId>
+    <GameId>841</GameId>
+    <GameNumber>1621663412333</GameNumber>
+    <SessionId>1e8392d7f287c9689a41abb74dc1d6a0</SessionId>
+    <Amount>20000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IL_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:05,100] (INFO ) [NioProcessor-108]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:05,100] (INFO ) [NioProcessor-108]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>03b39315fcb8033e454428533b782b85</FundTransferVersionId>    <Balance>625000</Balance>    <CasinoTransferId>b22bf760-a9a5-4fae-8248-10146634509c</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>1260000</TotalBet>    <TotalWin>1385000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:05,102] (INFO ) [NioProcessor-71]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>eef82da6ec5fde41cdea4d6913b51245</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af780e9bc472</PlayerId>
+    <TransferId>590a714b-2b47-4382-a4d8-b438011d7cda</TransferId>
+    <GameId>880</GameId>
+    <GameNumber>1621663412334</GameNumber>
+    <SessionId>b57ab3402462aee91b682cc27c088782</SessionId>
+    <Amount>10000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IA_EGT</PortalCode>
+    <PlatformType>MOBILE</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:05,103] (INFO ) [NioProcessor-71]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 0
+[13 May 2018 00:05:05,103] (INFO ) [NioProcessor-71]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>eef82da6ec5fde41cdea4d6913b51245</FundTransferVersionId>    <Balance>320000</Balance>    <CasinoTransferId>5896230f-4dd9-4577-9119-b8c82e776b19</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>280000</TotalBet>    <TotalWin>100000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:05,104] (INFO ) [NioProcessor-57]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WithdrawAndDepositRequest>
+    <FundTransferVersionId>6613156abb8b1439b1218d3b9847c324</FundTransferVersionId>
+    <UserName></UserName>
+    <Password></Password>
+    <PlayerId>sl_player5af7806806e24</PlayerId>
+    <TransferId>0f392583-6673-4801-b3fb-95c718141cba</TransferId>
+    <GameId>549</GameId>
+    <GameNumber>1621663412335</GameNumber>
+    <SessionId>9e9f4d0288017d02e7b26df80f11c57e</SessionId>
+    <Amount>10000</Amount>
+    <Currency>EGT</Currency>
+    <Reason>ROUND_END</Reason>
+    <PortalCode>IL_EGT</PortalCode>
+    <PlatformType>DESKTOP</PlatformType>
+    <WinAmount>0</WinAmount>
+</WithdrawAndDepositRequest>
+
+[13 May 2018 00:05:05,105] (INFO ) [NioProcessor-57]: 
+Sending 'POST' request to URL : http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit
+Response Code : 200
+HTTP Native execute http://127.0.0.1:8040/EGTPortalBean/WithdrawAndDeposit => 1
+[13 May 2018 00:05:05,105] (INFO ) [NioProcessor-57]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><WithdrawAndDepositResponse>    <FundTransferVersionId>6613156abb8b1439b1218d3b9847c324</FundTransferVersionId>    <Balance>600000</Balance>    <CasinoTransferId>04d539a6-9ec1-4ca4-95b2-b52520e34295</CasinoTransferId>    <ErrorCode>1000</ErrorCode>    <ErrorMessage>OK</ErrorMessage>    <TotalBet>500000</TotalBet>    <TotalWin>600000</TotalWin></WithdrawAndDepositResponse>
+[13 May 2018 00:05:05,110] (INFO ) [NioProcessor-119]: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DepositRequest>
+    <FundTransferVersionId>93801461185c63b7ba6af29e22fd80bd</FundTransferVersionId>
+    <UserName></UserName>
+    <Password

@@ -3,7 +3,6 @@ package com.egtinteractive.app;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import org.apache.log4j.Logger;
 
 public class InfluxWriter<T> implements Writer<T> {
 
@@ -20,7 +19,7 @@ public class InfluxWriter<T> implements Writer<T> {
     public InfluxWriter(final String hostInsertDataQuery, final int pointsPerBatch, final String hostCreateDBQuery, final String hostCreateDBQueryParams) {
 	this.hostInsertDataQuery = hostInsertDataQuery;
 	this.hostCreateDBQuery = hostCreateDBQuery;
-	this.hostCreateDBQueryParams = hostCreateDBQueryParams;
+	this.hostCreateDBQueryParams = hostCreateDBQueryParams; 
 	this.pointPerBatch = pointsPerBatch; 
     } 
 
@@ -69,15 +68,14 @@ public class InfluxWriter<T> implements Writer<T> {
 	    os.flush();
 	    os.close();
 	    if (!(conn.getResponseCode() >= 200 && conn.getResponseCode() < 300)) {
-		Logger.getLogger(this.getClass()).error("Failed one batch recording");
+		throw new RuntimeException("Failed one batch recording");
 	    }
 	} catch (Exception e) {
-	    Logger.getLogger(this.getClass()).error("writePointsBath(): " + e.toString());
+	    throw new RuntimeException("writePointsBath(): " + e.toString());
 	}
     }
 
     private void createDatabase() {
-	
 	URL url;
 	HttpURLConnection conn;
 	OutputStream os;
@@ -92,12 +90,10 @@ public class InfluxWriter<T> implements Writer<T> {
 	    os.flush();
 	    os.close();
 	    if (!(conn.getResponseCode() >= 200 && conn.getResponseCode() < 300)) {
-		Logger.getLogger(this.getClass()).error("Couldn't create database");
-		return;
+		throw new RuntimeException("createDatabase(): Couldn't create database");
 	    }
 	    isDatabaseCreated = true;
 	} catch (Exception e) {
-	    Logger.getLogger(this.getClass()).error("createDatabase(): "+e.getMessage());
 	    throw new RuntimeException(e);
 	}
     }

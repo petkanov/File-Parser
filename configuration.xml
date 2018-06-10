@@ -62,5 +62,9 @@
     </connectionPool>
     <filesAlreadySeen/>
   </recoveryManager>
+  <logger class="com.egtinteractive.app.Log4jLogger">
+    <propertiesFile>log4j.properties</propertiesFile>
+    <logFileName>file-parser-logs.log</logFileName>
+  </logger>
   <clearRecoveryDatabaseOnStartup>false</clearRecoveryDatabaseOnStartup>
 </com.egtinteractive.config.Config>
