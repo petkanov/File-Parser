@@ -6,16 +6,34 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 
 public class RecoveryManager {
 
     private final ConnectionPool connectionPool;
+    private final Set<String> filesAlreadySeen;
 
     public RecoveryManager(final ConnectionPool cPool) {
 	connectionPool = cPool;
+	filesAlreadySeen = new HashSet<>();
+    }
+    
+    public void addToAlreadySeenFiles(final String fileName) {
+	filesAlreadySeen.add(fileName);
+	 System.out.println(filesAlreadySeen);
+    }
+    
+    public void removeFromAlreadySeenFiles(final String fileName) {
+	filesAlreadySeen.remove(fileName);
+	System.out.println(filesAlreadySeen);
+    }
+    
+    public boolean isFileAlreadySeen(final String fileName) {
+	return filesAlreadySeen.contains(fileName);
     }
 
     public void createMemoryTablesIfNotExist() {

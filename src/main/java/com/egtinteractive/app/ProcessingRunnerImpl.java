@@ -26,6 +26,7 @@ public class ProcessingRunnerImpl<T> implements ProcessingRunner<T> {
 	try {
 	    fileName = filesQueue.take();
 	} catch (InterruptedException e) {
+	    recoveryManager.removeFromAlreadySeenFiles(fileName);
 	    Logger.getLogger(this.getClass()).error(e.getMessage());
 	    return;
 	}
@@ -56,6 +57,7 @@ public class ProcessingRunnerImpl<T> implements ProcessingRunner<T> {
 
 	    Logger.getLogger(this.getClass()).info("Successfully parsed file " + fileName);
 	} catch (Exception e) {
+	    recoveryManager.removeFromAlreadySeenFiles(fileName);
 	    Logger.getLogger(this.getClass()).error(e.getMessage());
 	}
     }

@@ -24,14 +24,15 @@ public class Service<T> implements ServiceChain {
 	processingRunner = serviceConfig.getProcessingRunner(filesQueue, recoveryManager);
     }
 
-    public void acceptFile(String fileName) {
+    public void acceptFile(String fileName) { 
 	if (fileName.contains(fileNamePrefix) && !recoveryManager.isFileProcessed(fileName)) {
 	    try {
 		filesQueue.put(fileName);
 	    } catch (InterruptedException e) {
+		recoveryManager.removeFromAlreadySeenFiles(fileName);
 		Logger.getLogger(this.getClass()).error(e.getMessage());
 	    }
-	    engine.execute(this.processingRunner);
+	    engine.execute(processingRunner);
 	}
 	if (nextLink != null) {
 	    nextLink.acceptFile(fileName);

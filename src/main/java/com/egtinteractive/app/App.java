@@ -3,10 +3,8 @@ package com.egtinteractive.app;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 import org.apache.log4j.Logger;
 import com.egtinteractive.config.Config;
 import com.egtinteractive.config.FileLoader;
@@ -33,15 +31,14 @@ public class App {
 	recoveryManager.clearOldParserLogs();
 	
 	final ServiceChain serviceChain = createServiceChain(config);
-	final Set<String> folderFiles = new HashSet<>(); 
 	
-	while (true) {
+	while (true) { 
 	    final File workingDir = new File(config.getWorkingDirectory());
 
 	    for (File file : workingDir.listFiles()) {
-		if (file.isFile() && !folderFiles.contains(file.getName())) {
+		if (file.isFile() && !recoveryManager.isFileAlreadySeen(file.getName())) {
 		    serviceChain.acceptFile(file.getAbsolutePath());
-		    folderFiles.add(file.getName());
+		    recoveryManager.addToAlreadySeenFiles(file.getName());
 		}
 	    }
 	    try {
