@@ -10,9 +10,9 @@ import org.apache.commons.dbcp.PoolingDataSource;
 import org.apache.commons.pool.impl.GenericObjectPool;
 
 public class ConnectionPool {
-    private final String jdbcDatabaseUrl; 
-    private final String dbUser; 
-    private final String dbPassword; 
+    private final String jdbcDatabaseUrl;
+    private final String dbUser;
+    private final String dbPassword;
     private final int poolSize;
     private DataSource dataSource;
 
@@ -32,9 +32,9 @@ public class ConnectionPool {
     }
 
     public Connection getConnection() throws SQLException {
-	if(dataSource == null) {
+	if (dataSource == null) {
 	    createPool();
-	} 
-	    return dataSource.getConnection(); 
-    } 
+	}
+	return dataSource.getConnection();
+    }
 }

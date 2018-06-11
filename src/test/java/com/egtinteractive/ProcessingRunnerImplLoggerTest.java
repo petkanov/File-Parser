@@ -23,10 +23,10 @@ public class ProcessingRunnerImplLoggerTest {
 	final FPLogger logger = Mockito.mock(FPLogger.class);
 	final String testFileName = "src/test/resources/1618LinesFile";
 	
-	
 	Mockito.doNothing().when(logger).logInfoMessage(Mockito.isA(Class.class),Mockito.isA(String.class));
 	Mockito.when(filesQueue.take()).thenReturn(testFileName);
 	Mockito.when(parser.parseLine(Mockito.isA(String.class))).thenReturn(new Object());
+	Mockito.when(writer.consume(Mockito.isA(String.class))).thenReturn(false);
 	
 	ProcessingRunner<Object> pri = new ProcessingRunnerImpl<>();
 	pri.setUp(parser, writer, filesQueue, recoveryManager, logger);
