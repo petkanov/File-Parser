@@ -3,12 +3,13 @@ package com.egtinteractive.app;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import com.egtinteractive.config.AsyncService;
 import com.egtinteractive.config.Config;
 import com.egtinteractive.config.FileLoader;
 import com.egtinteractive.config.Service;
-import com.egtinteractive.config.ServiceChain;
 import com.egtinteractive.config.ServiceConfig;
 import com.thoughtworks.xstream.XStream;
 
@@ -26,16 +27,20 @@ public class App {
 	logger.initializeLogger();
 	recoveryManager.setLogger(logger);
 
-	final ServiceChain serviceChain = createServiceChain(config);
+	final List<Service> services = getServices(config);
 
 	while (true) {
 	    try {
 		final File workingDir = new File(config.getWorkingDirectory());
 
 		for (File file : workingDir.listFiles()) {
+		    final String fileName = file.getAbsolutePath();
 		    if (file.isFile() && !recoveryManager.isFileAlreadySeen(file.getName())) {
-			serviceChain.acceptFile(file.getAbsolutePath());
+			for (Service service : services) {
+			    service.acceptFile(fileName);
+			}
 		    }
+		    recoveryManager.addToAlreadySeenFiles(fileName);
 		}
 		Thread.sleep(timeDelay);
 	    } catch (Exception e) {
@@ -44,9 +49,7 @@ public class App {
 	}
     }
 
-    /**
-     * It will delete all temporary parsers data
-     */
+    
     @SuppressWarnings("unused")
     private static void generateConfig() {
 
@@ -84,19 +87,12 @@ public class App {
 	}
     }
 
-    private static ServiceChain createServiceChain(final Config config) {
-	ServiceChain first = null;
-	ServiceChain previous = null;
+    private static List<Service> getServices(final Config config) {
+	final List<Service> services = new ArrayList<>();
 	for (ServiceConfig<?> serviceConfig : config.getServices()) {
-	    if (first == null) {
-		first = new Service<>(serviceConfig, config.getRecoveryManager(), config.getLogger());
-		previous = first;
-		continue;
-	    }
-	    ServiceChain current = new Service<>(serviceConfig, config.getRecoveryManager(), config.getLogger());
-	    previous.setNextLink(current);
-	    previous = current;
+	    final Service service = new AsyncService<>(serviceConfig, config.getRecoveryManager(), config.getLogger());
+	    services.add(service);
 	}
-	return first;
-    }
+	return services;
+    } 
 }

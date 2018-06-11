@@ -8,13 +8,13 @@ import java.net.URL;
 
 public class InfluxWriter<T> implements Writer<T> {
 
-    private StringBuilder pointsBatch;
     private final int pointPerBatch;
-    private int writtenPointsCounter;
     private final String hostCreateDBQueryParams;
     private final URL urlCreateDBQuery;
     private final URL urlInsertDataQuery;
+    private StringBuilder pointsBatch;
     private boolean isDatabaseCreated;
+    private int writtenPointsCounter;
 
     public InfluxWriter(final String hostInsertDataQuery, final int pointsPerBatch, final String hostCreateDBQuery,
 	    final String hostCreateDBQueryParams) {

@@ -4,11 +4,13 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
+
 import org.mockito.Mockito;
 import org.testng.annotations.Test;
 
 import com.egtinteractive.app.FPLogger;
 import com.egtinteractive.app.RecoveryManager;
+import com.egtinteractive.config.AsyncService;
 import com.egtinteractive.config.Service;
 import com.egtinteractive.config.ServiceConfig;
 
@@ -30,7 +32,7 @@ public class ServiceTest {
 		.thenReturn(processingRunner);
 	Mockito.when(recoveryManager.isFileProcessed(Mockito.isA(String.class))).thenReturn(false);
 	Mockito.doNothing().when(filesQueue).put(Mockito.isA(String.class));
-	final Service<?> service = new Service<>(serviceConfig, recoveryManager, logger);
+	final AsyncService<?> service = new AsyncService<>(serviceConfig, recoveryManager, logger);
 	setFinalFieldValue(service, filesQueue, "filesQueue");
 	setFinalFieldValue(service, engine, "engine");
 	service.acceptFile(fileNamePrefix + "file-name");
@@ -55,7 +57,7 @@ public class ServiceTest {
 		.thenReturn(processingRunner);
 	Mockito.when(recoveryManager.isFileProcessed(Mockito.isA(String.class))).thenReturn(true);
 	Mockito.doNothing().when(filesQueue).put(Mockito.isA(String.class));
-	final Service<?> service = new Service<>(serviceConfig, recoveryManager, logger);
+	final AsyncService<?> service = new AsyncService<>(serviceConfig, recoveryManager, logger);
 	setFinalFieldValue(service, filesQueue, "filesQueue");
 	setFinalFieldValue(service, engine, "engine");
 	service.acceptFile(fileNamePrefix + "file-name");

@@ -60,7 +60,10 @@
       <dbPassword>3569</dbPassword>
       <poolSize>7</poolSize>
     </connectionPool>
-    <filesAlreadySeen/>
+    <filesAlreadySeen class="java.util.concurrent.ConcurrentHashMap$KeySetView">
+      <map/>
+      <value class="boolean">true</value>
+    </filesAlreadySeen>
   </recoveryManager>
   <logger class="com.egtinteractive.app.Log4jLogger">
     <propertiesFile>log4j.properties</propertiesFile>

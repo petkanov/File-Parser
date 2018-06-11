@@ -19,7 +19,7 @@ public class ProcessingRunnerImpl<T> implements ProcessingRunner<T> {
 	    logger.logErrorMessage(this.getClass(), "ProcessingRunner has not been setUp correctly!");
 	    return;
 	}
-	final String parserName = parser.getClass().getSimpleName();
+	final String parserName = parser.getClass().getName();
 	int lineCounter = 0;
 	String fileName = null;
 	try {
