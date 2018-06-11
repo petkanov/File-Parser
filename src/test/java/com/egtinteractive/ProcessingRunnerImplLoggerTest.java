@@ -37,7 +37,6 @@ public class ProcessingRunnerImplLoggerTest {
 	Mockito.verify(parser, Mockito.times(parsedLinesCount)).parseLine(Mockito.isA(String.class)); 
 	Mockito.verify(writer, Mockito.times(parsedLinesCount)).consume(Mockito.isA(Object.class));  
 	Mockito.verify(logger, Mockito.times(1)).logInfoMessage(Mockito.isA(Class.class),Mockito.isA(String.class)); 
-	Mockito.verify(recoveryManager, Mockito.times(1)).saveFile(Mockito.isA(String.class)); 
 	Mockito.verify(recoveryManager, Mockito.times(1)).updateFileProcessingProgress(Mockito.isA(String.class),Mockito.isA(String.class),Mockito.isA(Integer.class)); 
     }
 }

@@ -24,27 +24,21 @@ public class App {
 	final RecoveryManager recoveryManager = config.getRecoveryManager();
 	final FPLogger logger = config.getLogger();
 	logger.initializeLogger();
-	if (config.isClearRecoveryDatabaseOnStartup()) {
-	    recoveryManager.clearRecoveryDatabase();
-	}
-	recoveryManager.createMemoryTablesIfNotExist();
-	recoveryManager.clearOldParserLogs();
 	recoveryManager.setLogger(logger);
 
 	final ServiceChain serviceChain = createServiceChain(config);
 
 	while (true) {
-	    final File workingDir = new File(config.getWorkingDirectory());
-
-	    for (File file : workingDir.listFiles()) {
-		if (file.isFile() && !recoveryManager.isFileAlreadySeen(file.getName())) {
-		    serviceChain.acceptFile(file.getAbsolutePath());
-		    recoveryManager.addToAlreadySeenFiles(file.getName());
-		}
-	    }
 	    try {
+		final File workingDir = new File(config.getWorkingDirectory());
+
+		for (File file : workingDir.listFiles()) {
+		    if (file.isFile() && !recoveryManager.isFileAlreadySeen(file.getName())) {
+			serviceChain.acceptFile(file.getAbsolutePath());
+		    }
+		}
 		Thread.sleep(timeDelay);
-	    } catch (InterruptedException e) {
+	    } catch (Exception e) {
 		logger.logErrorMessage(App.class, e.getMessage());
 	    }
 	}
@@ -77,7 +71,7 @@ public class App {
 	final ConnectionPool connectionPool = new ConnectionPool("jdbc:mysql://localhost:3306/file_reader?useSSL=false", "root", "3569", 7);
 	final FPLogger logger = new Log4jLogger("log4j.properties", logFileName);
 	final RecoveryManager recoveryManager = new RecoveryManager(connectionPool);
-	
+
 	final boolean clearRecoveryDatabaseOnStartup = false;
 
 	final Config config = new Config(services, logFileName, workingDirectory, recoveryManager, logger, clearRecoveryDatabaseOnStartup);
@@ -88,7 +82,6 @@ public class App {
 	} catch (FileNotFoundException e) {
 	    e.printStackTrace();
 	}
-	recoveryManager.clearParsersTable();
     }
 
     private static ServiceChain createServiceChain(final Config config) {

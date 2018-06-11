@@ -51,7 +51,6 @@ public class ProcessingRunnerImpl<T> implements ProcessingRunner<T> {
 		    }
 		}
 	    } while (line != null);
-	    recoveryManager.saveFile(fileName);
 	    recoveryManager.updateFileProcessingProgress(parserName, fileName, -1);
 	    logger.logInfoMessage(this.getClass(), "Successfully parsed file " + fileName);
 	} catch (Exception e) {

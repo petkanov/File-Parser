@@ -1,44 +1,54 @@
 package com.egtinteractive;
 
-import java.awt.Point;
 import java.io.OutputStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLConnection;
 
-import org.mockito.Matchers;
 import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.reflect.Whitebox;
 import org.testng.annotations.Test;
 
 import com.egtinteractive.app.InfluxWriter;
-import com.egtinteractive.app.ResponseData;
-import com.egtinteractive.app.Writer;
 
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.times;
-import static org.powermock.api.mockito.PowerMockito.verifyPrivate;
-import static org.powermock.api.mockito.PowerMockito.doNothing;
-import static org.powermock.api.mockito.PowerMockito.spy;
-
-@PrepareForTest(InfluxWriter.class)
 public class InfluxWriterTest {
 
-    @SuppressWarnings("unchecked")
     @Test
     public void consumeTest() throws Exception {
 
 	
 	
+	
+	URL u = PowerMockito.mock(URL.class);
+        String url = "http://www.sdsgle.com";
+        PowerMockito.whenNew(URL.class).withArguments(url).thenReturn(u);
+        HttpURLConnection huc = PowerMockito.mock(HttpURLConnection.class);
+        PowerMockito.when(u.openConnection()).thenReturn(huc);
+        PowerMockito.when(huc.getResponseCode()).thenReturn(200);
+	
+	
+	
+	
+	
+	
+	
+	
 	OutputStream os = Mockito.mock(OutputStream.class);
-	HttpURLConnection conn = Mockito.mock(HttpURLConnection.class);
-	URL urlCreateDBQuery = Mockito.mock(URL.class);
-	URL urlInsertDataQuery = Mockito.mock(URL.class);
+	URLConnection conn = Mockito.mock(URLConnection.class);
+//	Mockito.doNothing().when(conn).setRequestMethod(Mockito.isA(String.class));
+//	Mockito.doNothing().when(conn).setDoOutput(Mockito.isA(Boolean.class));
 	
+//	URL urlCreateDBQuery = PowerMockito.mock(URL.class);
+//	URL urlInsertDataQuery = PowerMockito.mock(URL.class);
+//	Mockito.when(urlCreateDBQuery.openConnection()).thenReturn(conn);
+//	Mockito.when(urlInsertDataQuery.openConnection()).thenReturn(conn);
 	
+	InfluxWriter<?> writer = new InfluxWriter<>("http://someadress.url", 13, "http://otheradress.url","hostCreateDBQueryParams");
 	
-	
+//	setFinalFieldValue(writer, urlCreateDBQuery, "urlCreateDBQuery");
+//	setFinalFieldValue(writer, urlInsertDataQuery, "urlInsertDataQuery");
 	
 	
 	
@@ -78,5 +88,17 @@ public class InfluxWriterTest {
 //	Mockito.verify(recoveryManager, Mockito.times(1)).saveFile(Mockito.isA(String.class));
 //	Mockito.verify(recoveryManager, Mockito.times(1)).updateFileProcessingProgress(Mockito.isA(String.class), Mockito.isA(String.class),
 //		Mockito.isA(Integer.class));
+    }
+    
+    public void setFinalFieldValue(Object objWithFinalField, Object valueForFinalField, String finalFieldName) throws Exception {
+	Field finalField = InfluxWriter.class.getDeclaredField(finalFieldName);
+	Field modifierField = Field.class.getDeclaredField("modifiers");
+	finalField.setAccessible(true);
+	modifierField.setAccessible(true);
+	int modifiers = finalField.getModifiers();
+	modifiers = modifiers & ~Modifier.FINAL;
+	modifierField.setInt(finalField, modifiers);
+
+	finalField.set(objWithFinalField, valueForFinalField);
     }
 }

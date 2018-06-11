@@ -4,11 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class RecoveryManager {
 
@@ -18,7 +15,7 @@ public class RecoveryManager {
 
     public RecoveryManager(final ConnectionPool cPool) {
 	connectionPool = cPool;
-	filesAlreadySeen = new HashSet<>();
+	filesAlreadySeen = ConcurrentHashMap.newKeySet();
     }
 
     public void addToAlreadySeenFiles(final String fileName) {
@@ -31,76 +28,11 @@ public class RecoveryManager {
 
     public boolean isFileAlreadySeen(final String fileName) {
 	return filesAlreadySeen.contains(fileName);
-    }
-
-    public void createMemoryTablesIfNotExist() {
-	try (Connection con = connectionPool.getConnection(); Statement s = con.createStatement()) {
-	    s.executeUpdate(
-		    "CREATE TABLE IF NOT EXISTS `old_files`(`file` VARCHAR(256) NOT NULL, `date` TIMESTAMP NOT NULL, UNIQUE KEY(`file`))  ENGINE=InnoDB;");
-	    s.executeUpdate(
-		    "CREATE TABLE IF NOT EXISTS `files_in_process`(id VARCHAR(256) NOT NULL, `parser` VARCHAR(256) NOT NULL, `file` VARCHAR(256) NOT NULL, `line` INT(12) NOT NULL, UNIQUE KEY(`id`))  ENGINE=InnoDB;");
-	} catch (SQLException e) {
-	    if (logger != null) {
-		logger.logErrorMessage(this.getClass(), e.getMessage());
-	    }
-	}
-    }
-
-    public void clearRecoveryDatabase() {
-	try (Connection con = connectionPool.getConnection(); Statement s = con.createStatement()) {
-	    s.executeUpdate("DROP TABLE IF EXISTS `old_files`");
-	    s.executeUpdate("DROP TABLE IF EXISTS `files_in_process`");
-	} catch (SQLException e) {
-	    if (logger != null) {
-		logger.logErrorMessage(this.getClass(), e.getMessage());
-	    }
-	}
-    }
-
-    public void clearParsersTable() {
-	try (Connection con = connectionPool.getConnection(); Statement s = con.createStatement()) {
-	    s.executeUpdate("DELETE FROM `files_in_process`");
-	} catch (SQLException e) {
-	    e.printStackTrace();
-	    if (logger != null) {
-		logger.logErrorMessage(this.getClass(), e.getMessage());
-	    }
-	}
-    }
-
-    public void clearOldParserLogs() {
-	try (Connection con = connectionPool.getConnection(); Statement s = con.createStatement()) {
-	    final ResultSet rs = s.executeQuery("SELECT parser, file FROM files_in_process WHERE line=-1");
-	    final List<String> delQueries = new ArrayList<>();
-	    while (rs.next()) {
-		delQueries.add("DELETE FROM `files_in_process` WHERE parser=\'" + rs.getString("parser") + "\' AND file=\'"
-			+ rs.getString("file") + "\'");
-	    }
-	    for (String query : delQueries) {
-		s.execute(query);
-	    }
-	} catch (SQLException e) {
-	    if (logger != null) {
-		logger.logErrorMessage(this.getClass(), e.getMessage());
-	    }
-	}
-    }
-
-    public void saveFile(String fileName) {
-	try (Connection con = connectionPool.getConnection();
-		PreparedStatement ps = con.prepareStatement("insert into old_files(`file`,`date`) values(?,NOW())")) {
-	    ps.setString(1, fileName);
-	    ps.executeUpdate();
-	} catch (SQLException e) {
-	    if (logger != null) {
-		logger.logErrorMessage(this.getClass(), e.getMessage());
-	    }
-	}
-    }
+    } 
 
     public boolean isFileProcessed(String fileName) {
 	try (Connection con = connectionPool.getConnection();
-		PreparedStatement ps = con.prepareStatement("select * from old_files where file=?")) {
+		PreparedStatement ps = con.prepareStatement("select * from file_stats where file=? and line=-1")) {
 	    ps.setString(1, fileName);
 	    final ResultSet rs = ps.executeQuery();
 
@@ -118,7 +50,7 @@ public class RecoveryManager {
     public void updateFileProcessingProgress(String parserName, String fileName, int lineNumber) {
 	try (Connection con = connectionPool.getConnection();
 		PreparedStatement ps = con.prepareStatement(
-			"INSERT INTO files_in_process(id,parser,file,line) VALUES(MD5(?),?,?,?) ON DUPLICATE KEY UPDATE parser=?,file=?,line=?")) {
+			"INSERT INTO file_stats(id,parser,file,line) VALUES(MD5(?),?,?,?) ON DUPLICATE KEY UPDATE parser=?,file=?,line=?")) {
 	    ps.setString(1, parserName + fileName);
 	    ps.setString(2, parserName);
 	    ps.setString(3, fileName);
@@ -137,7 +69,7 @@ public class RecoveryManager {
     public int getLineOfLastParsedObject(String parserName, String fileName) {
 	int line = 0;
 	try (Connection con = connectionPool.getConnection();
-		PreparedStatement ps = con.prepareStatement("select line from files_in_process where id=MD5(?)")) {
+		PreparedStatement ps = con.prepareStatement("select line from file_stats where id=MD5(?)")) {
 	    ps.setString(1, parserName + fileName);
 	    final ResultSet rs = ps.executeQuery();
 	    if (rs.next()) {

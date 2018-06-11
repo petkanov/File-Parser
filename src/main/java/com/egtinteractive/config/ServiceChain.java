@@ -7,4 +7,9 @@ public interface ServiceChain {
     void setNextLink(ServiceChain nextLink);
 
     ServiceChain getNextLink();
+    
+    default void bla(String as) {
+	acceptFile(as);
+	System.out.println("SSSSSS");
+    }
 }

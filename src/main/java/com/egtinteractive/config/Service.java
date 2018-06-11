@@ -27,19 +27,17 @@ public class Service<T> implements ServiceChain {
 	processingRunner = serviceConfig.getProcessingRunner(filesQueue, recoveryManager, logger);
     }
 
-    public void acceptFile(String fileName) { 
+    public void acceptFile(String fileName) {
 	if (fileName.contains(fileNamePrefix) && !recoveryManager.isFileProcessed(fileName)) {
 	    try {
 		filesQueue.put(fileName);
 	    } catch (InterruptedException e) {
-		recoveryManager.removeFromAlreadySeenFiles(fileName);
 		logger.logErrorMessage(this.getClass(), e.getMessage());
+		throw new RuntimeException(e);
 	    }
 	    engine.execute(processingRunner);
 	}
-	if (nextLink != null) {
-	    nextLink.acceptFile(fileName);
-	}
+	callNextLink(fileName);
     }
 
     public void setNextLink(ServiceChain nextLink) {
@@ -48,5 +46,13 @@ public class Service<T> implements ServiceChain {
 
     public ServiceChain getNextLink() {
 	return this.nextLink;
+    }
+
+    private void callNextLink(String fileName) {
+	if (nextLink != null) {
+	    nextLink.acceptFile(fileName);
+	} else {
+	    recoveryManager.addToAlreadySeenFiles(fileName);
+	}
     }
 }
