@@ -4,60 +4,57 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
-
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import org.mockito.Mockito;
 import org.testng.annotations.Test;
-
 import com.egtinteractive.app.FPLogger;
 import com.egtinteractive.app.RecoveryManager;
+import com.egtinteractive.app.ResponseTimeDomaneParser;
+import com.egtinteractive.app.Writer;
 import com.egtinteractive.config.AsyncService;
 import com.egtinteractive.config.Service;
 import com.egtinteractive.config.ServiceConfig;
 
-public class ServiceTest {
+public class ProcessingRunnerInnerWorkTest {
 
     @SuppressWarnings("unchecked")
     @Test
-    public void newFileExecutionTest() throws Exception {
-	final ServiceConfig<?> serviceConfig = Mockito.mock(ServiceConfig.class);
+    public void runMethodTest() throws Exception { 
+	
 	final String fileNamePrefix = "bla";
+	final ExecutorService engine = Executors.newSingleThreadExecutor(); // Mockito.mock(ExecutorService.class);
+	final ResponseTimeDomaneParser<Object> parser = Mockito.mock(ResponseTimeDomaneParser.class);
+	final Writer<Object> writer = Mockito.mock(Writer.class);
+	final ServiceConfig<?> serviceConfig = new ServiceConfig<>(fileNamePrefix,parser,writer);
 	final RecoveryManager recoveryManager = Mockito.mock(RecoveryManager.class);
 	final FPLogger logger = Mockito.mock(FPLogger.class);
 	final BlockingQueue<String> filesQueue = Mockito.mock(BlockingQueue.class);
-	final ExecutorService engine = Mockito.mock(ExecutorService.class);
+	final String testFileName = "src/test/resources/1618LinesFile";
 
-	Mockito.when(serviceConfig.getFileNamePrefix()).thenReturn(fileNamePrefix); 
 	Mockito.when(recoveryManager.isFileProcessed(Mockito.isA(String.class))).thenReturn(false);
 	Mockito.doNothing().when(filesQueue).put(Mockito.isA(String.class));
+	Mockito.when(filesQueue.take()).thenReturn(testFileName);
+	
+	Mockito.doNothing().when(logger).logInfoMessage(Mockito.isA(Class.class),Mockito.isA(String.class));
+	Mockito.when(parser.parseLine(Mockito.isA(String.class))).thenReturn(new Object());
+	Mockito.when(writer.consume(Mockito.isA(String.class))).thenReturn(false);
+	
 	final Service service = new AsyncService<>(serviceConfig, recoveryManager, logger);
 	setFinalFieldValue(service, filesQueue, "filesQueue");
 	setFinalFieldValue(service, engine, "engine");
 	service.acceptFile(fileNamePrefix + "file-name");
 
-	Mockito.verify(engine, Mockito.times(1)).execute(Mockito.isA(Runnable.class));
-	Mockito.verify(filesQueue, Mockito.times(1)).put(Mockito.isA(String.class));
-    }
-
-    @SuppressWarnings("unchecked")
-    @Test
-    public void newFileNotExecutionTest() throws Exception {
-	final ServiceConfig<?> serviceConfig = Mockito.mock(ServiceConfig.class);
-	final String fileNamePrefix = "bla";
-	final RecoveryManager recoveryManager = Mockito.mock(RecoveryManager.class);
-	final FPLogger logger = Mockito.mock(FPLogger.class);
-	final BlockingQueue<String> filesQueue = Mockito.mock(BlockingQueue.class);
-	final ExecutorService engine = Mockito.mock(ExecutorService.class);
-
-	Mockito.when(serviceConfig.getFileNamePrefix()).thenReturn(fileNamePrefix); 
-	Mockito.when(recoveryManager.isFileProcessed(Mockito.isA(String.class))).thenReturn(true);
-	Mockito.doNothing().when(filesQueue).put(Mockito.isA(String.class));
-	final Service service = new AsyncService<>(serviceConfig, recoveryManager, logger);
-	setFinalFieldValue(service, filesQueue, "filesQueue");
-	setFinalFieldValue(service, engine, "engine");
-	service.acceptFile(fileNamePrefix + "file-name");
-
-	Mockito.verify(engine, Mockito.times(0)).execute(Mockito.isA(Runnable.class));
-	Mockito.verify(filesQueue, Mockito.times(0)).put(Mockito.isA(String.class));
+	engine.shutdown();
+	engine.awaitTermination(1, TimeUnit.DAYS);
+	
+	
+	Mockito.verify(filesQueue, Mockito.times(1)).take();
+	final int parsedLinesCount = 1619; // plus 'null' line
+	Mockito.verify(parser, Mockito.times(parsedLinesCount)).parseLine(Mockito.isA(String.class)); 
+	Mockito.verify(writer, Mockito.times(parsedLinesCount)).consume(Mockito.isA(Object.class));  
+	Mockito.verify(logger, Mockito.times(1)).logInfoMessage(Mockito.isA(Class.class),Mockito.isA(String.class)); 
+	Mockito.verify(recoveryManager, Mockito.times(1)).updateFileProcessingProgress(Mockito.isA(String.class),Mockito.isA(String.class),Mockito.isA(Integer.class)); 
     }
 
     public void setFinalFieldValue(Object objWithFinalField, Object valueForFinalField, String finalFieldName) throws Exception {
@@ -72,3 +69,8 @@ public class ServiceTest {
 	finalField.set(objWithFinalField, valueForFinalField);
     }
 }
+
+ 
+
+
+

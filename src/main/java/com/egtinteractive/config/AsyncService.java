@@ -32,11 +32,7 @@ public class AsyncService<T> implements Service {
 	}
 
 	@Override
-	public void run() {
-	    if (filesQueue == null) {
-		logger.logErrorMessage(this.getClass(), "ProcessingRunner has no FilesQueue set!");
-		return;
-	    }
+	public void run() { 
 	    final String parserName = parser.getClass().getName();
 	    int lineCounter = 0;
 	    String fileName = null;
