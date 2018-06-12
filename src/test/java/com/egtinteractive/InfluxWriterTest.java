@@ -5,7 +5,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 
 import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
@@ -13,6 +12,7 @@ import org.testng.annotations.Test;
 
 import com.egtinteractive.app.InfluxWriter;
 
+//@PrepareForTest({URL.class, URLConnection.class} )
 public class InfluxWriterTest {
 
     @Test
@@ -23,10 +23,11 @@ public class InfluxWriterTest {
 	
 	URL u = PowerMockito.mock(URL.class);
         String url = "http://www.sdsgle.com";
-        PowerMockito.whenNew(URL.class).withArguments(url).thenReturn(u);
+//        PowerMockito.whenNew(URL.class).withArguments(url).thenReturn(u);
         HttpURLConnection huc = PowerMockito.mock(HttpURLConnection.class);
         PowerMockito.when(u.openConnection()).thenReturn(huc);
-        PowerMockito.when(huc.getResponseCode()).thenReturn(200);
+//        PowerMockito.doReturn(huc).when(u).openConnection();
+//        PowerMockito.when(huc.getResponseCode()).thenReturn(200);
 	
 	
 	
@@ -36,7 +37,7 @@ public class InfluxWriterTest {
 	
 	
 	OutputStream os = Mockito.mock(OutputStream.class);
-	URLConnection conn = Mockito.mock(URLConnection.class);
+//	URLConnection conn = Mockito.mock(URLConnection.class);
 //	Mockito.doNothing().when(conn).setRequestMethod(Mockito.isA(String.class));
 //	Mockito.doNothing().when(conn).setDoOutput(Mockito.isA(Boolean.class));
 	

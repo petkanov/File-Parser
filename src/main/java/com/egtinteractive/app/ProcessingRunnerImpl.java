@@ -10,8 +10,8 @@ public class ProcessingRunnerImpl<T> implements ProcessingRunner<T> {
     private Parser<T> parser;
     private Writer<T> writer;
     private RecoveryManager recoveryManager;
-    private BlockingQueue<String> filesQueue;
     private FPLogger logger;
+    private BlockingQueue<String> filesQueue;
 
     @Override
     public void run() {

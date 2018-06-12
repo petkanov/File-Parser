@@ -32,7 +32,7 @@ public class ServiceTest {
 		.thenReturn(processingRunner);
 	Mockito.when(recoveryManager.isFileProcessed(Mockito.isA(String.class))).thenReturn(false);
 	Mockito.doNothing().when(filesQueue).put(Mockito.isA(String.class));
-	final AsyncService<?> service = new AsyncService<>(serviceConfig, recoveryManager, logger);
+	final Service service = new AsyncService<>(serviceConfig, recoveryManager, logger);
 	setFinalFieldValue(service, filesQueue, "filesQueue");
 	setFinalFieldValue(service, engine, "engine");
 	service.acceptFile(fileNamePrefix + "file-name");
@@ -57,7 +57,7 @@ public class ServiceTest {
 		.thenReturn(processingRunner);
 	Mockito.when(recoveryManager.isFileProcessed(Mockito.isA(String.class))).thenReturn(true);
 	Mockito.doNothing().when(filesQueue).put(Mockito.isA(String.class));
-	final AsyncService<?> service = new AsyncService<>(serviceConfig, recoveryManager, logger);
+	final Service service = new AsyncService<>(serviceConfig, recoveryManager, logger);
 	setFinalFieldValue(service, filesQueue, "filesQueue");
 	setFinalFieldValue(service, engine, "engine");
 	service.acceptFile(fileNamePrefix + "file-name");
@@ -67,7 +67,7 @@ public class ServiceTest {
     }
 
     public void setFinalFieldValue(Object objWithFinalField, Object valueForFinalField, String finalFieldName) throws Exception {
-	Field finalField = Service.class.getDeclaredField(finalFieldName);
+	Field finalField = AsyncService.class.getDeclaredField(finalFieldName);
 	Field modifierField = Field.class.getDeclaredField("modifiers");
 	finalField.setAccessible(true);
 	modifierField.setAccessible(true);
