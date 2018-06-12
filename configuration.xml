@@ -17,11 +17,11 @@
       </parser>
       <writer class="com.egtinteractive.app.InfluxWriter">
         <pointPerBatch>1500</pointPerBatch>
-        <writtenPointsCounter>0</writtenPointsCounter>
         <hostCreateDBQueryParams>q=CREATE DATABASE someDb3</hostCreateDBQueryParams>
         <urlCreateDBQuery>http://localhost:8086/query</urlCreateDBQuery>
         <urlInsertDataQuery>http://localhost:8086/write?db=someDb3</urlInsertDataQuery>
         <isDatabaseCreated>false</isDatabaseCreated>
+        <writtenPointsCounter>0</writtenPointsCounter>
       </writer>
       <processingRunner class="com.egtinteractive.app.ProcessingRunnerImpl"/>
     </com.egtinteractive.config.ServiceConfig>
@@ -42,11 +42,11 @@
       </parser>
       <writer class="com.egtinteractive.app.InfluxWriter">
         <pointPerBatch>1500</pointPerBatch>
-        <writtenPointsCounter>0</writtenPointsCounter>
         <hostCreateDBQueryParams>q=CREATE DATABASE otherDb3</hostCreateDBQueryParams>
         <urlCreateDBQuery>http://localhost:8086/query</urlCreateDBQuery>
         <urlInsertDataQuery>http://localhost:8086/write?db=otherDb3</urlInsertDataQuery>
         <isDatabaseCreated>false</isDatabaseCreated>
+        <writtenPointsCounter>0</writtenPointsCounter>
       </writer>
       <processingRunner class="com.egtinteractive.app.ProcessingRunnerImpl"/>
     </com.egtinteractive.config.ServiceConfig>
