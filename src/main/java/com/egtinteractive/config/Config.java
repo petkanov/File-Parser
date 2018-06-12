@@ -12,15 +12,13 @@ public class Config {
     private final String workingDirectory;
     private final RecoveryManager recoveryManager;
     private final FPLogger logger;
-    private final boolean clearRecoveryDatabaseOnStartup;
     
-    public Config( List<ServiceConfig<?>> services, String logFileName, String workingDirectory, RecoveryManager recoveryManager, FPLogger logger, boolean clearRecoveryDatabaseOnStartup) {
+    public Config( List<ServiceConfig<?>> services, String logFileName, String workingDirectory, RecoveryManager recoveryManager, FPLogger logger) {
 	this.serviceConfigs = services;
 	this.logFileName = logFileName;
 	this.workingDirectory = workingDirectory;
 	this.recoveryManager = recoveryManager;
 	this.logger = logger;
-	this.clearRecoveryDatabaseOnStartup = clearRecoveryDatabaseOnStartup;
     }
 
     public List<ServiceConfig<?>> getServices() {
@@ -41,10 +39,5 @@ public class Config {
 
     public FPLogger getLogger() {
         return logger;
-    }
-
-    public boolean isClearRecoveryDatabaseOnStartup() {
-        return clearRecoveryDatabaseOnStartup;
-    }
-
+    } 
 }
