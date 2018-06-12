@@ -7,16 +7,23 @@ import java.util.concurrent.BlockingQueue;
 
 public class ProcessingRunnerImpl<T> implements ProcessingRunner<T> {
 
-    private Parser<T> parser;
-    private Writer<T> writer;
-    private RecoveryManager recoveryManager;
-    private FPLogger logger;
+    private final Parser<T> parser;
+    private final Writer<T> writer;
+    private final RecoveryManager recoveryManager;
+    private final FPLogger logger;
     private BlockingQueue<String> filesQueue;
 
+    public ProcessingRunnerImpl(final Parser<T> parser, final Writer<T> writer, final RecoveryManager recoveryManager, final FPLogger logger) {
+	this.parser = parser;
+	this.writer = writer;
+	this.recoveryManager = recoveryManager;
+	this.logger = logger;
+    }
+    
     @Override
     public void run() {
-	if (filesQueue == null || parser == null || writer == null) {
-	    logger.logErrorMessage(this.getClass(), "ProcessingRunner has not been setUp correctly!");
+	if (filesQueue == null) {
+	    logger.logErrorMessage(this.getClass(), "ProcessingRunner has no FilesQueue set!");
 	    return;
 	}
 	final String parserName = parser.getClass().getName();
@@ -56,11 +63,7 @@ public class ProcessingRunnerImpl<T> implements ProcessingRunner<T> {
     }
 
     @Override
-    public void setUp(final Parser<T> parser, final Writer<T> writer, final BlockingQueue<String> filesQueue, final RecoveryManager recoveryManager, final FPLogger logger) {
-	this.parser = parser;
-	this.writer = writer;
-	this.recoveryManager = recoveryManager;
+    public void setFilesQueue(final BlockingQueue<String> filesQueue) { 
 	this.filesQueue = filesQueue;
-	this.logger = logger;
     }
 }

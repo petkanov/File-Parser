@@ -23,7 +23,7 @@ public class AsyncService<T> implements Service {
 	this.fileNamePrefix = serviceConfig.getFileNamePrefix();
 	this.recoveryManager = recoveryManager;
 	this.logger = logger;
-	processingRunner = serviceConfig.getProcessingRunner(filesQueue, recoveryManager, logger);
+	processingRunner = serviceConfig.getProcessingRunner(filesQueue);
     }
 
     public void acceptFile(String fileName) {

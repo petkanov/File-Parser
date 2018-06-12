@@ -23,7 +23,26 @@
         <isDatabaseCreated>false</isDatabaseCreated>
         <writtenPointsCounter>0</writtenPointsCounter>
       </writer>
-      <processingRunner class="com.egtinteractive.app.ProcessingRunnerImpl"/>
+      <processingRunner class="com.egtinteractive.app.ProcessingRunnerImpl">
+        <parser class="com.egtinteractive.app.ResponseTimeDomaneParser" reference="../../parser"/>
+        <writer class="com.egtinteractive.app.InfluxWriter" reference="../../writer"/>
+        <recoveryManager>
+          <connectionPool>
+            <jdbcDatabaseUrl>jdbc:mysql://localhost:3306/file_reader?useSSL=false</jdbcDatabaseUrl>
+            <dbUser>root</dbUser>
+            <dbPassword>3569</dbPassword>
+            <poolSize>7</poolSize>
+          </connectionPool>
+          <filesAlreadySeen class="java.util.concurrent.ConcurrentHashMap$KeySetView">
+            <map/>
+            <value class="boolean">true</value>
+          </filesAlreadySeen>
+        </recoveryManager>
+        <logger class="com.egtinteractive.app.Log4jLogger">
+          <propertiesFile>log4j.properties</propertiesFile>
+          <logFileName>file-parser-logs.log</logFileName>
+        </logger>
+      </processingRunner>
     </com.egtinteractive.config.ServiceConfig>
     <com.egtinteractive.config.ServiceConfig>
       <fileNamePrefix>gamora</fileNamePrefix>
@@ -48,26 +67,17 @@
         <isDatabaseCreated>false</isDatabaseCreated>
         <writtenPointsCounter>0</writtenPointsCounter>
       </writer>
-      <processingRunner class="com.egtinteractive.app.ProcessingRunnerImpl"/>
+      <processingRunner class="com.egtinteractive.app.ProcessingRunnerImpl">
+        <parser class="com.egtinteractive.app.ResponseTimeDomaneParser" reference="../../parser"/>
+        <writer class="com.egtinteractive.app.InfluxWriter" reference="../../writer"/>
+        <recoveryManager reference="../../../com.egtinteractive.config.ServiceConfig/processingRunner/recoveryManager"/>
+        <logger class="com.egtinteractive.app.Log4jLogger" reference="../../../com.egtinteractive.config.ServiceConfig/processingRunner/logger"/>
+      </processingRunner>
     </com.egtinteractive.config.ServiceConfig>
   </serviceConfigs>
   <logFileName>file-parser-logs.log</logFileName>
   <workingDirectory>/big_device/veto</workingDirectory>
-  <recoveryManager>
-    <connectionPool>
-      <jdbcDatabaseUrl>jdbc:mysql://localhost:3306/file_reader?useSSL=false</jdbcDatabaseUrl>
-      <dbUser>root</dbUser>
-      <dbPassword>3569</dbPassword>
-      <poolSize>7</poolSize>
-    </connectionPool>
-    <filesAlreadySeen class="java.util.concurrent.ConcurrentHashMap$KeySetView">
-      <map/>
-      <value class="boolean">true</value>
-    </filesAlreadySeen>
-  </recoveryManager>
-  <logger class="com.egtinteractive.app.Log4jLogger">
-    <propertiesFile>log4j.properties</propertiesFile>
-    <logFileName>file-parser-logs.log</logFileName>
-  </logger>
+  <recoveryManager reference="../serviceConfigs/com.egtinteractive.config.ServiceConfig/processingRunner/recoveryManager"/>
+  <logger class="com.egtinteractive.app.Log4jLogger" reference="../serviceConfigs/com.egtinteractive.config.ServiceConfig/processingRunner/logger"/>
   <clearRecoveryDatabaseOnStartup>false</clearRecoveryDatabaseOnStartup>
 </com.egtinteractive.config.Config>

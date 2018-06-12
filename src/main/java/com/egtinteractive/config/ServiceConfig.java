@@ -2,10 +2,8 @@ package com.egtinteractive.config;
 
 import java.util.concurrent.BlockingQueue;
 
-import com.egtinteractive.app.FPLogger;
 import com.egtinteractive.app.Parser;
 import com.egtinteractive.app.ProcessingRunner;
-import com.egtinteractive.app.RecoveryManager;
 import com.egtinteractive.app.Writer;
 
 public class ServiceConfig<T> {
@@ -34,8 +32,8 @@ public class ServiceConfig<T> {
 	return writer;
     }
     
-    public Runnable getProcessingRunner(final BlockingQueue<String> filesQueue, final RecoveryManager recoveryManager, final FPLogger logger) {
-	processingRunner.setUp(parser, writer, filesQueue, recoveryManager, logger);
+    public Runnable getProcessingRunner(final BlockingQueue<String> filesQueue) {
+	processingRunner.setFilesQueue(filesQueue);
 	return processingRunner;
     } 
 }
