@@ -1,4 +1,4 @@
-package com.egtinteractive.config;
+package com.egtinteractive.app.services;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,10 +8,11 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import com.egtinteractive.app.FPLogger;
-import com.egtinteractive.app.Parser;
-import com.egtinteractive.app.RecoveryManager;
-import com.egtinteractive.app.Writer;
+import com.egtinteractive.app.moduls.logger.FPLogger;
+import com.egtinteractive.app.moduls.mysql.RecoveryManager;
+import com.egtinteractive.app.parsers.Parser;
+import com.egtinteractive.app.writers.Writer;
+import com.egtinteractive.config.ServiceConfig;
 
 public class AsyncService<T> implements Service {
 

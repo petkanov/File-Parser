@@ -1,4 +1,4 @@
-package com.egtinteractive.app;
+package com.egtinteractive.app.moduls.mysql;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+
+import com.egtinteractive.app.moduls.logger.FPLogger;
 
 public class RecoveryManager {
 

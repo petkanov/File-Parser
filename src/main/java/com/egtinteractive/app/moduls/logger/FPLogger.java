@@ -1,4 +1,4 @@
-package com.egtinteractive.app;
+package com.egtinteractive.app.moduls.logger;
 
 public interface FPLogger {
     void logInfoMessage(Class<?> cls, String msg);

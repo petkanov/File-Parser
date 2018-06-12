@@ -1,7 +1,7 @@
 package com.egtinteractive.config;
 
-import com.egtinteractive.app.Parser;
-import com.egtinteractive.app.Writer;
+import com.egtinteractive.app.parsers.Parser;
+import com.egtinteractive.app.writers.Writer;
 
 public class ServiceConfig<T> {
 

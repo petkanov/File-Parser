@@ -8,10 +8,10 @@ import java.util.concurrent.ExecutorService;
 import org.mockito.Mockito;
 import org.testng.annotations.Test;
 
-import com.egtinteractive.app.FPLogger;
-import com.egtinteractive.app.RecoveryManager;
-import com.egtinteractive.config.AsyncService;
-import com.egtinteractive.config.Service;
+import com.egtinteractive.app.moduls.logger.FPLogger;
+import com.egtinteractive.app.moduls.mysql.RecoveryManager;
+import com.egtinteractive.app.services.AsyncService;
+import com.egtinteractive.app.services.Service;
 import com.egtinteractive.config.ServiceConfig;
 
 public class ServiceTest {

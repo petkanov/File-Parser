@@ -1,10 +1,12 @@
-package com.egtinteractive.app;
+package com.egtinteractive.app.writers;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import com.egtinteractive.app.moduls.ResponseData;
 
 public class InfluxWriter<T> implements Writer<T> {
 

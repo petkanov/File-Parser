@@ -1,4 +1,4 @@
-package com.egtinteractive.app;
+package com.egtinteractive.app.moduls.logger;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -6,6 +6,8 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+
+import com.egtinteractive.app.App;
 
 public class Log4jLogger implements FPLogger {
 

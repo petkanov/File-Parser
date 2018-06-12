@@ -1,4 +1,4 @@
-package com.egtinteractive.app;
+package com.egtinteractive.app.moduls.mysql;
 
 import java.sql.Connection;
 import java.sql.SQLException;

@@ -2,8 +2,8 @@ package com.egtinteractive.config;
 
 import java.util.List;
 
-import com.egtinteractive.app.FPLogger;
-import com.egtinteractive.app.RecoveryManager;
+import com.egtinteractive.app.moduls.logger.FPLogger;
+import com.egtinteractive.app.moduls.mysql.RecoveryManager;
 
 public class Config {
 

@@ -4,13 +4,15 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.egtinteractive.config.AsyncService;
+import com.egtinteractive.app.moduls.logger.FPLogger;
+import com.egtinteractive.app.moduls.mysql.RecoveryManager;
+import com.egtinteractive.app.services.AsyncService;
+import com.egtinteractive.app.services.Service;
 import com.egtinteractive.config.Config;
 import com.egtinteractive.config.FileLoader;
-import com.egtinteractive.config.Service;
 import com.egtinteractive.config.ServiceConfig;
 
-public class FileParser { 
+public class FileParserApp { 
     
     public static void startApp() {
 	final int timeDelay = 1200;

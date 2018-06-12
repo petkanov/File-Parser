@@ -2,7 +2,7 @@
   <serviceConfigs class="linked-list">
     <com.egtinteractive.config.ServiceConfig>
       <fileNamePrefix>thanos</fileNamePrefix>
-      <parser class="com.egtinteractive.app.ResponseTimeDomaneParser">
+      <parser class="com.egtinteractive.app.parsers.ResponseTimeDomaneParser">
         <patternDomane>
           <pattern>HTTP\sNative\sexecute\s(http://.*?)=&gt;\s([0-9]{1,})</pattern>
           <flags>0</flags>
@@ -15,7 +15,7 @@
         <isInProgress>false</isInProgress>
         <time>-1</time>
       </parser>
-      <writer class="com.egtinteractive.app.InfluxWriter">
+      <writer class="com.egtinteractive.app.writers.InfluxWriter">
         <pointPerBatch>1500</pointPerBatch>
         <hostCreateDBQueryParams>q=CREATE DATABASE someDb3</hostCreateDBQueryParams>
         <urlCreateDBQuery>http://localhost:8086/query</urlCreateDBQuery>
@@ -26,7 +26,7 @@
     </com.egtinteractive.config.ServiceConfig>
     <com.egtinteractive.config.ServiceConfig>
       <fileNamePrefix>gamora</fileNamePrefix>
-      <parser class="com.egtinteractive.app.ResponseTimeDomaneParser">
+      <parser class="com.egtinteractive.app.parsers.ResponseTimeDomaneParser">
         <patternDomane>
           <pattern>HTTP\sNative\sexecute\s(http://.*?)=&gt;\s([0-9]{1,})</pattern>
           <flags>0</flags>
@@ -39,7 +39,7 @@
         <isInProgress>false</isInProgress>
         <time>-1</time>
       </parser>
-      <writer class="com.egtinteractive.app.InfluxWriter">
+      <writer class="com.egtinteractive.app.writers.InfluxWriter">
         <pointPerBatch>1500</pointPerBatch>
         <hostCreateDBQueryParams>q=CREATE DATABASE otherDb3</hostCreateDBQueryParams>
         <urlCreateDBQuery>http://localhost:8086/query</urlCreateDBQuery>
@@ -63,7 +63,7 @@
       <value class="boolean">true</value>
     </filesAlreadySeen>
   </recoveryManager>
-  <logger class="com.egtinteractive.app.Log4jLogger">
+  <logger class="com.egtinteractive.app.moduls.logger.Log4jLogger">
     <propertiesFile>log4j.properties</propertiesFile>
     <logFileName>file-parser-logs.log</logFileName>
   </logger>

@@ -1,4 +1,4 @@
-package com.egtinteractive.app;
+package com.egtinteractive.app.writers;
 
 public interface Writer<T> {
 

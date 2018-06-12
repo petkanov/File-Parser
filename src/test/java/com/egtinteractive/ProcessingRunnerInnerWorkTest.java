@@ -8,12 +8,13 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import org.mockito.Mockito;
 import org.testng.annotations.Test;
-import com.egtinteractive.app.FPLogger;
-import com.egtinteractive.app.RecoveryManager;
-import com.egtinteractive.app.ResponseTimeDomaneParser;
-import com.egtinteractive.app.Writer;
-import com.egtinteractive.config.AsyncService;
-import com.egtinteractive.config.Service;
+
+import com.egtinteractive.app.moduls.logger.FPLogger;
+import com.egtinteractive.app.moduls.mysql.RecoveryManager;
+import com.egtinteractive.app.parsers.ResponseTimeDomaneParser;
+import com.egtinteractive.app.services.AsyncService;
+import com.egtinteractive.app.services.Service;
+import com.egtinteractive.app.writers.Writer;
 import com.egtinteractive.config.ServiceConfig;
 
 public class ProcessingRunnerInnerWorkTest {

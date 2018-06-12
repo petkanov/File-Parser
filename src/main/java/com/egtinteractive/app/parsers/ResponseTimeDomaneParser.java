@@ -1,10 +1,12 @@
-package com.egtinteractive.app;
+package com.egtinteractive.app.parsers;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import com.egtinteractive.app.moduls.ResponseData;
 
 public class ResponseTimeDomaneParser<T> implements Parser<T> {
 

@@ -1,4 +1,4 @@
-package com.egtinteractive.config;
+package com.egtinteractive.app.services;
 
 public interface Service {
 

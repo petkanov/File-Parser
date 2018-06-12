@@ -1,4 +1,4 @@
-package com.egtinteractive.app;
+package com.egtinteractive.app.parsers;
 
 public interface Parser<T> {
 

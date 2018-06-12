@@ -6,15 +6,15 @@ import java.io.FileOutputStream;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.egtinteractive.app.ConnectionPool;
-import com.egtinteractive.app.FPLogger;
-import com.egtinteractive.app.InfluxWriter;
-import com.egtinteractive.app.Log4jLogger;
-import com.egtinteractive.app.Parser;
-import com.egtinteractive.app.RecoveryManager;
-import com.egtinteractive.app.ResponseData;
-import com.egtinteractive.app.ResponseTimeDomaneParser;
-import com.egtinteractive.app.Writer;
+import com.egtinteractive.app.moduls.ResponseData;
+import com.egtinteractive.app.moduls.logger.FPLogger;
+import com.egtinteractive.app.moduls.logger.Log4jLogger;
+import com.egtinteractive.app.moduls.mysql.ConnectionPool;
+import com.egtinteractive.app.moduls.mysql.RecoveryManager;
+import com.egtinteractive.app.parsers.Parser;
+import com.egtinteractive.app.parsers.ResponseTimeDomaneParser;
+import com.egtinteractive.app.writers.InfluxWriter;
+import com.egtinteractive.app.writers.Writer;
 import com.thoughtworks.xstream.XStream;
 
 public class ConfigurationGeneratorApp {
