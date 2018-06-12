@@ -28,11 +28,7 @@ public class ProcessingRunnerImpl<T> implements ProcessingRunner<T> {
 	    recoveryManager.removeFromAlreadySeenFiles(fileName);
 	    logger.logErrorMessage(this.getClass(), e.getMessage());
 	    return;
-	}
-	if (recoveryManager.isFileProcessed(fileName)) {
-	    logger.logWarnMessage(this.getClass(), "File: " + fileName + " is already processed!");
-	    return;
-	}
+	} 
 	final int lineToStartParsingFrom = recoveryManager.getLineOfLastParsedObject(parserName, fileName);
 
 	try (BufferedReader br = new BufferedReader(new FileReader(new File(fileName)))) {

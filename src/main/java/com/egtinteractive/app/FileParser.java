@@ -28,12 +28,12 @@ public class FileParser {
 
 		for (File file : workingDir.listFiles()) {
 		    final String fileName = file.getAbsolutePath();
-		    if (file.isFile() && !recoveryManager.isFileAlreadySeen(file.getName())) {
+		    if (file.isFile() && !recoveryManager.isFileAlreadySeen(fileName)) {  
 			for (Service service : services) {
 			    service.acceptFile(fileName);
 			}
+			recoveryManager.addToAlreadySeenFiles(fileName);
 		    }
-		    recoveryManager.addToAlreadySeenFiles(fileName);
 		}
 		Thread.sleep(timeDelay);
 	    } catch (Exception e) {
