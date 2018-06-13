@@ -13,7 +13,7 @@ public class RecoveryManager {
 
     private final ConnectionPool connectionPool;
     private final Set<String> filesAlreadySeen;
-    private FPLogger logger;
+    private volatile FPLogger logger;
 
     public RecoveryManager(final ConnectionPool cPool) {
 	connectionPool = cPool;

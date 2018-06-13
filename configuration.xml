@@ -2,61 +2,90 @@
   <serviceConfigs class="linked-list">
     <com.egtinteractive.config.ServiceConfig>
       <fileNamePrefix>thanos</fileNamePrefix>
-      <parser class="com.egtinteractive.app.parsers.ResponseTimeDomaneParser">
-        <patternDomane>
+      <parser class="com.egtinteractive.app.parsers.ResponseTimeDomainParser">
+        <patternDomain>
           <pattern>HTTP\sNative\sexecute\s(http://.*?)=&gt;\s([0-9]{1,})</pattern>
           <flags>0</flags>
-        </patternDomane>
+        </patternDomain>
         <patternTime>
           <pattern>\[([0-9]{1,2}\s[a-zA-Z]{3,12}\s[0-9]{4}\s[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3})\]</pattern>
           <flags>0</flags>
         </patternTime>
         <dateTimeFormat>dd MMMM yyyy HH:mm:ss,SSS</dateTimeFormat>
-        <isInProgress>false</isInProgress>
         <time>-1</time>
       </parser>
       <writer class="com.egtinteractive.app.writers.InfluxWriter">
         <pointPerBatch>1500</pointPerBatch>
-        <hostCreateDBQueryParams>q=CREATE DATABASE someDb3</hostCreateDBQueryParams>
-        <urlCreateDBQuery>http://localhost:8086/query</urlCreateDBQuery>
         <urlInsertDataQuery>http://localhost:8086/write?db=someDb3</urlInsertDataQuery>
-        <isDatabaseCreated>false</isDatabaseCreated>
         <writtenPointsCounter>0</writtenPointsCounter>
       </writer>
     </com.egtinteractive.config.ServiceConfig>
     <com.egtinteractive.config.ServiceConfig>
       <fileNamePrefix>gamora</fileNamePrefix>
-      <parser class="com.egtinteractive.app.parsers.ResponseTimeDomaneParser">
-        <patternDomane>
+      <parser class="com.egtinteractive.app.parsers.ResponseTimeDomainParser">
+        <patternDomain>
           <pattern>HTTP\sNative\sexecute\s(http://.*?)=&gt;\s([0-9]{1,})</pattern>
           <flags>0</flags>
-        </patternDomane>
+        </patternDomain>
         <patternTime>
           <pattern>\[([0-9]{1,2}\s[a-zA-Z]{3,12}\s[0-9]{4}\s[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3})\]</pattern>
           <flags>0</flags>
         </patternTime>
         <dateTimeFormat>dd MMMM yyyy HH:mm:ss,SSS</dateTimeFormat>
-        <isInProgress>false</isInProgress>
         <time>-1</time>
       </parser>
       <writer class="com.egtinteractive.app.writers.InfluxWriter">
         <pointPerBatch>1500</pointPerBatch>
-        <hostCreateDBQueryParams>q=CREATE DATABASE otherDb3</hostCreateDBQueryParams>
-        <urlCreateDBQuery>http://localhost:8086/query</urlCreateDBQuery>
         <urlInsertDataQuery>http://localhost:8086/write?db=otherDb3</urlInsertDataQuery>
-        <isDatabaseCreated>false</isDatabaseCreated>
         <writtenPointsCounter>0</writtenPointsCounter>
       </writer>
     </com.egtinteractive.config.ServiceConfig>
   </serviceConfigs>
   <logFileName>file-parser-logs.log</logFileName>
   <workingDirectory>/big_device/veto</workingDirectory>
+  <msTimeDirectoryScanDelay>1200</msTimeDirectoryScanDelay>
   <recoveryManager>
     <connectionPool>
-      <jdbcDatabaseUrl>jdbc:mysql://localhost:3306/file_reader?useSSL=false</jdbcDatabaseUrl>
-      <dbUser>root</dbUser>
-      <dbPassword>3569</dbPassword>
-      <poolSize>7</poolSize>
+      <dataSource class="org.apache.commons.dbcp.PoolingDataSource">
+        <accessToUnderlyingConnectionAllowed>false</accessToUnderlyingConnectionAllowed>
+        <__pool class="org.apache.commons.pool.impl.GenericObjectPool">
+          <closed>false</closed>
+          <__maxIdle>8</__maxIdle>
+          <__minIdle>0</__minIdle>
+          <__maxActive>7</__maxActive>
+          <__maxWait>-1</__maxWait>
+          <__whenExhaustedAction>1</__whenExhaustedAction>
+          <__testOnBorrow>false</__testOnBorrow>
+          <__testOnReturn>false</__testOnReturn>
+          <__testWhileIdle>false</__testWhileIdle>
+          <__timeBetweenEvictionRunsMillis>-1</__timeBetweenEvictionRunsMillis>
+          <__numTestsPerEvictionRun>3</__numTestsPerEvictionRun>
+          <__minEvictableIdleTimeMillis>1800000</__minEvictableIdleTimeMillis>
+          <__softMinEvictableIdleTimeMillis>-1</__softMinEvictableIdleTimeMillis>
+          <__lifo>true</__lifo>
+          <__pool serialization="custom">
+            <org.apache.commons.pool.impl.CursorableLinkedList>
+              <default/>
+              <int>0</int>
+            </org.apache.commons.pool.impl.CursorableLinkedList>
+          </__pool>
+          <__factory class="org.apache.commons.dbcp.PoolableConnectionFactory">
+            <__connFactory class="org.apache.commons.dbcp.DriverManagerConnectionFactory">
+              <__connectUri>jdbc:mysql://localhost:3306/file_reader?useSSL=false</__connectUri>
+              <__uname>root</__uname>
+              <__passwd>3569</__passwd>
+            </__connFactory>
+            <__validationQueryTimeout>-1</__validationQueryTimeout>
+            <__pool class="org.apache.commons.pool.impl.GenericObjectPool" reference="../.."/>
+            <__defaultReadOnly>false</__defaultReadOnly>
+            <__defaultAutoCommit>true</__defaultAutoCommit>
+            <__defaultTransactionIsolation>-1</__defaultTransactionIsolation>
+          </__factory>
+          <__numActive>0</__numActive>
+          <__numInternalProcessing>0</__numInternalProcessing>
+          <__allocationQueue/>
+        </__pool>
+      </dataSource>
     </connectionPool>
     <filesAlreadySeen class="java.util.concurrent.ConcurrentHashMap$KeySetView">
       <map/>

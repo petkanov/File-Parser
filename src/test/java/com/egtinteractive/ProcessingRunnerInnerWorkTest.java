@@ -6,12 +6,13 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+
 import org.mockito.Mockito;
 import org.testng.annotations.Test;
 
 import com.egtinteractive.app.moduls.logger.FPLogger;
 import com.egtinteractive.app.moduls.mysql.RecoveryManager;
-import com.egtinteractive.app.parsers.ResponseTimeDomaneParser;
+import com.egtinteractive.app.parsers.ResponseTimeDomainParser;
 import com.egtinteractive.app.services.AsyncService;
 import com.egtinteractive.app.services.Service;
 import com.egtinteractive.app.writers.Writer;
@@ -25,7 +26,7 @@ public class ProcessingRunnerInnerWorkTest {
 	
 	final String fileNamePrefix = "bla";
 	final ExecutorService engine = Executors.newSingleThreadExecutor(); // Mockito.mock(ExecutorService.class);
-	final ResponseTimeDomaneParser<Object> parser = Mockito.mock(ResponseTimeDomaneParser.class);
+	final ResponseTimeDomainParser<Object> parser = Mockito.mock(ResponseTimeDomainParser.class);
 	final Writer<Object> writer = Mockito.mock(Writer.class);
 	final ServiceConfig<?> serviceConfig = new ServiceConfig<>(fileNamePrefix,parser,writer);
 	final RecoveryManager recoveryManager = Mockito.mock(RecoveryManager.class);

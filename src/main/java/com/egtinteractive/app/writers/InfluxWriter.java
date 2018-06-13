@@ -11,19 +11,13 @@ import com.egtinteractive.app.moduls.ResponseData;
 public class InfluxWriter<T> implements Writer<T> {
 
     private final int pointPerBatch;
-    private final String hostCreateDBQueryParams;
-    private final URL urlCreateDBQuery;
     private final URL urlInsertDataQuery;
     private StringBuilder pointsBatch;
-    private boolean isDatabaseCreated;
     private int writtenPointsCounter;
 
-    public InfluxWriter(final String hostInsertDataQuery, final int pointsPerBatch, final String hostCreateDBQuery,
-	    final String hostCreateDBQueryParams) {
-	this.hostCreateDBQueryParams = hostCreateDBQueryParams;
+    public InfluxWriter(final String hostInsertDataQuery, final int pointsPerBatch) {
 	this.pointPerBatch = pointsPerBatch;
 	try {
-	    this.urlCreateDBQuery = new URL(hostCreateDBQuery);
 	    this.urlInsertDataQuery = new URL(hostInsertDataQuery);
 	} catch (MalformedURLException e) {
 	    throw new RuntimeException(e);
@@ -32,14 +26,7 @@ public class InfluxWriter<T> implements Writer<T> {
 
     @Override
     public boolean consume(final T result) {
-	if (!isDatabaseCreated) {
-	    isDatabaseCreated = initiateQuery(urlCreateDBQuery, hostCreateDBQueryParams);
-	}
-	final ResponseData rd = (ResponseData) result;
-	if (rd.getTime() == -1 && pointsBatch != null) {
-	    initiateQuery(urlInsertDataQuery, pointsBatch.toString());
-	    return true;
-	}
+	final ResponseData rd = (ResponseData) result; 
 	final String point = "response,domane=" + rd.getDomane() + " response=" + rd.getResponse() + " " + rd.getTime();
 
 	if (pointsBatch == null) {
@@ -62,7 +49,12 @@ public class InfluxWriter<T> implements Writer<T> {
 	return false;
     }
 
-    public boolean initiateQuery(final URL url, final String data) {
+    @Override
+    public void flush() {
+	initiateQuery(urlInsertDataQuery, pointsBatch.toString());
+    } 
+    
+    private boolean initiateQuery(final URL url, final String data) {
 	HttpURLConnection conn = null;
 	OutputStream os = null;
 	try {
@@ -85,5 +77,5 @@ public class InfluxWriter<T> implements Writer<T> {
 	    } catch (IOException e) {
 	    }
 	}
-    } 
+    }
 }

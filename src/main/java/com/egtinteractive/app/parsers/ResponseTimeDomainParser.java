@@ -2,23 +2,21 @@ package com.egtinteractive.app.parsers;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.egtinteractive.app.moduls.ResponseData;
 
-public class ResponseTimeDomaneParser<T> implements Parser<T> {
+public class ResponseTimeDomainParser<T> implements Parser<T> {
 
-    private final Pattern patternDomane;
+    private final Pattern patternDomain;
     private final Pattern patternTime; 
     private final String dateTimeFormat; 
 
-    private boolean isInProgress;
     private long time = -1;
     
-    public ResponseTimeDomaneParser(final String patternDomane, final String patternTime, final String format) {
-	this.patternDomane = Pattern.compile(patternDomane);
+    public ResponseTimeDomainParser(final String patternDomain, final String patternTime, final String format) {
+	this.patternDomain = Pattern.compile(patternDomain);
 	this.patternTime   = Pattern.compile(patternTime);
 	this.dateTimeFormat = format;
     } 
@@ -26,11 +24,10 @@ public class ResponseTimeDomaneParser<T> implements Parser<T> {
     @SuppressWarnings("unchecked")
     @Override
     public T parseLine(final String line) {
-
-	if (isThisLastLine(line)) {
-	    return (T) new ResponseData(0, null, -1);
+	if (line == null) {
+	    return null; 
 	}
-	String domane;
+	String domain;
 	int response = 0;
 
 	final long tmpTime = getTime(line);
@@ -39,32 +36,20 @@ public class ResponseTimeDomaneParser<T> implements Parser<T> {
 	    time = tmpTime;
 	    return null;
 	} 
-	final String[] tmpData = getPerDomaineTimeResponse(line);
+	final String[] tmpData = getPerDomainTimeResponse(line);
 
 	if (tmpData != null) {
-	    // TODO to be deleted Random() call
-	    response = Integer.valueOf(tmpData[1]) + new Random().nextInt(233);
-	    domane = tmpData[0];
-	    final ResponseData rd = new ResponseData(response, domane, time);
+	    response = Integer.valueOf(tmpData[1]);
+	    domain = tmpData[0];
+	    final ResponseData rd = new ResponseData(response, domain, time);
 
 	    return (T) rd;
 	}
 	return null;
-    }
+    } 
 
-    private boolean isThisLastLine(final String line) {
-	if (line == null) {
-	    isInProgress = false;
-	    return true;
-	}
-	if (!isInProgress) {
-	    isInProgress = true;
-	}
-	return false;
-    }
-
-    private String[] getPerDomaineTimeResponse(final String line) {
-	final Matcher matcher = patternDomane.matcher(line);
+    private String[] getPerDomainTimeResponse(final String line) {
+	final Matcher matcher = patternDomain.matcher(line);
 	final String[] result = new String[2];
 	if (matcher.find()) {
 	    result[0] = matcher.group(1).trim();
@@ -82,7 +67,7 @@ public class ResponseTimeDomaneParser<T> implements Parser<T> {
 	    try {
 		date = new SimpleDateFormat(dateTimeFormat).parse(matcher.group(1));
 	    } catch (Exception e) {
-		return -1;
+		throw new RuntimeException(e);
 	    }
 	    return date.getTime();
 	} else {

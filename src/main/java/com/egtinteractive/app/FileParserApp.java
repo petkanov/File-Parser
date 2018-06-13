@@ -15,8 +15,8 @@ import com.egtinteractive.config.ServiceConfig;
 public class FileParserApp { 
     
     public static void startApp() {
-	final int timeDelay = 1200;
 	final Config config = FileLoader.getConfiguration();
+	final int timeDelay = config.getMsTimeDirectoryScanDelay();
 	final RecoveryManager recoveryManager = config.getRecoveryManager();
 	final FPLogger logger = config.getLogger();
 	logger.initializeLogger();
@@ -31,10 +31,10 @@ public class FileParserApp {
 		for (File file : workingDir.listFiles()) {
 		    final String fileName = file.getAbsolutePath();
 		    if (file.isFile() && !recoveryManager.isFileAlreadySeen(fileName)) {  
+			recoveryManager.addToAlreadySeenFiles(fileName);
 			for (Service service : services) {
 			    service.acceptFile(fileName);
 			}
-			recoveryManager.addToAlreadySeenFiles(fileName);
 		    }
 		}
 		Thread.sleep(timeDelay);

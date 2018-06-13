@@ -62,6 +62,7 @@ public class AsyncService<T> implements Service {
 			}
 		    }
 		} while (line != null);
+		writer.flush();
 		recoveryManager.updateFileProcessingProgress(parserName, fileName, -1);
 		logger.logInfoMessage(this.getClass(), "Successfully parsed file " + fileName);
 	    } catch (Exception e) {
@@ -86,7 +87,8 @@ public class AsyncService<T> implements Service {
 		filesQueue.put(fileName);
 	    } catch (InterruptedException e) {
 		logger.logErrorMessage(this.getClass(), e.getMessage());
-		throw new RuntimeException(e);
+		recoveryManager.removeFromAlreadySeenFiles(fileName);
+		return;
 	    }
 	    engine.execute(processingRunner);
 	}

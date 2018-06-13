@@ -10,13 +10,15 @@ public class Config {
     private final List<ServiceConfig<?>> serviceConfigs;
     private final String logFileName;
     private final String workingDirectory;
+    private final int msTimeDirectoryScanDelay;
     private final RecoveryManager recoveryManager;
     private final FPLogger logger;
     
-    public Config( List<ServiceConfig<?>> services, String logFileName, String workingDirectory, RecoveryManager recoveryManager, FPLogger logger) {
+    public Config( List<ServiceConfig<?>> services, String logFileName, String workingDirectory, int msTimeDirectoryScanDelay, RecoveryManager recoveryManager, FPLogger logger) {
 	this.serviceConfigs = services;
 	this.logFileName = logFileName;
 	this.workingDirectory = workingDirectory;
+	this.msTimeDirectoryScanDelay = msTimeDirectoryScanDelay;
 	this.recoveryManager = recoveryManager;
 	this.logger = logger;
     }
@@ -32,6 +34,10 @@ public class Config {
     public String getWorkingDirectory() {
 	return this.workingDirectory;
     } 
+
+    public int getMsTimeDirectoryScanDelay() {
+        return msTimeDirectoryScanDelay;
+    }
 
     public RecoveryManager getRecoveryManager() {
         return recoveryManager;
