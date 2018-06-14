@@ -9,7 +9,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import com.egtinteractive.app.moduls.logger.FPLogger;
-import com.egtinteractive.app.moduls.mysql.RecoveryManager;
+import com.egtinteractive.app.moduls.recovery.RecoveryManager;
 import com.egtinteractive.app.parsers.Parser;
 import com.egtinteractive.app.writers.Writer;
 import com.egtinteractive.config.ServiceConfig;
@@ -21,19 +21,24 @@ public class AsyncService<T> implements Service {
     private final RecoveryManager recoveryManager;
     private final BlockingQueue<String> filesQueue;
     private final ExecutorService engine;
-    private final FPLogger logger;
 
-    private class ProcessingRunner implements Runnable {
+    private static final class ProcessingRunner<T> implements Runnable {
 	private final Parser<T> parser;
 	private final Writer<T> writer;
+	private final BlockingQueue<String> filesQueue;
+	private final RecoveryManager recoveryManager;
+	private final FPLogger logger;
 
-	public ProcessingRunner(final ServiceConfig<T> serviceConfig) {
+	public ProcessingRunner(final ServiceConfig<T> serviceConfig, final BlockingQueue<String> filesQueue, final RecoveryManager recoveryManager, final FPLogger logger) {
 	    this.parser = serviceConfig.getParser();
 	    this.writer = serviceConfig.getWriter();
+	    this.filesQueue = filesQueue;
+	    this.recoveryManager = recoveryManager;
+	    this.logger = logger;
 	}
 
 	@Override
-	public void run() { 
+	public void run() {
 	    final String parserName = parser.getClass().getName();
 	    int lineCounter = 0;
 	    String fileName = null;
@@ -44,14 +49,12 @@ public class AsyncService<T> implements Service {
 		logger.logErrorMessage(this.getClass(), e.getMessage());
 		return;
 	    }
-	    final int lineToStartParsingFrom = recoveryManager.getLineOfLastParsedObject(parserName, fileName);
 
 	    try (BufferedReader br = new BufferedReader(new FileReader(new File(fileName)))) {
+		final int lineToStartParsingFrom = recoveryManager.getLineOfLastParsedObject(parserName, fileName);
 		String line = null;
-		do {
-		    line = br.readLine();
-		    lineCounter++;
-		    if (lineCounter < lineToStartParsingFrom) {
+		while ((line = br.readLine()) != null) {
+		    if (++lineCounter < lineToStartParsingFrom) {
 			continue;
 		    }
 		    final T result = parser.parseLine(line);
@@ -61,7 +64,7 @@ public class AsyncService<T> implements Service {
 			    recoveryManager.updateFileProcessingProgress(parserName, fileName, lineCounter + 1);
 			}
 		    }
-		} while (line != null);
+		}
 		writer.flush();
 		recoveryManager.updateFileProcessingProgress(parserName, fileName, -1);
 		logger.logInfoMessage(this.getClass(), "Successfully parsed file " + fileName);
@@ -77,8 +80,7 @@ public class AsyncService<T> implements Service {
 	this.engine = Executors.newSingleThreadExecutor();
 	this.fileNamePrefix = serviceConfig.getFileNamePrefix();
 	this.recoveryManager = recoveryManager;
-	this.logger = logger;
-	this.processingRunner = new ProcessingRunner(serviceConfig);
+	this.processingRunner = new ProcessingRunner<>(serviceConfig, filesQueue, recoveryManager, logger);
     }
 
     public void acceptFile(String fileName) {
@@ -86,9 +88,7 @@ public class AsyncService<T> implements Service {
 	    try {
 		filesQueue.put(fileName);
 	    } catch (InterruptedException e) {
-		logger.logErrorMessage(this.getClass(), e.getMessage());
-		recoveryManager.removeFromAlreadySeenFiles(fileName);
-		return;
+		throw new RuntimeException(e);
 	    }
 	    engine.execute(processingRunner);
 	}

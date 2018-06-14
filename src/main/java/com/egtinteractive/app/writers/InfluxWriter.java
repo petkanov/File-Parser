@@ -26,7 +26,7 @@ public class InfluxWriter<T> implements Writer<T> {
 
     @Override
     public boolean consume(final T result) {
-	final ResponseData rd = (ResponseData) result; 
+	final ResponseData rd = (ResponseData) result;
 	final String point = "response,domane=" + rd.getDomane() + " response=" + rd.getResponse() + " " + rd.getTime();
 
 	if (pointsBatch == null) {
@@ -39,9 +39,7 @@ public class InfluxWriter<T> implements Writer<T> {
 	writtenPointsCounter++;
 
 	if (writtenPointsCounter == pointPerBatch) {
-	    if (!initiateQuery(urlInsertDataQuery, pointsBatch.toString())) {
-		throw new RuntimeException("writePointsBath(): Failed batch recording");
-	    }
+	    initiateQuery();
 	    pointsBatch = null;
 	    writtenPointsCounter = 0;
 	    return true;
@@ -51,26 +49,25 @@ public class InfluxWriter<T> implements Writer<T> {
 
     @Override
     public void flush() {
-	initiateQuery(urlInsertDataQuery, pointsBatch.toString());
-    } 
-    
-    private boolean initiateQuery(final URL url, final String data) {
+	initiateQuery();
+    }
+
+    private void initiateQuery() {
 	HttpURLConnection conn = null;
 	OutputStream os = null;
 	try {
-	    conn = (HttpURLConnection) url.openConnection();
+	    conn = (HttpURLConnection) urlInsertDataQuery.openConnection();
 	    conn.setRequestMethod("POST");
 	    conn.setDoOutput(true);
-	    
+
 	    os = conn.getOutputStream();
-	    os.write(data.getBytes());
+	    os.write(pointsBatch.toString().getBytes());
 	    os.flush();
 	    if (!(conn.getResponseCode() >= 200 && conn.getResponseCode() < 300)) {
-		return false;
+		throw new RuntimeException("writePointsBath(): Failed batch recording");
 	    }
-	    return true;
 	} catch (Exception e) {
-	    return false;
+	    throw new RuntimeException(e);
 	} finally {
 	    try {
 		os.close();

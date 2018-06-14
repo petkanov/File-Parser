@@ -9,8 +9,8 @@ import java.util.List;
 import com.egtinteractive.app.moduls.ResponseData;
 import com.egtinteractive.app.moduls.logger.FPLogger;
 import com.egtinteractive.app.moduls.logger.Log4jLogger;
-import com.egtinteractive.app.moduls.mysql.ConnectionPool;
-import com.egtinteractive.app.moduls.mysql.RecoveryManager;
+import com.egtinteractive.app.moduls.recovery.DBConnection;
+import com.egtinteractive.app.moduls.recovery.RecoveryManager;
 import com.egtinteractive.app.parsers.Parser;
 import com.egtinteractive.app.parsers.ResponseTimeDomainParser;
 import com.egtinteractive.app.writers.InfluxWriter;
@@ -28,7 +28,7 @@ public class ConfigurationGeneratorApp {
 	final String logFileName = "file-parser-logs.log";
 	final String workingDirectory = "/big_device/veto";
 	final int msTimeDirectoryScanDelay = 1200;
-	final ConnectionPool connectionPool = new ConnectionPool("jdbc:mysql://localhost:3306/file_reader?useSSL=false", "root", "3569", 7);
+	final DBConnection connectionPool = new DBConnection("jdbc:mysql://localhost:3306/file_reader?useSSL=false", "root", "3569", "mysql");
 	final FPLogger logger = new Log4jLogger("log4j.properties", logFileName);
 	final RecoveryManager recoveryManager = new RecoveryManager(connectionPool);
 

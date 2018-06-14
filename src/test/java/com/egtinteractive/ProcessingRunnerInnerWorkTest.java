@@ -11,7 +11,7 @@ import org.mockito.Mockito;
 import org.testng.annotations.Test;
 
 import com.egtinteractive.app.moduls.logger.FPLogger;
-import com.egtinteractive.app.moduls.mysql.RecoveryManager;
+import com.egtinteractive.app.moduls.recovery.RecoveryManager;
 import com.egtinteractive.app.parsers.ResponseTimeDomainParser;
 import com.egtinteractive.app.services.AsyncService;
 import com.egtinteractive.app.services.Service;
@@ -25,7 +25,7 @@ public class ProcessingRunnerInnerWorkTest {
     public void runMethodTest() throws Exception { 
 	
 	final String fileNamePrefix = "bla";
-	final ExecutorService engine = Executors.newSingleThreadExecutor(); // Mockito.mock(ExecutorService.class);
+	final ExecutorService engine = Executors.newSingleThreadExecutor(); 
 	final ResponseTimeDomainParser<Object> parser = Mockito.mock(ResponseTimeDomainParser.class);
 	final Writer<Object> writer = Mockito.mock(Writer.class);
 	final ServiceConfig<?> serviceConfig = new ServiceConfig<>(fileNamePrefix,parser,writer);
@@ -50,9 +50,8 @@ public class ProcessingRunnerInnerWorkTest {
 	engine.shutdown();
 	engine.awaitTermination(1, TimeUnit.DAYS);
 	
-	
 	Mockito.verify(filesQueue, Mockito.times(1)).take();
-	final int parsedLinesCount = 1619; // plus 'null' line
+	final int parsedLinesCount = 1619; // plus one
 	Mockito.verify(parser, Mockito.times(parsedLinesCount)).parseLine(Mockito.isA(String.class)); 
 	Mockito.verify(writer, Mockito.times(parsedLinesCount)).consume(Mockito.isA(Object.class));  
 	Mockito.verify(logger, Mockito.times(1)).logInfoMessage(Mockito.isA(Class.class),Mockito.isA(String.class)); 

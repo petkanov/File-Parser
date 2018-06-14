@@ -9,7 +9,7 @@ import org.mockito.Mockito;
 import org.testng.annotations.Test;
 
 import com.egtinteractive.app.moduls.logger.FPLogger;
-import com.egtinteractive.app.moduls.mysql.RecoveryManager;
+import com.egtinteractive.app.moduls.recovery.RecoveryManager;
 import com.egtinteractive.app.services.AsyncService;
 import com.egtinteractive.app.services.Service;
 import com.egtinteractive.config.ServiceConfig;
